@@ -4,6 +4,8 @@ import { StateContext } from '../utils/stateContext'
 import reducer from '../utils/reducer'
 import Login from './Login'
 import SignUp from './SignUp'
+import Home from './Home'
+import Navigation from './Navigation'
 
 const App = () => {
   /// First instance when the users enters our website there will be no logged in user 
@@ -11,7 +13,7 @@ const App = () => {
   /// use effect will be created when api is linked so this can be changed when a user is logged in and we have listings
 	const initialState = {
 		listings: [],
-		loggedInUser: "Jack",
+		loggedInUser: sessionStorage.getItem("username") || null,
     auth:{token:sessionStorage.getItem("token") || null},
     seeker: null
 	}
@@ -24,11 +26,12 @@ const App = () => {
     <StateContext.Provider value={{store, dispatch}}>
     <div>
       <BrowserRouter>
-          <Link to ="/">Home</Link>
-          <Link to ="/login">Login</Link>
+          <Navigation />
+          
         <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/sign_up" element={<SignUp />} />
+            <Route exact path="/" element={<Home />} />
+            <Route path="/signup" element={<SignUp />} />
         </Routes>
 
       </BrowserRouter>

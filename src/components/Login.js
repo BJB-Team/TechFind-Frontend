@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { login } from '../services/authService'
 
 const Login = () =>{
   const{store, dispatch} = useGlobalState()
-
+  let navigate = useNavigate();
   const initialFormData = {
     email: "",
     password: ""
@@ -39,6 +39,7 @@ function handleSubmit(e){
             data:user.jwt
         })
     }
+        navigate('/')
     })
     .catch(error => {
         console.log(error)
@@ -50,13 +51,12 @@ function handleSubmit(e){
         <div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Email:</label>
-                <input type="email" name="email" id="email" value={formData.email} onChange={handleFormData}/>
+                <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData}/>
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData}/>
                 <input type="submit" value="Login" />
             </form>
         </div>
-        <Link to ="/sign_up">Sign Up</Link>
       </div>   
   )
 }
