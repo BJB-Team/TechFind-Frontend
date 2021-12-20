@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { signUp } from '../services/authService'
+
 
 const SignUp = ({history}) =>{
   const{dispatch} = useGlobalState()
@@ -12,7 +13,7 @@ const SignUp = ({history}) =>{
   }
 
   const [formData, setFormData] = useState(initialFormData)
-
+  let navigate = useNavigate();
   function handleFormData(e){
     setFormData({
         ...formData,
@@ -30,14 +31,12 @@ const SignUp = ({history}) =>{
     dispatch({
         type: "setLoggedInUser",
         data:username
-        
     })
     dispatch({
         type: "setToken",
-        data:jwt
-        
+        data:jwt    
     })
-    return history.push("/login")
+    navigate('/')
   })
   .catch(error =>{
       //setError("user exists or password mismatch")
