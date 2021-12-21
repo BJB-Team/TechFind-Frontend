@@ -8,10 +8,14 @@ const Home = () =>{
   return (
     <div>
       <div>
-        <h1> Home Page</h1>
+        <h1>Your search ends</h1>
+        <h1>Here!</h1>
+        <p>TechFind! The number one IT platform for Job seekers and companies looking for the best talent.</p>
+        <button>Find Talent!</button>
+        <button>Find Your Career!</button>
       </div>
     </div>   
   )
 }
 
-export default Home 
+export default Home;

@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import { useGlobalState} from '../utils/stateContext'
+import { Link } from 'react-router-dom'
+import { useGlobalState } from '../utils/stateContext'
 
 const Navigation = () => {
   const{store, dispatch} = useGlobalState()
@@ -26,7 +26,7 @@ const Navigation = () => {
       {loggedInUser?
         <>
           <p> Logged In </p>
-          <Link to = "/" onClick ={logout}> Logout</Link>
+          <Link to = "/" onClick ={ logout }> Logout</Link>
         </>
         :
         <>
@@ -37,4 +37,4 @@ const Navigation = () => {
     </div>
   )
 }
-export default Navigation
+export default Navigation;
