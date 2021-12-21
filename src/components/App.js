@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from 'react'
-import {BrowserRouter,Routes,Route,Link} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { StateContext } from '../utils/stateContext'
 import reducer from '../utils/reducer'
 import Login from './Login'
@@ -23,7 +23,7 @@ const App = () => {
 
   
   return (
-    <StateContext.Provider value={{store, dispatch}}>
+    <StateContext.Provider value={{ store, dispatch }}>
     <div>
       <BrowserRouter>
           <Navigation />
