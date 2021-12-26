@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { login } from '../services/authService'
 
 const Login = () =>{
-  const{store, dispatch} = useGlobalState()
+  const{ store, dispatch } = useGlobalState()
   let navigate = useNavigate();
   const initialFormData = {
     email: "",
@@ -13,26 +13,25 @@ const Login = () =>{
 
   const [formData, setFormData] = useState(initialFormData)
 
-  function handleFormData(e){
+  function handleFormData(e) {
     setFormData({
         ...formData,
         [e.target.name] : e.target.value
     })
 }
 
-function handleSubmit(e){
+function handleSubmit(e) {
     e.preventDefault()
     login(formData)
     .then((user)=>{
-        if(user.error){
-            
-        }else{
+        if (user.error) {
+            // 
+        } else {
         sessionStorage.setItem("username",user.username)
         sessionStorage.setItem("token",user.jwt)
         dispatch({
             type: "setLoggedInUser",
             data:user.username
-            
         })
         dispatch({
             type: "setToken",
@@ -61,4 +60,4 @@ function handleSubmit(e){
   )
 }
 
-export default Login
+export default Login;
