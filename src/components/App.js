@@ -6,6 +6,7 @@ import Login from './Login'
 import SignUp from './SignUp'
 import Home from './Home'
 import Navigation from './Navigation'
+import JobForm from './JobForm'
 
 const App = () => {
   /// First instance when the users enters our website there will be no logged in user 
@@ -27,11 +28,14 @@ const App = () => {
     <div>
       <BrowserRouter>
           <Navigation />
-          
+          <Link to ="/jobs">Job</Link>
         <Routes>
+
             <Route path="/login" element={<Login />} />
             <Route exact path="/" element={<Home />} />
             <Route path="/signup" element={<SignUp />} />
+
+            <Route path="/jobs" element={<JobForm />} />
         </Routes>
 
       </BrowserRouter>

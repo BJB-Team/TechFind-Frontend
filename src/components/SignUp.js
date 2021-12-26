@@ -8,8 +8,6 @@ const SignUp = ({ history }) =>{
   const{ dispatch } = useGlobalState()
 
   const initialFormData = {
-    email: "",
-    password: ""
   }
 
   const [formData, setFormData] = useState(initialFormData)
@@ -23,8 +21,8 @@ const SignUp = ({ history }) =>{
 
   function handleSubmit(e){
     e.preventDefault()
-    let changedForm = change(formData)
-    signUp(changedForm)
+    
+    signUp(change(formData))
     .then(({username, jwt}) =>{
       sessionStorage.setItem("username", username)
       sessionStorage.setItem("token",jwt)
