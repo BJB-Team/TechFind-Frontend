@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { login } from '../services/authService'
 
-const Login = () =>{
+const Login = () => {
   const{ store, dispatch } = useGlobalState()
   let navigate = useNavigate();
   const initialFormData = {

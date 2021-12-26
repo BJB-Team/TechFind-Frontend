@@ -6,17 +6,17 @@ const Navigation = () => {
   const{ store, dispatch } = useGlobalState()
   const { loggedInUser } = store
  
-  function logout(e){
+  function logout(e) {
     e.preventDefault()
     sessionStorage.clear()
     dispatch({
       type: "setLoggedInUser",
       data: ""
-  })
-  dispatch({
-    type: "setToken",
-    data:""
-  })
+    })
+    dispatch({
+      type: "setToken",
+      data:""
+    })
   }
   
   return (
