@@ -21,8 +21,8 @@ const Navigation = () => {
   
   return (
     <div> 
-      <Link to ="/">TechFind</Link>
-
+      <Link to ="/">TechFind </Link>
+      <Link to ="/create-job">Job </Link>
       {loggedInUser?
         <>
           <p>Logged In</p>
@@ -30,8 +30,8 @@ const Navigation = () => {
         </>
         :
         <>
-          <Link to ="/signup">Sign up</Link>
-          <Link to ="/login">Login</Link>
+          <Link to ="/signup">Sign up </Link>
+          <Link to ="/login">Login </Link>
         </>
       }
     </div>

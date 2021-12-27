@@ -28,14 +28,14 @@ const App = () => {
     <div>
       <BrowserRouter>
           <Navigation />
-          <Link to ="/jobs">Job</Link>
+
         <Routes>
 
             <Route path="/login" element={<Login />} />
             <Route exact path="/" element={<Home />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/create-job" element={<JobForm />} />
 
-            <Route path="/jobs" element={<JobForm />} />
         </Routes>
 
       </BrowserRouter>
