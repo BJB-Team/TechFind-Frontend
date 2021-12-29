@@ -1,7 +1,7 @@
 import techfindAPI from "../config/api";
 
 export async function getJobs(){
-  const response = await techfindAPI.post("/api/jobs")
+  const response = await techfindAPI.get("/api/jobs")
   console.log(response)
   return response.data
 }

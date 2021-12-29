@@ -7,10 +7,11 @@ const techfindAPI = axios.create ({
 techfindAPI.interceptors.request.use(req=>{
 
   const token = sessionStorage.getItem("token")
-  console.log("interceptors token", token)
+
   if(token){
       req.headers["Authorization"] = `Bearer ${token}`
   }
+  console.log("interceptors token", token)
   return req
 })
 
