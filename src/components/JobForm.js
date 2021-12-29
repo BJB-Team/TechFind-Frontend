@@ -39,20 +39,19 @@ const JobForm = () => {
 
   function handleSubmit(e){
     e.preventDefault()
-    let sorted = sortedData(formData)
-
-    createJob(formData).then(()=>{
+    createJob(formData)
+    .then((job)=>{
+      console.log(job)
+      dispatch({ 
+        type: "jobListings",
+        data:job
+      })
       navigate('/')
   })
   .catch(error => {
       console.log(error)
   })}
 
-  function sortedData(data){
-    const formData = new FormData();
-
-
-  }
 
   return (
     <div>

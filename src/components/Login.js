@@ -25,7 +25,7 @@ function handleSubmit(e) {
     login(formData)
     .then((user)=>{
         if (user.error) {
-            // 
+            //
         } else {
         sessionStorage.setItem("username",user.username)
         sessionStorage.setItem("token",user.jwt)

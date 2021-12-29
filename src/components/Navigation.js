@@ -22,10 +22,9 @@ const Navigation = () => {
   return (
     <div> 
       <Link to ="/">TechFind </Link>
-      <Link to ="/create-job">Job </Link>
+      <Link to ="/job-listings">Browse Jobs  </Link>
       {loggedInUser?
         <>
-          <p>Logged In</p>
           <Link to = "/" onClick ={ logout }>Logout</Link>
         </>
         :

@@ -16,5 +16,11 @@ export default function reducer(state,action){
           }
       }
     }
+    case"jobListings":{
+      return{
+          ...state,
+          jobListings:action.data
+      }
+    }
   }
 }
