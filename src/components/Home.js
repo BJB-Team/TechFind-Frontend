@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from "react-router-dom"
 import { useGlobalState } from '../utils/stateContext'
 
 const Home = () =>{
@@ -21,7 +21,7 @@ const Home = () =>{
         <Link to = "/create-job" > <button>Find Talent!</button> </Link>
 
         {/*Takes the user to the job listing page doesn't matter if they are logged in or not*/}
-        <Link to = "/" > <button>Find Your Career!</button></Link>
+        <Link to = "/job-listings" > <button>Find Your Career!</button></Link>
           
       </div>
     </div>   
