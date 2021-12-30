@@ -25,6 +25,7 @@ const Navigation = () => {
       <Link to ="/job-listings">Browse Jobs  </Link>
       {loggedInUser?
         <>
+          <Link to ="/seeker-profile">Profile  </Link>
           <Link to = "/" onClick ={ logout }>Logout</Link>
         </>
         :

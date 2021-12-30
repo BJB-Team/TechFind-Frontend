@@ -46,7 +46,7 @@ const SignUp = ({ history }) =>{
   function change(data){
     const filteredData = {user: {seeker_attributes:{}}}
     for (const value in data) {
-      if (value == "username" || value == "email"|| value == "password"|| value == "password_confirmation"){
+      if (value == "username" || value == "email"|| value == "password"|| value === "password_confirmation"){
         filteredData.user[value] = data[value]
       }
       else{
