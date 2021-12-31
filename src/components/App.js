@@ -9,6 +9,7 @@ import Navigation from './Navigation'
 import JobForm from './JobForm'
 import { getJobs } from '../services/jobListingService'
 import DisplayJobs from './JobList'
+import SeekerHome from './SeekerHome'
 
 const App = () => {
   /// First instance when the users enters our website there will be no logged in user 
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/create-job" element={<JobForm />} />
             <Route path="/job-listings" element={<DisplayJobs />} />
+            <Route path="/seeker-profile" element={<SeekerHome />} />
 
         </Routes>
 
