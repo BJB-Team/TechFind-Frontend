@@ -5,31 +5,15 @@ import { getJobLevel, createJob, getJobType } from '../services/jobListingServic
 
 const JobForm = () => {
 
-  const [jobLevel, setJobLevel] = useState([])
-  const [jobType, setJobType] = useState([])
-
-
   const{store, dispatch} = useGlobalState()
+  const { jobType, jobLevel } = store
+
   let navigate = useNavigate();
   
   const initialFormData = {
   }
   const [formData, setFormData] = useState(initialFormData)
   
-  useEffect(()=>{
-    getJobLevel() 
-    .then((data)=> {
-      setJobLevel(data)
-    }) 
-    .catch(error=> {console.log(error)})
-    
-    getJobType() 
-    .then((data)=> {
-      setJobType(data)
-    }) 
-    .catch(error=> {console.log(error)})
-    },[])
-
   function handleFormData(e){
     setFormData({
         ...formData,
@@ -41,9 +25,9 @@ const JobForm = () => {
     e.preventDefault()
     createJob(formData)
     .then((job)=>{
-      console.log(job)
+      
       dispatch({ 
-        type: "jobListings",
+        type: "addJobListing",
         data:job
       })
       navigate('/')
@@ -79,7 +63,7 @@ const JobForm = () => {
 						<option></option>
 						{jobLevel.map((o, index) => (
 							<option key={index} value={o.id}>
-								{o.title}
+								{o.name}
 							</option>
 						))}
 					</select>

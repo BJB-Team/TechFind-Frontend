@@ -7,7 +7,9 @@ import SignUp from './SignUp'
 import Home from './Home'
 import Navigation from './Navigation'
 import JobForm from './JobForm'
-import { getJobs } from '../services/jobListingService'
+import ListingDetails from './ListingDetails'
+import { getJobs, getJobLevel, getJobType } from '../services/jobListingService'
+
 import DisplayJobs from './JobList'
 import SeekerHome from './SeekerHome'
 
@@ -16,12 +18,15 @@ const App = () => {
   /// and the seeker will be set to null
   /// use effect will be created when api is linked so this can be changed when a user is logged in and we have listings
 	const initialState = {
+    user_id: sessionStorage.getItem('userId') || null,
 		loggedInUser: sessionStorage.getItem("username") || null,
     auth:{token:sessionStorage.getItem("token") || null},
     seeker: null,
-    jobListings: []
+    jobListings: [],
+    jobType: [], 
+    jobLevel: []
 	}
-
+  
   /// sets up use reducer. There are no cases yet but will be added when api is linked 
   const [store, dispatch] = useReducer(reducer, initialState)
 
@@ -33,11 +38,26 @@ const App = () => {
         data:jobs
       })
     })
+    getJobLevel()
+    .then((level) => {
+      dispatch({ 
+        type: "jobLevel",
+        data:level
+      })
+    })
+    getJobType()
+    .then((type) => {
+      dispatch({ 
+        type: "jobType",
+        data:type
+      })
+    })
   },[])
-  
+ 
   return (
     <StateContext.Provider value={{ store, dispatch }}>
     <div>
+      
       <BrowserRouter>
           <Navigation />
 
@@ -49,6 +69,7 @@ const App = () => {
             <Route path="/create-job" element={<JobForm />} />
             <Route path="/job-listings" element={<DisplayJobs />} />
             <Route path="/seeker-profile" element={<SeekerHome />} />
+            <Route path="/listing/:id" element={<ListingDetails />} />
 
         </Routes>
 

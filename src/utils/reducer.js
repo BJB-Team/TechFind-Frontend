@@ -1,3 +1,5 @@
+import { getJobLevel } from "../services/jobListingService"
+
 export default function reducer(state,action){
   // eslint-disable-next-line default-case
   switch(action.type){
@@ -5,6 +7,12 @@ export default function reducer(state,action){
       return{
           ...state,
           loggedInUser:action.data
+      }
+    }
+    case"user_id":{
+      return{
+          ...state,
+          user_id:action.data
       }
     }
     case"setToken":{
@@ -21,6 +29,25 @@ export default function reducer(state,action){
           ...state,
           jobListings:action.data
       }
+    }
+    case"addJobListing":{
+      return{
+          ...state,
+          jobListings:[action.data, ...state.jobListings]
+      }
+    }
+
+    case"jobType":{
+      return{
+        ...state,
+        jobType:action.data
+    }
+    }
+    case"jobLevel":{  
+      return{
+        ...state,
+        jobLevel:action.data
+    }
     }
   }
 }
