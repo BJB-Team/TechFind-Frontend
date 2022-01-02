@@ -27,6 +27,8 @@ function handleSubmit(e) {
         if (user.error) {
             // 
         } else {
+        console.log(user)
+        sessionStorage.setItem("userId", user.id)
         sessionStorage.setItem("username",user.username)
         sessionStorage.setItem("token",user.jwt)
         dispatch({
@@ -36,6 +38,10 @@ function handleSubmit(e) {
         dispatch({
             type: "setToken",
             data:user.jwt
+        })
+        dispatch({
+            type: "user_id",
+            data:user.id
         })
     }
         navigate('/')

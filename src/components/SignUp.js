@@ -25,8 +25,10 @@ const SignUp = ({ history }) =>{
     e.preventDefault()
     
     signUp(change(formData))
-    .then(({username, jwt}) =>{
+    .then(({username, jwt, id}) =>{
+
       sessionStorage.setItem("username", username)
+      sessionStorage.setItem("userId", id)
       sessionStorage.setItem("token",jwt)
     dispatch({
         type: "setLoggedInUser",
