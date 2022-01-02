@@ -18,10 +18,10 @@ const Home = () =>{
         {/* If the user is logged in as a company they should only be able to see 'Find Talent!' */}
         
         {/* If the user is  logged it will take them to job creation else goes to sign up first*/}
-        <Link to = "/create-job" > <button>Find Talent!</button> </Link>
+        <Link to = "/seekersignup" > <button>Find Talent!</button> </Link>
 
         {/*Takes the user to the job listing page doesn't matter if they are logged in or not*/}
-        <Link to = "/job-listings" > <button>Find Your Career!</button></Link>
+        <Link to = "/signup" > <button>Find Your Career!</button></Link>
           
       </div>
     </div>   

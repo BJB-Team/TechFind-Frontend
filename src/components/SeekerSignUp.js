@@ -11,7 +11,6 @@ const SeekerSignUp = () => {
         username: "",
         email: "",
         password: ""
-        
     }
 
     const [FormState, setFormState] = useState(initialFormState)
@@ -70,28 +69,36 @@ const SeekerSignUp = () => {
                 {/* <h1>Return the name of the page like from the routes video</h1> */}
                 <form onSubmit={handleSubmit}>
 
-                <label htmlFor="username">Username:</label>
-                <input type="text" name="username" id="username" value={FormState.username} onChange={handleFormState}/>
+                <div className="form-group">
+                    <label htmlFor="username">Username:</label>
+                    <input type="text" name="username" id="username" value={FormState.username} onChange={handleFormState}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input type="text" name="email" id="email" value={FormState.email} onChange={handleFormState}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" id="password" value={FormState.password} onChange={handleFormState}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password_confirmation">Password Confirmation</label>
+                    <input type="password" name="password_confirmation" id="password_confirmation" value={FormState.password_confirmation} onChange={handleFormState}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="company_name">Company Name:</label>
+                    <input type="text" name="company_name" id="company_name" value={FormState.company_name} onChange={handleFormState}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="website">Website Link:</label>
+                    <input type="text" name="website" id="website" value={FormState.website} onChange={handleFormState}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="phone">Phone Number:</label>
+                    <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState}/>
+                </div>
 
-                <label htmlFor="email">Email:</label>
-                <input type="text" name="email" id="email" value={FormState.email} onChange={handleFormState}/>
-
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" value={FormState.password} onChange={handleFormState}/>
-
-                <label htmlFor="password_confirmation">Password Confirmation</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" value={FormState.password_confirmation} onChange={handleFormState}/>
-
-                <label htmlFor="company_name">Company Name:</label>
-                <input type="text" name="company_name" id="company_name" value={FormState.company_name} onChange={handleFormState}/>
-
-                <label htmlFor="website">Website Link:</label>
-                <input type="text" name="website" id="website" value={FormState.website} onChange={handleFormState}/>
-
-                <label htmlFor="phone">Phone Number:</label>
-                <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState}/>
-
-                <input type="submit" value="Sign_up" />
+                <button type="submit" className="btn btn-primary btn-block" value="Sign_up">Submit</button>
 
                 </form>
             </div>
