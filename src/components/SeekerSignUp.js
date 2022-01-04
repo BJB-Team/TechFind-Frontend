@@ -7,7 +7,7 @@ const SeekerSignUp = () => {
 
     const{ dispatch } = useGlobalState()
 
-    const initialFormData = {
+    const initialFormState = {
         username: "",
         email: "",
         password: ""
@@ -99,6 +99,7 @@ const SeekerSignUp = () => {
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block" value="Sign_up">Submit</button>
+                <input type="submit" value="Sign_up" />
 
                 </form>
             </div>
