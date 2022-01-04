@@ -21,7 +21,7 @@ const Home = () =>{
         <Link to = "/seekersignup" > <button>Find Talent!</button> </Link>
 
         {/*Takes the user to the job listing page doesn't matter if they are logged in or not*/}
-        <Link to = "/signup" > <button>Find Your Career!</button></Link>
+        <Link to = "/job-listings" > <button>Find Your Career!</button></Link>
           
       </div>
     </div>   
