@@ -4,12 +4,12 @@ import { StateContext } from '../utils/stateContext'
 import reducer from '../utils/reducer'
 import Login from './Login'
 import SignUp from './SignUp'
+import SeekerSignUp from './SeekerSignUp'
 import Home from './Home'
 import Navigation from './Navigation'
 import JobForm from './JobForm'
 import ListingDetails from './ListingDetails'
 import { getJobs, getJobLevel, getJobType } from '../services/jobListingService'
-
 import DisplayJobs from './JobList'
 import SeekerHome from './SeekerHome'
 
@@ -66,6 +66,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route exact path="/" element={<Home />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/seekersignup" element={<SeekerSignUp />} />
             <Route path="/create-job" element={<JobForm />} />
             <Route path="/job-listings" element={<DisplayJobs />} />
             <Route path="/seeker-profile" element={<SeekerHome />} />
