@@ -38,6 +38,10 @@ const SignUp = ({ history }) =>{
         type: "setToken",
         data:jwt    
     })
+    dispatch({
+      type: "user_id",
+      data:id
+  })
     navigate('/')
   })
   .catch(error =>{
