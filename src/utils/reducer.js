@@ -9,12 +9,21 @@ export default function reducer(state,action){
           loggedInUser:action.data
       }
     }
+
     case"user_id":{
       return{
           ...state,
           user_id:action.data
       }
     }
+
+    case"seeker":{
+      return{
+          ...state,
+          seeker:action.data
+      }
+    }
+
     case"setToken":{
       return{
           ...state,
@@ -24,12 +33,14 @@ export default function reducer(state,action){
           }
       }
     }
+
     case"jobListings":{
       return{
           ...state,
           jobListings:action.data
       }
     }
+
     case"addJobListing":{
       return{
           ...state,
@@ -37,17 +48,27 @@ export default function reducer(state,action){
       }
     }
 
+    case "deleteListing":{
+      const updatedListingList = state.jobListings.filter((listing) => 
+      listing.id !== parseInt (action.data))
+      return{
+          ...state,
+          jobListings:updatedListingList
+      }
+  }
+
     case"jobType":{
       return{
         ...state,
         jobType:action.data
     }
+
     }
     case"jobLevel":{  
       return{
         ...state,
         jobLevel:action.data
-    }
+      }
     }
   }
 }

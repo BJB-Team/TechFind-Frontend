@@ -26,14 +26,42 @@ const ListingDetails = () =>{
      return test
    }
 
+
+  function deleteListing(e) {
+    e.preventDefault()
+    deleteListing(id)
+    .then(listing =>{
+        dispatch({
+            type:"deleteListing",
+            data:id
+        })
+  })
+     .catch(err=>console.log(err))
+  }
+
   return (
     <div>
       
-     {listing.title} {listing.description} {listing.price} {idChecker(listing.job_level_id,jobLevel)}  {idChecker(listing.job_type_id,jobType)}
-     {user_id}  
-     {user_id === listing.user_id && 
-      <button>Delete Job</button>}
-      <button>Edit Job</button>
+     {listing.title} {listing.description} {listing.price} {idChecker(listing.job_level_id,jobLevel)}  {idChecker(listing.job_type_id,jobType)}                  
+      
+      <button>Apply</button>
+    <div>
+
+    {user_id === listing.user_id?
+     <>
+      <div>
+        <button>Delete Job</button>
+        <button>Edit Job</button>
+      </div>
+      </>
+      :
+      <>  
+       <button>Apply</button>
+      </>
+      }
+      
+    </div>         
+    
     </div>
 
 

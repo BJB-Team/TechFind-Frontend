@@ -38,6 +38,10 @@ const SignUp = ({ history }) =>{
         type: "setToken",
         data:jwt    
     })
+    dispatch({
+      type: "user_id",
+      data:id
+  })
     navigate('/')
   })
   .catch(error =>{
@@ -54,7 +58,11 @@ const SignUp = ({ history }) =>{
       else{
         filteredData.user.seeker_attributes[value] = data[value]
       }
-      filteredData.user["seeker"] = false
+      filteredData.user["account_seeker"] = true
+      dispatch({
+        type: "seeker",
+        data: filteredData.user["account_seeker"]  
+    })
     }
     return filteredData
   }
