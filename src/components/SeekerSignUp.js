@@ -59,17 +59,17 @@ const SeekerSignUp = () => {
             else{
                 filteredData.user.company_attributes[value] = data[value]
             }
-            filteredData.user["seeker"] = false
+            filteredData.user["account_seeker"] = false
             dispatch({
                 type: "seeker",
-                data: filteredData.user["seeker"]  
+                data: filteredData.user["account_seeker"]  
             })
         }
         return filteredData
     }
 
         return (
-            <div>
+            <div className="container">
                 {/* <h1>Return the name of the page like from the routes video</h1> */}
                 <form onSubmit={handleSubmit}>
 
@@ -102,13 +102,11 @@ const SeekerSignUp = () => {
                     <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState}/>
                 </div>
 
-                
                 <input type="submit" className="btn btn-primary btn-block" value="Sign up" />
 
                 </form>
             </div>
         )
-
 }
 
 export default SeekerSignUp
