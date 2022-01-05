@@ -58,7 +58,7 @@ const SignUp = ({ history }) =>{
       else{
         filteredData.user.seeker_attributes[value] = data[value]
       }
-      filteredData.user["account_seeker"] = "true"
+      filteredData.user["account_seeker"] = true
       dispatch({
         type: "seeker",
         data: filteredData.user["account_seeker"]  
