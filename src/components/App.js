@@ -56,7 +56,7 @@ const App = () => {
  
   return (
     <StateContext.Provider value={{ store, dispatch }}>
-    <div>
+    <div className="container">
       
       <BrowserRouter>
           <Navigation />

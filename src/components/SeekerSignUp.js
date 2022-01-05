@@ -65,7 +65,7 @@ const SeekerSignUp = () => {
     }
 
         return (
-            <div>
+            <div className="container">
                 {/* <h1>Return the name of the page like from the routes video</h1> */}
                 <form onSubmit={handleSubmit}>
 
@@ -98,8 +98,8 @@ const SeekerSignUp = () => {
                     <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState}/>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block" value="Sign_up">Submit</button>
-                <input type="submit" value="Sign_up" />
+                <button type="submit" className="btn btn-success btn-block" value="Sign_up">Submit</button>
+                <input type="submit" value="Sign_up" className="btn btn-success btn-block"/>
 
                 </form>
             </div>
