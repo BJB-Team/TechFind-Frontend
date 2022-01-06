@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { useGlobalState } from '../utils/stateContext'
 import { seekerProfile } from '../services/authService'
+import Aside from './Aside'
 
 
 const SeekerHome = () => {
@@ -21,6 +22,7 @@ const SeekerHome = () => {
     
     return (
         <div>
+            <Aside />
             <h2>Profile</h2>
             <h4>Seeker Profile:</h4>
             {/* Access Seeker name here */}

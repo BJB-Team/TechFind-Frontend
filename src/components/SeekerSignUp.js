@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { signUp } from '../services/authService'
+import Aside from './Aside'
 
 const SeekerSignUp = () => {
 
@@ -70,6 +71,7 @@ const SeekerSignUp = () => {
 
         return (
             <div className="container">
+                <Aside />
                 {/* <h1>Return the name of the page like from the routes video</h1> */}
                 <form onSubmit={handleSubmit}>
 
