@@ -28,9 +28,9 @@ export async function getJobListing(id){
 }
 
 
-export async function deleteListing(id){
+export async function deleteListingId(id){
   const response = await techfindAPI.delete(`/api/jobs/${id}`) 
-      return response.data
+  return response.data
+}
 
-  }
 
