@@ -1,12 +1,13 @@
 import React, { useState, useEffect} from 'react'
 import {useNavigate, Link, useParams} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
-import { getJobListing } from '../services/jobListingService'
+import { getJobListing, deleteListingId } from '../services/jobListingService'
 
 const ListingDetails = () =>{
   const{store,dispatch} = useGlobalState();
   const  {loggedInUser,user_id, jobType, jobLevel} = store
 
+  let navigate = useNavigate();
   const[listing,setListing] = useState([]);
   const {id} = useParams()
   
@@ -29,7 +30,7 @@ const ListingDetails = () =>{
 
   function deleteListing(e) {
     e.preventDefault()
-    deleteListing(id)
+    deleteListingId(id)
     .then(listing =>{
         dispatch({
             type:"deleteListing",
@@ -37,6 +38,7 @@ const ListingDetails = () =>{
         })
   })
      .catch(err=>console.log(err))
+     navigate('/')
   }
 
   return (
@@ -50,7 +52,7 @@ const ListingDetails = () =>{
     {user_id === listing.user_id?
      <>
       <div>
-        <button>Delete Job</button>
+        <button onClick = {deleteListing}>Delete Job</button>
         <button>Edit Job</button>
       </div>
       </>

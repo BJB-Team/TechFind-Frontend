@@ -43,6 +43,12 @@ function handleSubmit(e) {
             type: "user_id",
             data:user.id
         })
+        dispatch({
+            
+            type: "seeker",
+            data:user.account_seeker
+        })
+        console.log(user.account_seeker)
     }
         navigate('/')
     })

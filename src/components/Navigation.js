@@ -5,7 +5,7 @@ import "../index.css"
 
 const Navigation = () => {
   const { store, dispatch } = useGlobalState()
-  const { loggedInUser } = store
+  const { loggedInUser, seeker } = store
  
   function logout(e) {
     e.preventDefault()
@@ -31,6 +31,21 @@ const Navigation = () => {
             </li>
               {loggedInUser ?
                 <>
+          
+                  {seeker === true ?
+                  <>
+        
+                  </>
+                  :
+                  <>
+                    {seeker === false ? (
+                     <Link className="nav-link" to ="/create-job">Create Job</Link>
+                    ):
+                    <>
+                    </>
+                    }
+                  </>
+                  }
                   <li className="nav-item">
                     <Link className="nav-link" to ="/seeker-profile">Profile</Link>
                   </li>
