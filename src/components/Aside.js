@@ -2,9 +2,9 @@ import React from 'react'
 
 const Aside = () => {
   return (
-    <div>
+    <aside>
       <p>this is an aside</p>
-    </div>
+    </aside>
   )
 }
 export default Aside

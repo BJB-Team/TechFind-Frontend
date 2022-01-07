@@ -12,6 +12,7 @@ import ListingDetails from './ListingDetails'
 import { getJobs, getJobLevel, getJobType } from '../services/jobListingService'
 import DisplayJobs from './JobList'
 import SeekerHome from './SeekerHome'
+import Aside from './Aside'
 
 const App = () => {
   /// First instance when the users enters our website there will be no logged in user 
@@ -62,6 +63,8 @@ const App = () => {
           <Navigation />
 
         <Routes>
+
+            <Route path="/Aside" element={<Aside />} />
 
             <Route path="/login" element={<Login />} />
             <Route exact path="/" element={<Home />} />

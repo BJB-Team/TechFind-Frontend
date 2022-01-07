@@ -23,6 +23,10 @@ body, html, .App, #root {
   height: 100%;
 }
 
-.btn-success {
-  color: #39FF14;
+/* Style for the aside */
+.aside {
+  float: left;
+  width: 30%;
+  background: #5DE94A;
+  padding: 20px;
 }
