@@ -4,7 +4,7 @@ import { useGlobalState } from '../utils/stateContext'
 import { signUp } from '../services/authService'
 import Aside from './Aside'
 
-const SeekerSignUp = () => {
+const CompanySignUp = () => {
 
     const{ dispatch } = useGlobalState()
 
@@ -111,4 +111,4 @@ const SeekerSignUp = () => {
         )
 }
 
-export default SeekerSignUp
+export default CompanySignUp
