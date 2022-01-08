@@ -9,17 +9,25 @@ const SignUp = ({ history }) =>{
 
   const initialFormData = {
     email: "",
-    password: ""
+    password: "",
   }
 
   const [formData, setFormData] = useState(initialFormData)
   let navigate = useNavigate();
+
   function handleFormData(e){
     setFormData({
         ...formData,
         [e.target.name] : e.target.value
     })
-}
+  }
+
+  function handleFileData(e){
+    setFormData({
+        ...formData,
+        "resume" : e.target.files[0]
+    })
+  }
 
   function handleSubmit(e){
     e.preventDefault()
@@ -50,21 +58,24 @@ const SignUp = ({ history }) =>{
   }
 
   function change(data){
-    const filteredData = {user: {seeker_attributes:{}}}
+    // const filteredData = {user: {seeker_attributes:{}}}
+    const form  = new FormData();
     for (const value in data) {
       if (value == "username" || value == "email"|| value == "password"|| value === "password_confirmation"){
-        filteredData.user[value] = data[value]
+        form.append(`user[${value}]`, data[value])
+        // filteredData.user[value] = data[value]
       }
       else{
-        filteredData.user.seeker_attributes[value] = data[value]
+        form.append(`user[seeker_attributes][${value}]`, data[value])
+        form.values()
       }
-      filteredData.user["account_seeker"] = true
+    }
+    form.append("account_seeker", true)
       dispatch({
         type: "seeker",
-        data: filteredData.user["account_seeker"]  
+        data: true 
     })
-    }
-    return filteredData
+    return form
   }
 
 
@@ -102,7 +113,7 @@ const SignUp = ({ history }) =>{
           <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleFormData} className="form-control mb-2"/>
         </div>
 
-        <input type="file" name="resume" value={formData.resume} onChange={handleFormData} className="form-control-file" />
+        <input type="file" name="resume"  onChange={handleFileData} className="form-control-file" />
 
         <input type="submit" value="Sign_up" className="btn btn-primary"/>
       </form>
