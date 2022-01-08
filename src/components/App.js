@@ -4,6 +4,7 @@ import { StateContext } from '../utils/stateContext'
 import reducer from '../utils/reducer'
 import Login from './Login'
 import SignUp from './SignUp'
+import FinderProfile from './FinderHome'
 import CompanySignUp from './CompanySignUp'
 import Home from './Home'
 import Navigation from './Navigation'
@@ -69,6 +70,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route exact path="/" element={<Home />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/finder-profile" element={<FinderProfile />} />
             <Route path="/companysignup" element={<CompanySignUp />} />
             <Route path="/create-job" element={<JobForm />} />
             <Route path="/job-listings" element={<DisplayJobs />} />

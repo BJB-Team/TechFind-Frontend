@@ -47,7 +47,7 @@ const Navigation = () => {
                   </>
                   }
                   <li className="nav-item">
-                    <Link className="nav-link" to ="/seeker-profile">Profile</Link>
+                    <Link className="nav-link" to ="/finder-profile">Profile</Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to = "/" onClick ={ logout }>Logout</Link>
