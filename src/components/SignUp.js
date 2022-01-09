@@ -67,10 +67,10 @@ const SignUp = ({ history }) =>{
       }
       else{
         form.append(`user[seeker_attributes][${value}]`, data[value])
-        form.values()
       }
     }
-    form.append("account_seeker", true)
+    
+    form.append(`user[account_seeker]`, "true")
       dispatch({
         type: "seeker",
         data: true 
