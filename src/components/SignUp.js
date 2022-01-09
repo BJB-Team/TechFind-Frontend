@@ -71,6 +71,7 @@ const SignUp = ({ history }) =>{
     }
     
     form.append(`user[account_seeker]`, "true")
+
       dispatch({
         type: "seeker",
         data: true 
