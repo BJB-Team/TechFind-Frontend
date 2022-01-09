@@ -4,25 +4,26 @@ import { StateContext } from '../utils/stateContext'
 import reducer from '../utils/reducer'
 import Login from './Login'
 import SignUp from './SignUp'
-import SeekerSignUp from './SeekerSignUp'
+import FinderProfile from './FinderHome'
+import CompanySignUp from './CompanySignUp'
 import Home from './Home'
 import Navigation from './Navigation'
 import JobForm from './JobForm'
 import ListingDetails from './ListingDetails'
 import { getJobs, getJobLevel, getJobType } from '../services/jobListingService'
 import DisplayJobs from './JobList'
-import SeekerHome from './SeekerHome'
+import CompanyHome from './CompanyHome'
 import Aside from './Aside'
 
 const App = () => {
   /// First instance when the users enters our website there will be no logged in user 
-  /// and the seeker will be set to null
+  /// and the company will be set to null
   /// use effect will be created when api is linked so this can be changed when a user is logged in and we have listings
 	const initialState = {
     user_id: sessionStorage.getItem('userId') || null,
 		loggedInUser: sessionStorage.getItem("username") || null,
     auth:{token:sessionStorage.getItem("token") || null},
-    seeker: null,
+    company: null,
     jobListings: [],
     jobType: [], 
     jobLevel: []
@@ -69,10 +70,11 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route exact path="/" element={<Home />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/seekersignup" element={<SeekerSignUp />} />
+            <Route path="/finder-profile" element={<FinderProfile />} />
+            <Route path="/companysignup" element={<CompanySignUp />} />
             <Route path="/create-job" element={<JobForm />} />
             <Route path="/job-listings" element={<DisplayJobs />} />
-            <Route path="/seeker-profile" element={<SeekerHome />} />
+            <Route path="/company-profile" element={<CompanyHome />} />
             <Route path="/listing/:id" element={<ListingDetails />} />
 
         </Routes>

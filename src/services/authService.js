@@ -12,7 +12,7 @@ export async function login(data){
   return response.data
 }
 
-export async function seekerProfile(){
+export async function companyProfile(){
   const response = await techfindAPI.get("/auth/profile")
   console.log(response)
   return response.data
