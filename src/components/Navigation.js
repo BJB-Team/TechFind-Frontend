@@ -34,7 +34,7 @@ const Navigation = () => {
           
                   {seeker === true ?
                   <>
-        
+                    
                   </>
                   :
                   <>

@@ -60,7 +60,7 @@ const CompanySignUp = () => {
             else{
                 filteredData.user.company_attributes[value] = data[value]
             }
-            filteredData.user["account_seeker"] = false
+            filteredData.user["account_seeker"] = "false"
             dispatch({
                 type: "seeker",
                 data: filteredData.user["account_seeker"]  
