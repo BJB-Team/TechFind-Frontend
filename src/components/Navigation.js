@@ -38,7 +38,7 @@ const Navigation = () => {
                   </>
                   :
                   <>
-                    {seeker === false ? (
+                    {seeker === "false" ? (
                      <Link className="nav-link" to ="/create-job">Create Job</Link>
                     ):
                     <>

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { useGlobalState } from '../utils/stateContext'
-import { finderProfile } from '../services/authService'
+import { companyProfile } from '../services/authService'
 import Aside from './Aside'
 
 
 const FinderHome = () => {
   const{ store, dispatch } = useGlobalState()
   const { loggedInUser } = store
-  const [profile, setProfile] = useState([])
+  const [profile, setProfile] = useState({user: {}, profile: {}})
 
 
   useEffect(()=>{
-    finderProfile() 
+    companyProfile() 
     .then((data)=> {
         setProfile(data)
         console.log(data)
@@ -25,14 +25,14 @@ const FinderHome = () => {
       <Aside />
       <h2>Profile</h2>
       <h4>Finder Profile Details:</h4>
-      <p></p>
+     
       
       <h4>Finder First Name:</h4>
       {/* Access Company name here */}
-
+      <p></p>
       <h4>Finder Last Name:</h4>
       {/* Access Company name here */}
-
+      <p>{profile.user.email} </p>
       <h4>Finder Username:</h4>
       {/* Access Company name here */}
 

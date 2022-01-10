@@ -34,7 +34,7 @@ const SignUp = ({ history }) =>{
     
     signUp(change(formData))
     .then(({username, jwt, id}) =>{
-
+      console.log(id)
       sessionStorage.setItem("username", username)
       sessionStorage.setItem("userId", id)
       sessionStorage.setItem("token",jwt)
@@ -49,7 +49,7 @@ const SignUp = ({ history }) =>{
     dispatch({
       type: "user_id",
       data:id
-  })
+    })
     navigate('/')
   })
   .catch(error =>{
