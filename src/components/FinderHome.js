@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile } from '../services/authService'
-import Aside from './Aside'
-
 
 const FinderHome = () => {
-  const{ store, dispatch } = useGlobalState()
+  const { store, dispatch } = useGlobalState()
   const { loggedInUser } = store
   const [profile, setProfile] = useState({user: {}, profile: {}})
-
 
   useEffect(()=>{
     companyProfile() 
@@ -22,32 +19,32 @@ const FinderHome = () => {
   
   return (
     <div>
-      <Aside />
-      <h2>Profile</h2>
-      <h4>Finder Profile Details:</h4>
-     
-      
-      <h4>Finder First Name:</h4>
-      {/* Access Company name here */}
-      <p></p>
-      <h4>Finder Last Name:</h4>
-      {/* Access Company name here */}
-      <p>{profile.user.email} </p>
-      <h4>Finder Username:</h4>
-      {/* Access Company name here */}
+      <div className="from-group">
+        <label for="username">Username</label>
+        <input type="text" className="form-control-plaintext" placeholder={ profile.user.username } />
+      </div>
 
-      <h4>Finder E-Mail:</h4>
-      {/* Access Company name here */}
+      <div className="from-group">
+        <label for="staticEmail">Email</label>
+        <input type="email" className="form-control-plaintext" placeholder={ profile.user.email } />
+      </div>
 
-      <h4>Finder Phone Number:</h4>
-      {/* Access Company name here */}
+      <div className="from-group">
+        <label for="firstname">First Name</label>
+        <input type="text" className="form-control-plaintext" placeholder={ profile.profile.first_name } />
+      </div>
 
-      <h4>Current Resume</h4>
-      {/* Access Company name here */}
+      <div className="from-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" className="form-control-plaintext" placeholder={ profile.profile.last_name } />
+      </div>
 
-      <Link to = "/"><button>Edit Account</button></Link>
-      
-      {/* Make button to delete account */}
+      <div className="from-group">
+        <label for="phone">Phone</label>
+        <input type="email" className="form-control-plaintext" placeholder={ profile.profile.phone } />
+      </div>
+        
+      <Link to = "/"><button type="submit" class="btn btn-primary">Edit Account</button></Link>
     </div>
   )
 }

@@ -94,11 +94,11 @@ const SignUp = ({ history }) =>{
           <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
-          <label htmlFor="password_confirmation">Password Confirmation</label>
+          <label htmlFor="password_confirmation">Password Confirmation:</label>
           <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
