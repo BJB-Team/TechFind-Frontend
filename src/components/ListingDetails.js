@@ -1,12 +1,13 @@
 import React, { useState, useEffect} from 'react'
 import {useNavigate, Link, useParams} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
-import { getJobListing } from '../services/jobListingService'
+import { getJobListing, deleteListingId, appyListing } from '../services/jobListingService'
 
 const ListingDetails = () =>{
   const{store,dispatch} = useGlobalState();
   const  {loggedInUser,user_id, jobType, jobLevel} = store
 
+  let navigate = useNavigate();
   const[listing,setListing] = useState([]);
   const {id} = useParams()
   
@@ -26,14 +27,48 @@ const ListingDetails = () =>{
      return test
    }
 
+  function apply(e){
+    e.preventDefault()
+    
+    appyListing(id)
+    .then()
+    .catch(err=>console.log(err))
+  }
+  function deleteListing(e) {
+    e.preventDefault()
+    deleteListingId(id)
+    .then(listing =>{
+        dispatch({
+            type:"deleteListing",
+            data:id
+        })
+  })
+     .catch(err=>console.log(err))
+     navigate('/')
+  }
+
   return (
     <div>
       
-     {listing.title} {listing.description} {listing.price} {idChecker(listing.job_level_id,jobLevel)}  {idChecker(listing.job_type_id,jobType)}
-     {user_id}  
-     {user_id === listing.user_id && 
-      <button>Delete Job</button>}
-      <button>Edit Job</button>
+     {listing.title} {listing.description} {listing.price} {idChecker(listing.job_level_id,jobLevel)}  {idChecker(listing.job_type_id,jobType)}                  
+  
+    <div>
+
+    {user_id === listing.user_id?
+     <>
+      <div>
+        <button onClick ={deleteListing}>Delete Job</button>
+        <button>Edit Job</button>
+      </div>
+      </>
+      :
+      <>  
+      <button onClick ={apply}> Apply</button>
+      </>
+      }
+      
+    </div>         
+    
     </div>
 
 

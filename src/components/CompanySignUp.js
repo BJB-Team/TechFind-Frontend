@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { signUp } from '../services/authService'
+import Aside from './Aside'
 
-const SeekerSignUp = () => {
+const CompanySignUp = () => {
 
     const{ dispatch } = useGlobalState()
 
@@ -51,21 +52,26 @@ const SeekerSignUp = () => {
     }
 
     function change(data){
-        const filteredData = {user: {seeker_attributes:{}}}
+        const filteredData = {user: {company_attributes:{}}}
         for (const value in data) {
             if (value === "username" || value === "email"|| value === "password"|| value === "password_confirmation"){
                 filteredData.user[value] = data[value]
             }
             else{
-                filteredData.user.seeker_attributes[value] = data[value]
+                filteredData.user.company_attributes[value] = data[value]
             }
-            filteredData.user["seeker"] = false
+            filteredData.user["account_seeker"] = "false"
+            dispatch({
+                type: "seeker",
+                data: filteredData.user["account_seeker"]  
+            })
         }
         return filteredData
     }
 
         return (
-            <div>
+            <div className="container">
+                <Aside />
                 {/* <h1>Return the name of the page like from the routes video</h1> */}
                 <form onSubmit={handleSubmit}>
 
@@ -98,13 +104,11 @@ const SeekerSignUp = () => {
                     <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState}/>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block" value="Sign_up">Submit</button>
-                <input type="submit" value="Sign_up" />
+                <input type="submit" className="btn btn-primary btn-block" value="Sign up" />
 
                 </form>
             </div>
         )
-
 }
 
-export default SeekerSignUp
+export default CompanySignUp

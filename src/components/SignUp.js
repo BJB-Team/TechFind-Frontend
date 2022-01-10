@@ -9,17 +9,25 @@ const SignUp = ({ history }) =>{
 
   const initialFormData = {
     email: "",
-    password: ""
+    password: "",
   }
 
   const [formData, setFormData] = useState(initialFormData)
   let navigate = useNavigate();
+
   function handleFormData(e){
     setFormData({
         ...formData,
         [e.target.name] : e.target.value
     })
-}
+  }
+
+  function handleFileData(e){
+    setFormData({
+        ...formData,
+        "resume" : e.target.files[0]
+    })
+  }
 
   function handleSubmit(e){
     e.preventDefault()
@@ -38,6 +46,10 @@ const SignUp = ({ history }) =>{
         type: "setToken",
         data:jwt    
     })
+    dispatch({
+      type: "user_id",
+      data:id
+  })
     navigate('/')
   })
   .catch(error =>{
@@ -46,57 +58,65 @@ const SignUp = ({ history }) =>{
   }
 
   function change(data){
-    const filteredData = {user: {seeker_attributes:{}}}
+    // const filteredData = {user: {seeker_attributes:{}}}
+    const form  = new FormData();
     for (const value in data) {
       if (value == "username" || value == "email"|| value == "password"|| value === "password_confirmation"){
-        filteredData.user[value] = data[value]
+        form.append(`user[${value}]`, data[value])
+        // filteredData.user[value] = data[value]
       }
       else{
-        filteredData.user.seeker_attributes[value] = data[value]
+        form.append(`user[seeker_attributes][${value}]`, data[value])
       }
-      filteredData.user["seeker"] = false
     }
-    return filteredData
+    
+    form.append(`user[account_seeker]`, "true")
+
+      dispatch({
+        type: "seeker",
+        data: true 
+    })
+    return form
   }
 
 
   return (
-    <div>
+    <div className="form-group">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         
         <div className="form-group">
           <label htmlFor="username">Username:</label>
-          <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData}/>
+          <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData}/>
+          <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData}/>
+          <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="password_confirmation">Password Confirmation</label>
-          <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} onChange={handleFormData}/>
+          <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="first_name">First Name:</label>
-          <input type="text" name="first_name" id="first_name" value={formData.first_name} onChange={handleFormData}/>
+          <input type="text" name="first_name" id="first_name" value={formData.first_name} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="last_name">Last Name:</label>
-          <input type="text" name="last_name" id="last_name" value={formData.last_name} onChange={handleFormData}/>
+          <input type="text" name="last_name" id="last_name" value={formData.last_name} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="phone">Phone Number:</label>
-          <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleFormData}/>
+          <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleFormData} className="form-control mb-2"/>
         </div>
 
-        {/* <input type="file" name="resume" value={formData.resume} onChange={handleFormData} /> */}
+        <input type="file" name="resume"  onChange={handleFileData} className="form-control-file" />
 
-        <input type="submit" value="Sign_up" />
+        <input type="submit" value="Sign_up" className="btn btn-primary"/>
       </form>
     </div>   
   )
