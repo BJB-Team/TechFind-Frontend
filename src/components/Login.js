@@ -61,12 +61,12 @@ function handleSubmit(e) {
 
             <div className="form-group">
                 <label htmlFor="email">Email:</label>
-                <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
+                <input type="email" placeholder="Enter email" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
             </div>
 
             <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
+                <label htmlFor="password">Password:</label>
+                <input type="password" placeholder="Password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
             </div>
 
             <input type="submit" value="Login" className="btn btn-primary"/>

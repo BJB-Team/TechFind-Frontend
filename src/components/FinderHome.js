@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile } from '../services/authService'
-import Aside from './Aside'
-
 
 const FinderHome = () => {
   const { store, dispatch } = useGlobalState()
   const { loggedInUser } = store
-  const [profile, setProfile] = useState([])
-
+  const [profile, setProfile] = useState({user: {}, profile: {}})
 
   useEffect(()=>{
     companyProfile() 
@@ -22,30 +19,32 @@ const FinderHome = () => {
   
   return (
     <div>
-      <Aside />
-      <h2>Profile</h2>
-      
-      <h4>First Name:</h4>
-      {/* Access Company name here */}
+      <div className="from-group">
+        <label for="username">Username</label>
+        <input type="text" className="form-control-plaintext" placeholder={ profile.user.username } />
+      </div>
 
-      <h4>Last Name:</h4>
-      {/* Access Company name here */}
+      <div className="from-group">
+        <label for="staticEmail">Email</label>
+        <input type="email" className="form-control-plaintext" placeholder={ profile.user.email } />
+      </div>
 
-      <h4>Username:</h4>
-      <p> is this working? { profile.user }</p>
+      <div className="from-group">
+        <label for="firstname">First Name</label>
+        <input type="text" className="form-control-plaintext" placeholder={ profile.profile.first_name } />
+      </div>
 
-      <h4>E-Mail:</h4>
-      {/* Access Company name here */}
+      <div className="from-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" className="form-control-plaintext" placeholder={ profile.profile.last_name } />
+      </div>
 
-      <h4>Phone Number:</h4>
-      {/* Access Company name here */}
-
-      <h4>Current Resume</h4>
-      <p>Download a copy of your resume</p>
-
-      <Link to = "/"><button>Edit Account</button></Link>
-      
-      {/* Make button to delete account */}
+      <div className="from-group">
+        <label for="phone">Phone</label>
+        <input type="email" className="form-control-plaintext" placeholder={ profile.profile.phone } />
+      </div>
+        
+      <Link to = "/"><button type="submit" class="btn btn-primary">Edit Account</button></Link>
     </div>
   )
 }
