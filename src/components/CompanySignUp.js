@@ -36,6 +36,7 @@ const CompanySignUp = () => {
             sessionStorage.setItem("username", username)
             sessionStorage.setItem("userId", id)
             sessionStorage.setItem("token", jwt)
+            console.log(id)
             dispatch({
                 type: "setLoggedInUser",
                 data: username
@@ -44,6 +45,10 @@ const CompanySignUp = () => {
                 type: "setToken",
                 data: jwt    
             })
+            dispatch({
+                type: "user_id",
+                data:id
+              })
             navigate('/')
         })
         .catch(error =>{

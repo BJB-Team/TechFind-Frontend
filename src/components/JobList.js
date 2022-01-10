@@ -8,7 +8,8 @@ const DisplayJobs = () =>{
 
   const{ store } = useGlobalState()
   const { jobListings, jobType, jobLevel } = store
-  console.log(jobListings)
+  
+  
   function idChecker(x,job){
    let test = ""
    job.map((type,index) => {
