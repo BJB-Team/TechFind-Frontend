@@ -5,7 +5,7 @@ import { companyProfile } from '../services/authService'
 import Aside from './Aside'
 
 
-const FinderHome = (props) => {
+const FinderHome = () => {
   const { store, dispatch } = useGlobalState()
   const { loggedInUser } = store
   const [profile, setProfile] = useState([])
@@ -24,26 +24,24 @@ const FinderHome = (props) => {
     <div>
       <Aside />
       <h2>Profile</h2>
-      <h4>Finder Profile Details:</h4>
-      <p></p>
       
-      <h4>Finder First Name:</h4>
+      <h4>First Name:</h4>
       {/* Access Company name here */}
 
-      <h4>Finder Last Name:</h4>
+      <h4>Last Name:</h4>
       {/* Access Company name here */}
 
-      <h4>Finder Username:</h4>
-      {/* <p>{this.state.data.username}</p> */}
+      <h4>Username:</h4>
+      <p> is this working? { profile.user }</p>
 
-      <h4>Finder E-Mail:</h4>
+      <h4>E-Mail:</h4>
       {/* Access Company name here */}
 
-      <h4>Finder Phone Number:</h4>
+      <h4>Phone Number:</h4>
       {/* Access Company name here */}
 
       <h4>Current Resume</h4>
-      {/* Access Company name here */}
+      <p>Download a copy of your resume</p>
 
       <Link to = "/"><button>Edit Account</button></Link>
       

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
+// import Pagination from 'react-bootstrap/Pagination'
+// import PageItem from 'react-bootstrap/PageItem'
 
 const DisplayJobs = () =>{
 
@@ -16,7 +18,7 @@ const DisplayJobs = () =>{
     })
     return test
   }
-  
+
   return (
     <div>
 
@@ -29,7 +31,7 @@ const DisplayJobs = () =>{
               <h5 className="mb-1">{ message.title }  { idChecker(message.job_type_id,jobType) } { idChecker(message.job_level_id, jobLevel) }</h5>
               <h5> Salary: $ { message.price }</h5>
             </div>
-            <p className="mb-1">Placeholder text.</p>
+            <p className="mb-1">{ message.description }</p>
           </Link>
         </div>
       ]
@@ -39,7 +41,7 @@ const DisplayJobs = () =>{
       <nav aria-label="Page navigation example">
         <ul className="pagination justify-content-center">
           <li className="page-item disabled">
-            <a className="page-link" href="/" tabindex="-1">Previous</a>
+            <a className="page-link" href="/" tabIndex="-1">Previous</a>
           </li>
           <li className="page-item"><a className="page-link" href="/">1</a></li>
           <li className="page-item"><a className="page-link" href="/">2</a></li>
