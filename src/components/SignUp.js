@@ -34,7 +34,7 @@ const SignUp = ({ history }) =>{
     
     signUp(change(formData))
     .then(({username, jwt, id}) =>{
-
+      console.log(id)
       sessionStorage.setItem("username", username)
       sessionStorage.setItem("userId", id)
       sessionStorage.setItem("token",jwt)
@@ -49,7 +49,7 @@ const SignUp = ({ history }) =>{
     dispatch({
       type: "user_id",
       data:id
-  })
+    })
     navigate('/')
   })
   .catch(error =>{
@@ -94,11 +94,11 @@ const SignUp = ({ history }) =>{
           <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
-          <label htmlFor="password_confirmation">Password Confirmation</label>
+          <label htmlFor="password_confirmation">Password Confirmation:</label>
           <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
@@ -116,8 +116,11 @@ const SignUp = ({ history }) =>{
 
         <input type="file" name="resume"  onChange={handleFileData} className="form-control-file" />
 
-        <input type="submit" value="Sign_up" className="btn btn-primary"/>
+        <input type="submit" value="Sign up" className="btn btn-primary"/>
       </form>
+
+      <p>Looking for the Company Signup page</p>
+      <button>Company Sign up</button>
     </div>   
   )
 }

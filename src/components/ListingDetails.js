@@ -29,7 +29,6 @@ const ListingDetails = () =>{
 
   function apply(e){
     e.preventDefault()
-    
     appyListing(id)
     .then()
     .catch(err=>console.log(err))
@@ -46,7 +45,7 @@ const ListingDetails = () =>{
      .catch(err=>console.log(err))
      navigate('/')
   }
-
+  console.log(listing)
   return (
     <div>
       

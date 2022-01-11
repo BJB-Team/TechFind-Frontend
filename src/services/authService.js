@@ -17,3 +17,9 @@ export async function companyProfile(){
   console.log(response)
   return response.data
 }
+
+export async function updateCompany(data){
+	const response= await techfindAPI.put("/company/profile",data)
+	console.log(response)
+	return response.data
+}
