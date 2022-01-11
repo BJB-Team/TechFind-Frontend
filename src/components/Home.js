@@ -12,10 +12,10 @@ const Home = () => {
         <LeftSide>
           <Header>Your search ends</Header>
           <Header>Here!</Header>
-          <p>
+          <Text>
             TechFind! The number one IT platform for Job seekers and companies
             looking for the best talent.
-          </p>
+          </Text>
 
         {/* If the user isn't logged in should display both  */}
         {/* If the user is logged in as a job seekers they should only be able to see 'Find Your Career!' */}
@@ -30,12 +30,14 @@ const Home = () => {
         <Link to = "/company-job-list" > <button className="btn btn-success btn-lg">my Job List</button></Link>
           
         <Link to = "/company-job-list" > <button className="btn btn-success btn-lg">my Job List</button></Link> 
-        
+
         </LeftSide>
       </Container>
     </div>
   );
 };
+
+
 //styles
 const Container = styled.div`
   display: flex;
