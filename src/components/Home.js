@@ -42,4 +42,25 @@ const Home = () => {
     </div>
   );
 };
+//styles
+const Container = styled.div`
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: 960px) {
+    flex-direction: column-reverse;
+    width: 100%;
+    // height: 100%;
+    margin: 3rem 2rem;
+  }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+    width: 80%;
+    // height: 100%;
+    margin: 1rem 2rem;
+  }
+`;
+
+
 export default Home;
