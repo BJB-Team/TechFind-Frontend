@@ -17,30 +17,32 @@ const FinderHome = () => {
     .catch(error=> {console.log(error)})
     },[])
   
+  // onsubmit handler function goes here
+
   return (
     <div>
       <div className="from-group">
-        <label for="username">Username</label>
+        <label htmlFor="username">Username</label>
         <input type="text" className="form-control-plaintext" placeholder={ profile.user.username } />
       </div>
 
       <div className="from-group">
-        <label for="staticEmail">Email</label>
+        <label htmlFor="staticEmail">Email</label>
         <input type="email" className="form-control-plaintext" placeholder={ profile.user.email } />
       </div>
 
       <div className="from-group">
-        <label for="firstname">First Name</label>
+        <label htmlFor="firstname">First Name</label>
         <input type="text" className="form-control-plaintext" placeholder={ profile.profile.first_name } />
       </div>
 
       <div className="from-group">
-        <label for="lastname">Last Name</label>
+        <label htmlFor="lastname">Last Name</label>
         <input type="text" className="form-control-plaintext" placeholder={ profile.profile.last_name } />
       </div>
 
       <div className="from-group">
-        <label for="phone">Phone</label>
+        <label htmlFor="phone">Phone</label>
         <input type="email" className="form-control-plaintext" placeholder={ profile.profile.phone } />
       </div>
         
