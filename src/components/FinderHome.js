@@ -46,7 +46,7 @@ const FinderHome = () => {
         <input type="email" className="form-control-plaintext" placeholder={ profile.profile.phone } />
       </div>
         
-      <Link to = "/"><button type="submit" class="btn btn-primary">Edit Account</button></Link>
+      <Link to = "/finder-edit"><button type="submit" class="btn btn-primary">Edit Account</button></Link>
     </div>
   )
 }
