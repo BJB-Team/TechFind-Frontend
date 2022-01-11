@@ -33,10 +33,22 @@ export async function deleteListingId(id){
   return response.data
 }
 
-export async function appyListing(id){
-  const response = await techfindAPI.post(`/api/apply/${id}`) 
+export async function appyListing(data){
+  const response = await techfindAPI.post(`/api/apply`,data) 
   return response.data
 }
+
+export async function showApplied(){
+  const response = await techfindAPI.get(`/api/applied`) 
+  return response.data
+}
+
+export async function myApplied(){
+  const response = await techfindAPI.get(`/api/my-application`) 
+  return response.data
+}
+
+
 
 
 

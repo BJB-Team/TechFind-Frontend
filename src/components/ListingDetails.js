@@ -29,7 +29,9 @@ const ListingDetails = () =>{
 
   function apply(e){
     e.preventDefault()
-    appyListing(id)
+    
+    const ids = {"id": id, "user_id": listing.user_id}
+    appyListing(ids)
     .then()
     .catch(err=>console.log(err))
   }

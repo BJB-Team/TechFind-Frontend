@@ -15,6 +15,8 @@ import DisplayJobs from './JobList'
 import CompanyHome from './CompanyHome'
 import Aside from './Aside'
 import CompanyJobsList from './CompanyJobsList'
+import CompanyApplication from './CompanyApplication'
+import FinderApplied from './FinderApplied'
 
 const App = () => {
   /// First instance when the users enters our website there will be no logged in user 
@@ -78,6 +80,9 @@ const App = () => {
             <Route path="/company-profile" element={<CompanyHome />} />
             <Route path="/listing/:id" element={<ListingDetails />} />
             <Route path="company-job-list" element={<CompanyJobsList />} />
+            <Route path="show-applied" element={<CompanyApplication />} />
+            <Route path="finder-applied" element={<FinderApplied />} />
+            
             
         </Routes>
 
