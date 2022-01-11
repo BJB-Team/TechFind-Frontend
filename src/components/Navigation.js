@@ -32,14 +32,18 @@ const Navigation = () => {
               {loggedInUser ?
                 <>
           
-                  {seeker === true ?
+                  {seeker === "true" ?
                   <>
-                    
+                    <Link className="nav-link" to ="/finder-applied">Applied </Link>
                   </>
                   :
                   <>
                     {seeker === "false" ? (
-                     <Link className="nav-link" to ="/create-job">Create Job</Link>
+                      <div>
+                        <Link className="nav-link" to ="/show-applied">Applied </Link>
+                        <Link className="nav-link" to ="/create-job">Create Job</Link>
+                      </div>
+                   
                     ):
                     <>
                     </>
