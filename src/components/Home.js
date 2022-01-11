@@ -24,7 +24,10 @@ const Home = () =>{
         <Link to = "/job-listings" > <button className="btn btn-success btn-lg">Find Your Career!</button></Link>
           
       </div>
+      <div className="sideContainer"> 
+    </div>
     </div>   
+    
   )
 }
 
