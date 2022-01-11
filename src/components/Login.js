@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { login } from '../services/authService'
 
@@ -48,7 +48,7 @@ function handleSubmit(e) {
             data:user.account_seeker
         })
     }
-        navigate('/')
+        navigate('/finder-profile')
     })
     .catch(error => {
         console.log(error)
@@ -57,19 +57,29 @@ function handleSubmit(e) {
     
   return (
     <div className="form-group">
+    <h1>TechFind</h1>
+    <h2>Enter your login details</h2>
         <form onSubmit={handleSubmit}>
 
+            {/* Error message */}
+            <div className="alert alert-danger" role="alert">
+                <p>Incorrent username or password</p>
+            </div>
+
+            {/* Change this to accept Username or email */}
             <div className="form-group">
-                <label htmlFor="email">Email:</label>
-                <input type="email" placeholder="Enter email" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
+                <label htmlFor="username">Username or Email</label>
+                <input type="email" placeholder="Username or Email Address" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
             </div>
 
             <div className="form-group">
-                <label htmlFor="password">Password:</label>
-                <input type="password" placeholder="Password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
+                <label htmlFor="password">Password</label>
+                <input type="password" placeholder="Enter you Password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
             </div>
 
             <input type="submit" value="Login" className="btn btn-primary"/>
+
+            <p>Don't have an account? <Link to = "/signup">Create One</Link></p>
         </form>
     </div>  
   )

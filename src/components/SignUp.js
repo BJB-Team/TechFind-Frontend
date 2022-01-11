@@ -116,8 +116,11 @@ const SignUp = ({ history }) =>{
 
         <input type="file" name="resume"  onChange={handleFileData} className="form-control-file" />
 
-        <input type="submit" value="Sign_up" className="btn btn-primary"/>
+        <input type="submit" value="Sign up" className="btn btn-primary"/>
       </form>
+
+      <p>Looking for the Company Signup page</p>
+      <button>Company Sign up</button>
     </div>   
   )
 }
