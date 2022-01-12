@@ -81,31 +81,31 @@ const CompanySignUp = () => {
 
                 <div className="form-group">
                     <label htmlFor="username">Username:</label>
-                    <input type="text" name="username" id="username" value={FormState.username} onChange={handleFormState} className="form-control mb-2"/>
+                    <input type="text" name="username" id="username" value={FormState.username} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="text" name="email" id="email" value={FormState.email} onChange={handleFormState} className="form-control mb-2"/>
+                    <input type="text" name="email" id="email" value={FormState.email} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" value={FormState.password} onChange={handleFormState} className="form-control mb-2"/>
+                    <input type="password" name="password" id="password" value={FormState.password} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password_confirmation">Password Confirmation</label>
-                    <input type="password" name="password_confirmation" id="password_confirmation" value={FormState.password_confirmation} onChange={handleFormState} className="form-control mb-2"/>
+                    <input type="password" name="password_confirmation" id="password_confirmation" value={FormState.password_confirmation} required onChange={handleFormState} className="form-control mb-2"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="company_name">Company Name:</label>
-                    <input type="text" name="company_name" id="company_name" value={FormState.company_name} onChange={handleFormState} className="form-control mb-2"/>
+                    <input type="text" name="company_name" id="company_name" value={FormState.company_name} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="website">Website Link:</label>
-                    <input type="text" name="website" id="website" value={FormState.website} onChange={handleFormState} className="form-control mb-2"/>
+                    <input type="text" name="website" id="website" value={FormState.website} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="phone">Phone Number:</label>
-                    <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState} className="form-control mb-2"/>
+                    <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
 
                 <input type="submit" className="btn btn-primary btn-block" value="Sign up" />

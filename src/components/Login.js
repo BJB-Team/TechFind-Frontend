@@ -8,10 +8,11 @@ const Login = () => {
   let navigate = useNavigate();
   const initialFormData = {
     email: "",
-    password: ""
+    password: "",
   }
 
   const [formData, setFormData] = useState(initialFormData)
+  const [error, setError] = useState(false)
 
   function handleFormData(e) {
     setFormData({
@@ -25,9 +26,8 @@ function handleSubmit(e) {
     login(formData)
     .then((user)=>{
         if (user.error) {
-            // 
+            setError(user.error)
         } else {
-        console.log(user)
         sessionStorage.setItem("userId", user.id)
         sessionStorage.setItem("username",user.username)
         sessionStorage.setItem("token",user.jwt)
@@ -47,8 +47,8 @@ function handleSubmit(e) {
             type: "seeker",
             data:user.account_seeker
         })
-    }
         navigate('/finder-profile')
+    }
     })
     .catch(error => {
         console.log(error)
@@ -57,19 +57,20 @@ function handleSubmit(e) {
     
   return (
     <div className="form-group">
-    <h1>TechFind</h1>
-    <h2>Enter your login details</h2>
+        <h1>TechFind</h1>
+        <h2>Enter your login details</h2>
+            
+        {/* Error message */}
+       
+            {error &&  
+            <div className="alert alert-danger" role="alert">{error} </div>}
+        
+
         <form onSubmit={handleSubmit}>
-
-            {/* Error message */}
-            <div className="alert alert-danger" role="alert">
-                <p>Incorrent username or password</p>
-            </div>
-
             {/* Change this to accept Username or email */}
             <div className="form-group">
-                <label htmlFor="username">Username or Email</label>
-                <input type="email" placeholder="Username or Email Address" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
+                <label htmlFor="username">Email</label>
+                <input type="email" placeholder="Email Address" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
             </div>
 
             <div className="form-group">
@@ -78,9 +79,9 @@ function handleSubmit(e) {
             </div>
 
             <input type="submit" value="Login" className="btn btn-primary"/>
-
             <p>Don't have an account? <Link to = "/signup">Create One</Link></p>
-        </form>
+        </form>   
+            
     </div>  
   )
 }

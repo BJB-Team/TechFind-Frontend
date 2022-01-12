@@ -87,34 +87,34 @@ const SignUp = ({ history }) =>{
         
         <div className="form-group">
           <label htmlFor="username">Username:</label>
-          <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password:</label>
-          <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} required  className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="password_confirmation">Password Confirmation:</label>
-          <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} required onChange={handleFormData} className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="first_name">First Name:</label>
-          <input type="text" name="first_name" id="first_name" value={formData.first_name} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="text" name="first_name" id="first_name" value={formData.first_name} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="last_name">Last Name:</label>
-          <input type="text" name="last_name" id="last_name" value={formData.last_name} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="text" name="last_name" id="last_name" value={formData.last_name} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
         <div className="form-group">
           <label htmlFor="phone">Phone Number:</label>
-          <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
-
-        <input type="file" name="resume"  onChange={handleFileData} className="form-control-file" />
+         <label htmlFor="phone">Resume</label>
+        <input type="file" name="resume"  onChange={handleFileData} required className="form-control-file" />
 
         <input type="submit" value="Sign up" className="btn btn-primary"/>
       </form>
