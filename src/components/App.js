@@ -59,8 +59,9 @@ const App = () => {
  
   return (
     <StateContext.Provider value={{ store, dispatch }}>
-    <div className="container">
       
+    <div className="container">
+    
       <BrowserRouter>
           <Navigation />
 

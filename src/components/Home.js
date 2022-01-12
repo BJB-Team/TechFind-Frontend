@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
+import styled from 'styled-components'
 
 const Home = () => {
   const { store, dispatch } = useGlobalState();
@@ -8,10 +9,10 @@ const Home = () => {
 
   return (
     
-  <div className="container">
+  <div className="containerh">
     <div className="jumbotron">
-    <Header>Your search ends</Header>
-    <Header>Here!</Header>
+    <div className="header">Your search ends</div>
+    <div className="header1">Here!</div>
     <p>TechFind! The number one IT platform for Job seekers and companies looking for the best talent.</p>
 
     {/* If the user isn't logged in should display both  */}
@@ -19,15 +20,21 @@ const Home = () => {
     {/* If the user is logged in as a company they should only be able to see 'Find Talent!' */}
     
     {/* If the user is  logged it will take them to job creation else goes to sign up first*/}
-    <Link to = "/companysignup" > <button className="btn btn-success btn-lg">Find Talent!</button> </Link>
+    <Link to = "/companysignup" > <button className="homebutton">Find Talent</button> </Link>
 
     {/*Takes the user to the job listing page doesn't matter if they are logged in or not*/}
-    <Link to = "/job-listings" > <button className="btn btn-success btn-lg">Find Your Career!</button></Link>
+    <Link to = "/job-listings" > <button className="homebutton">Find Your Career</button></Link>
 
-    <Link to = "/company-job-list" > <button className="btn btn-success btn-lg">my Job List</button></Link>
+    <Link to = "/company-job-list" > <button className="homebutton">My Job List</button></Link>
       
     </div>
+
+    <div className="rightSection">
+    <Image src={landingImage} />
+    </div>
+    
   </div>  
+
   );
 };
 

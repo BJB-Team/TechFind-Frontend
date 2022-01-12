@@ -1,24 +1,100 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 
+/* CSS for NavBar  */
+
+.navbarwrapper {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2.78em;
+  padding-bottom: 3.80rem; 
+  border-bottom: 2px solid;
+  /* background:whitesmoke; */
+  position: fixed;
+  
+}
+
+.navcontainer{
+  display: flex; 
+  justify-content: space-between;
+  width: 100%;
+  padding-right: var(--bs-gutter-x,1.25rem);
+  padding-left: var(--bs-gutter-x,1.25rem);
+  margin-right: auto; 
+  margin-left: auto;  
+}
+
+
+.navbar-brandlogo {
+  /* display: flex;  */
+  font-weight: 600; 
+  color: #0d6efd;;
+  font-size: 1.90rem;
+  
+  margin-left: 15%; 
+  
+}
+
+.justifycontentend {
+  /* display:flex;  */
+  justify-content: flex-end; 
+  
+} 
+
+.navbar-navli {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 0;
+  margin-bottom: 0;list-style: none;
+}
+.navbutton{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; 
+  
+  padding: 14px 32px; 
+
+  position: relative;
+  margin-left: 5%; 
+  height: 45px;
+  
+  background: #5DE94A;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+
+
+
+
+/* CSS for home page */
 * {
   box-sizing: border-box;
 }
 
 body {
-  background: #1C8EF9;
+  background: #1c8ef9;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
-  font-family: 'Fira Sans', sans-serif;
-  padding-top: 200px;
+  font-family: "Fira Sans", sans-serif;
+  padding-top: 150px;
 }
 
-h1,h2,h3,h4,h5,h6,label,span {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+span {
   font-weight: 500;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
-body, html, .App, #root {
+body,html,.App, #root {
   width: 100%;
   height: 100%;
 }
@@ -27,6 +103,124 @@ body, html, .App, #root {
 .aside {
   float: left;
   width: 30%;
-  background: #5DE94A;
+  background: #5de94a;
   padding: 20px;
+}
+.containerh {
+  width: 849px;
+  height: 849x;
+  display: flex; 
+  /* flex: scroll; */
+  /* flex-direction: row; */
+  justify-content: flex-end;
+  align-items:flex-end; 
+  position: fixed;
+}
+.jumbotron {
+  max-width: 100%;
+  /* display: flex; */
+  height: 90vh;
+  align-items: center;
+  justify-content: center; 
+  flex: 2;
+
+  /* @media only screen and (max-width: 768px) {
+    width: 100%; 
+  }; */
+   
+
+  /* @media only screen and (max-width: 960px) {
+   flex-direction: column-reverse;
+    width: 100%;
+    height: 100%;
+    margin: 3rem 2rem;
+   }
+ @media only screen and (max-width: 768px) {
+  flex-direction: column-reverse;
+  width: 80%;
+  height: 100%;
+  margin: 1rem 2rem;
+ } */
+}
+
+.header {
+  font-size: 45px;
+  font-family: "Fira Sans", sans-serif;
+  margin: 0.3rem 0;
+
+  /* @media only screen and (max-width: 960px) {
+    font-size: 20px;
+    text-align: left;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 18px;
+    text-align: left; */
+}
+
+.header1 {
+  font-size: 45px;
+  font-family: "Fira Sans", sans-serif;
+  margin: 0.3rem 0;
+  color: #5de94a;
+
+  /* @media only screen and (max-width: 960px) {
+    font-size: 20px;
+    text-align: left;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 18px;
+    text-align: left; */
+}
+
+p {
+  font-size: 24px;
+  max-width: 550px;
+  margin: 1rem 0;
+  /* @media only screen and (max-width: 960px) {
+    font-size: 16px;
+    text-align: left;
+  } */
+}
+
+.homebutton {
+  /* display: flex;  */
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 10px;
+
+  /* position: relative; */
+  width: 165px;
+  height: 55px;
+  margin: 7px;
+  
+  background: #5de94a;
+  /* box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25); */
+  border-radius: 15px;
+}
+
+.sidecontainer {
+  display: block;
+  justify-content:flex-end;
+  position: relative;  
+  height: 849px;
+  width: 401px;
+  border-radius: 30px 0px 0px 30px;
+  background: #5de94a;
+  
+}
+
+
+.rightSection {
+  margin-bottom: 3rem;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
+}
+
+Image{
+  max-width: 450px;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
