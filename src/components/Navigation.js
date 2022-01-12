@@ -21,11 +21,11 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="navbarwrapper navbar-expand-lg fixed-top">
+    <nav className="navbarwrapper fixed-top">
       <div className="navcontainer">
-        <logowrapper>
+        
         <Link className="navbar-brandlogo" to={"/"}>TechFind</Link>
-        </logowrapper>
+        
         <div className="justifycontentend">
           <ul className="navbar-navli">
             <li className="navbutton">

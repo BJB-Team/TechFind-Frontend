@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
-import styled from 'styled-components'
+import HomeImage from '../Assets/HomeImage.png';
+
 
 const Home = () => {
   const { store, dispatch } = useGlobalState();
@@ -11,7 +12,7 @@ const Home = () => {
     
   <div className="containerh">
     <div className="jumbotron">
-    <div className="header">Your search ends</div>
+    <div className="header">Your Search Ends</div>
     <div className="header1">Here!</div>
     <p>TechFind! The number one IT platform for Job seekers and companies looking for the best talent.</p>
 
@@ -30,8 +31,8 @@ const Home = () => {
     </div>
 
     <div className="rightSection">
-    <Image src={landingImage} />
-    </div>
+    <img src={HomeImage} />
+    </div> 
     
   </div>  
 
