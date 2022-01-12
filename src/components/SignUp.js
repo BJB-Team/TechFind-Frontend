@@ -2,7 +2,17 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { signUp } from '../services/authService'
+import styled from "styled-components";
 
+export const SignUPForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  margin-button:30rem;
+  postion: fixed;
+`;
 
 const SignUp = ({ history }) =>{
   const{ dispatch } = useGlobalState()
@@ -81,8 +91,10 @@ const SignUp = ({ history }) =>{
 
 
   return (
-    <div className="form-group">
+    <div className="form-row">
+      <SignUPForm>
       <h1>Sign Up</h1>
+      
       <form onSubmit={handleSubmit}>
         
         <div className="form-group">
@@ -121,6 +133,7 @@ const SignUp = ({ history }) =>{
 
       <p>Looking for the Company Signup page</p>
       <button>Company Sign up</button>
+      </SignUPForm>
     </div>   
   )
 }
