@@ -11,8 +11,16 @@ const SignUp = ({ history }) =>{
     email: "",
     password: "",
   }
+  const errors = {
+    username: false, 
+    password: false,
+    password_confirmation: false
+  }
 
   const [formData, setFormData] = useState(initialFormData)
+
+  const [error, setError] = useState(errors)
+
   let navigate = useNavigate();
 
   function handleFormData(e){
@@ -33,8 +41,24 @@ const SignUp = ({ history }) =>{
     e.preventDefault()
     
     signUp(change(formData))
-    .then(({username, jwt, id}) =>{
-      console.log(id)
+    .then(({username, jwt, id, test}) =>{
+      if (test) {
+        setError(test)
+        
+        // if (test.password_confirmation) {
+        //   setError({...error,
+        //   "password_confirmation" : test.password_confirmation})
+        //   console.log("password")
+        //   console.log(error)
+        // } 
+        // if (test.password) {
+        //   setError({...error,
+        //   "password_confirmation" : test.password})
+        //   console.log("password ")
+        //   console.log(error)
+        // } 
+      } 
+      else {
       sessionStorage.setItem("username", username)
       sessionStorage.setItem("userId", id)
       sessionStorage.setItem("token",jwt)
@@ -51,9 +75,9 @@ const SignUp = ({ history }) =>{
       data:id
     })
     navigate('/')
-  })
+    }})
   .catch(error =>{
-      //setError("user exists or password mismatch")
+      setError(error)
   })
   }
 
@@ -79,7 +103,6 @@ const SignUp = ({ history }) =>{
     return form
   }
 
-
   return (
     <div className="form-group">
       <h1>Sign Up</h1>
@@ -89,6 +112,9 @@ const SignUp = ({ history }) =>{
           <label htmlFor="username">Username:</label>
           <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
+        {error.username &&  
+            <div className="alert alert-danger" role="alert">{error.username} </div>}
+
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} required className="form-control mb-2"/>
@@ -97,10 +123,20 @@ const SignUp = ({ history }) =>{
           <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} required  className="form-control mb-2"/>
         </div>
+
+        {/* Error message  */}
+        {error.password &&  
+            <div className="alert alert-danger" role="alert">{error.password} </div>}
+
         <div className="form-group">
           <label htmlFor="password_confirmation">Password Confirmation:</label>
           <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} required onChange={handleFormData} className="form-control mb-2"/>
         </div>
+        
+        {/* Error message  */}
+        {error.password_confirmation &&  
+            <div className="alert alert-danger" role="alert">{error.password_confirmation} </div>}
+
         <div className="form-group">
           <label htmlFor="first_name">First Name:</label>
           <input type="text" name="first_name" id="first_name" value={formData.first_name} onChange={handleFormData} required className="form-control mb-2"/>
