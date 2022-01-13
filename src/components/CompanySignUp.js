@@ -25,6 +25,12 @@ const CompanySignUp = () => {
         email: "",
         password: ""
     }
+    const errors = {
+        username: false, 
+        password: false,
+        password_confirmation: false
+      }
+    
 
     const [FormState, setFormState] = useState(initialFormState)
 
