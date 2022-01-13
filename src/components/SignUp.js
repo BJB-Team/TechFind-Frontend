@@ -120,7 +120,7 @@ const SignUp = ({ history }) =>{
       </form>
 
       <p>Looking for the Company Signup page</p>
-      <Link to = "/companysignup"><button type="submit" class="btn btn-primary">Company Signup</button></Link>
+      <Link to = "/companysignup"><button type="submit" className="btn btn-primary">Company Signup</button></Link>
     </div>   
   )
 }
