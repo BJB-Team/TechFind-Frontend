@@ -7,6 +7,7 @@ import SignUp from './SignUp'
 import FinderProfile from './FinderHome'
 import FinderEdit from './FinderEdit'
 import CompanySignUp from './CompanySignUp'
+import CompanyEdit from './CompanyEdit'
 import Home from './Home'
 import Navigation from './Navigation'
 import JobForm from './JobForm'
@@ -62,8 +63,9 @@ const App = () => {
  
   return (
     <StateContext.Provider value={{ store, dispatch }}>
-    <div className="container">
       
+    <div className="container">
+    
       <BrowserRouter>
           <Navigation />
 
@@ -80,6 +82,7 @@ const App = () => {
             <Route path="/create-job" element={<JobForm />} />
             <Route path="/job-listings" element={<DisplayJobs />} />
             <Route path="/company-profile" element={<CompanyHome />} />
+            <Route path="/company-edit" element={<CompanyEdit />} />
             <Route path="/listing/:id" element={<ListingDetails />} />
             <Route path="company-job-list" element={<CompanyJobsList />} />
             <Route path="show-applied" element={<CompanyApplication />} />

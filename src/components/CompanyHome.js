@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile } from '../services/authService'
-import Aside from './Aside'
-
 
 const CompanyHome = () => {
     const{ store, dispatch } = useGlobalState()
     const { loggedInUser } = store
-    const [profile, setProfile] = useState([])
-
+    const [profile, setProfile] = useState({user: {}, profile: {}})
 
     useEffect(()=>{
         companyProfile() 
@@ -20,32 +17,41 @@ const CompanyHome = () => {
         .catch(error=> {console.log(error)})
         },[])
     
+    // onsubmit handler function goes here
+
     return (
         <div>
-            <Aside />
-            <h2>Profile</h2>
-            <h4>Company Profile:</h4>
-            <p></p>
+            <div className="from-group">
+                <label htmlFor="username">Username</label>
+                <input type="text" className="form-control-plaintext" placeholder={ profile.user.username } />
+            </div>
+
+            <div className="from-group">
+                <label htmlFor="company">Company</label>
+                <input type="text" className="form-control-plaintext" placeholder={ profile.profile.company_name } />
+            </div>
             
-            
-            <h4>Company Username:</h4>
-            {/* Access Company name here */}
+            <div className="from-group">
+                <label htmlFor="staticEmail">Email</label>
+                <input type="email" className="form-control-plaintext" placeholder={ profile.user.email } />
+            </div>
 
-            <h4>Company E-Mail:</h4>
-            {/* Access Company name here */}
+            <div className="from-group">
+                <label htmlFor="website">Website</label>
+                <input type="text" className="form-control-plaintext" placeholder={ profile.profile.website } />
+            </div>
 
-            <h4>Company Phone Number:</h4>
-            {/* Access Company name here */}
+            <div className="from-group">
+                <label htmlFor="description">Company Description</label>
+                <input type="text" className="form-control-plaintext" placeholder={ profile.profile.description } rows="5"/>
+            </div>
 
-            <h4>Company Website:</h4>
-            {/* Access Company name here */}
-
-            <h4>About the Company:</h4>
-            {/* Access Company name here */}
-
-            <Link to = "/"><button>Edit Account</button></Link>
-            
-            {/* Make button to delete account */}
+            <div className="from-group">
+                <label htmlFor="phone">Phone</label>
+                <input type="email" className="form-control-plaintext" placeholder={ profile.profile.phone } />
+            </div>
+                
+            <Link to = "/company-edit"><button type="submit" class="btn btn-primary">Edit Account</button></Link>
         </div>
     )
 }

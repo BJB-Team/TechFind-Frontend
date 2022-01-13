@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { signUp } from '../services/authService'
 import styled from "styled-components";
@@ -132,9 +132,10 @@ const SignUp = ({ history }) =>{
       </form>
 
       <p>Looking for the Company Signup page</p>
-      <button>Company Sign up</button>
+      <Link to = "/companysignup"><button type="submit" class="btn btn-primary">Company Signup</button></Link>
       </SignUPForm>
-    </div>   
+    </div>  
+
   )
 }
 

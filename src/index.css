@@ -1,32 +1,251 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+/* @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800"); */
 
+/* CSS for NavBar  */
+
+.navbarwrapper {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 3.55em;
+  padding-bottom: 3.55rem;  
+  border: 2px solid #5DE94A;
+  background:#425664;
+  border-radius: 0px 0px 15px 15px;
+  
+}
+
+.navcontainer{
+  display: flex; 
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding-right: var(--bs-gutter-x,.90rem);
+  padding-left: var(--bs-gutter-x,.90rem);
+  /* margin-right: auto;  */
+  /* margin-left: auto;   */
+}
+
+
+.navbar-brandlogo {
+  /* display: flex;  */
+  font-weight: 600; 
+  color: aliceblue;
+  font-size: 1.90rem;
+  margin-left: 15%; 
+}
+
+.navbar-brandlogo:hover{
+  color:#5DE94A;
+}
+
+.justifycontentend {
+  /* display:flex;  */
+  justify-content: flex-end; 
+  
+} 
+
+.navbar-navli {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 0;
+  margin-bottom: 0;list-style: none;
+
+}
+
+/* .nav-link{
+  color: aliceblue;
+} */
+
+
+
+.navbutton{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; 
+  
+  padding: 14px 32px; 
+
+  position: relative;
+  margin-left: 5%; 
+  height: 45px;
+  font-size: 14px;
+  
+  
+  background: #5DE94A;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: 3px solid #b5f5;
+
+}
+
+
+
+
+
+
+
+/* CSS for home page */
 * {
   box-sizing: border-box;
 }
 
 body {
-  background: #1C8EF9;
-  min-height: 100vh;
+   /* background: #1c8ef9;  */
+  /* background:lightgrey; */
+  height: 100%;
   display: flex;
   font-weight: 400;
-  font-family: 'Fira Sans', sans-serif;
-  padding-top: 200px;
+  font-family: "Fira Sans", sans-serif;
+  padding-top: 150px;
+  border-top: 2px solid #5DE94A;
 }
 
-h1,h2,h3,h4,h5,h6,label,span {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+span {
   font-weight: 500;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
-body, html, .App, #root {
+body,html,.App,.container, #root {
   width: 100%;
   height: 100%;
+  background:#425664;
+ 
 }
 
 /* Style for the aside */
 .aside {
   float: left;
   width: 30%;
-  background: #5DE94A;
+  background: #5de94a;
   padding: 20px;
 }
+
+.containerh {
+  width: 100%;
+  height: 100%;
+  padding-top: 1.90em;
+  display: flex; 
+  /* flex-wrap: wrap; */
+  /* flex: scroll; */
+  /* flex-direction: column;  */
+   
+  justify-content: space-evenly; 
+  /* align-content:center;  */
+  position: fixed; 
+}
+.jumbotron {
+  max-width: 100%; 
+  margin-top: 80px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* height: 90vh; */
+  /* align-items: center;  */
+  /* justify-content: center; */
+    /* flex:1;   */
+  /* position: Absolute; */ 
+
+  @media screen and (max-width: 960px) {
+   flex-direction: column-reverse;
+    width: 100%;
+    height: 100%;
+    margin: 3rem 2rem;
+   }
+ @media screen and (max-width: 768px) {
+  flex-direction: column-reverse;
+  width: 80%;
+  height: 100%;
+  margin: 1rem 2rem;
+ } 
+}
+
+.header {
+  font-size: 45px;
+  font-family: "Fira Sans", sans-serif;
+  margin: 0.3rem 0;
+  color:aliceblue
+
+  /* @media only screen and (max-width: 960px) {
+    font-size: 20px;
+    text-align: left;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 18px;
+    text-align: left; */
+}
+
+.header1 {
+  font-size: 45px;
+  font-family: "Fira Sans", sans-serif;
+  margin: 0.3rem 0;
+  color: #5de94a;
+
+  /* @media only screen and (max-width: 960px) {
+    font-size: 20px;
+    text-align: left;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 18px;
+    text-align: left; */
+}
+
+p {
+  font-size: 24px;
+  max-width: 550px;
+  margin: 1rem 0;
+  color:aliceblue
+  /* @media only screen and (max-width: 960px) {
+    font-size: 16px;
+    text-align: left;
+  } */
+}
+
+.homebutton {
+  /* display: flex;  */
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 10px;
+
+  /* position: relative; */
+  width: 165px;
+  height: 55px;
+  margin: 7px;
+  
+  background: #5de94a;
+  /* box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25); */
+  border-radius: 15px;
+}
+
+.sidecontainer {
+  display: block;
+  /* justify-content:flex-end; */
+  position: relative;  
+  height: 849px;
+  width: 401px;
+  border-radius: 30px 0px 0px 30px;
+  background: #5de94a;
+  
+}
+
+
+.rightSection {
+  margin-bottom: 3rem;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
+}
+
+img{
+  max-width: 450px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+} 
