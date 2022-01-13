@@ -2,6 +2,22 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { login } from '../services/authService'
+import styled from "styled-components";
+
+
+
+
+
+export const LoginForm = styled.div`
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  
+`;
+
 
 const Login = () => {
   const{ store, dispatch } = useGlobalState()
@@ -57,14 +73,15 @@ function handleSubmit(e) {
     
   return (
     <div className="form-group">
+    <LoginForm>  
     <h1>TechFind</h1>
     <h2>Enter your login details</h2>
         <form onSubmit={handleSubmit}>
 
-            {/* Error message */}
-            <div className="alert alert-danger" role="alert">
+           {/* Error message */}
+            {/* <div className="alert alert-danger" role="alert">
                 <p>Incorrent username or password</p>
-            </div>
+            </div>  */}
 
             {/* Change this to accept Username or email */}
             <div className="form-group">
@@ -74,13 +91,14 @@ function handleSubmit(e) {
 
             <div className="form-group">
                 <label htmlFor="password">Password</label>
-                <input type="password" placeholder="Enter you Password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
+                <input type="password" placeholder="Enter your Password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
             </div>
 
             <input type="submit" value="Login" className="btn btn-primary"/>
 
             <p>Don't have an account? <Link to = "/signup">Create One</Link></p>
         </form>
+         </LoginForm>  
     </div>  
   )
 }

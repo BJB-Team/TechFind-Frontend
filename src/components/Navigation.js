@@ -29,21 +29,21 @@ const Navigation = () => {
         <div className="justifycontentend">
           <ul className="navbar-navli">
             <li className="navbutton">
-              <Link className="nav-link" to={"/job-listings"}>Jobs</Link>
+              <Link className="nav-link-button" to={"/job-listings"}>Jobs</Link>
             </li>
               {loggedInUser ?
                 <>
           
                   {seeker === "true" ?
                   <>
-                    <Link className="nav-link" to ="/finder-applied">Applied </Link>
+                    <Link className="nav-link-button" to ="/finder-applied">Applied </Link>
                   </>
                   :
                   <>
                     {seeker === "false" ? (
                       <div>
-                        <Link className="nav-link" to ="/show-applied">Applied </Link>
-                        <Link className="nav-link" to ="/create-job">Create Job</Link>
+                        <Link className="nav-link-button" to ="/show-applied">Applied </Link>
+                        <Link className="nav-link-button" to ="/create-job">Create Job</Link>
                       </div>
                    
                     ):
@@ -53,19 +53,19 @@ const Navigation = () => {
                   </>
                   }
                   <li className="navbutton">
-                    <Link className="nav-link" to ="/finder-profile">Profile</Link>
+                    <Link className="nav-link-button" to ="/finder-profile">Profile</Link>
                   </li>
                   <li className="navbutton">
-                    <Link className="nav-link" to = "/" onClick ={ logout }>Logout</Link>
+                    <Link className="nav-link-button" to = "/" onClick ={ logout }>Logout</Link>
                   </li>
                 </>
                 :
                 <>
                   <li className="navbutton">
-                    <Link className="nav-link" to ="/signup">Sign Up</Link>
+                    <Link className="nav-link-button" to ="/signup">Register</Link>
                   </li>
                   <li className="navbutton">
-                  <Link className="nav-link" to ="/login">Login</Link>
+                  <Link className="nav-link-button" to ="/login">Login</Link>
                   </li>
                 </>
               }
