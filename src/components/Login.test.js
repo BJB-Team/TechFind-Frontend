@@ -1,10 +1,12 @@
 import { configure, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { Login } from './login';
+import Enzyme from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
-configure({ adapter: new Adapter() }); //enzyme - react 16 hooks support
+Enzyme.configure({ adapter: new Adapter() });
+
 
 describe('Login Component', () => {
   it('should render properly', () => {
