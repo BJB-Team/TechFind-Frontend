@@ -46,7 +46,7 @@ const FinderEdit = () => {
         <input type="email" className="form-control" placeholder={ profile.profile.phone } />
       </div>
         
-      <Link to = "/finder-profile"><button type="submit" class="btn btn-primary">Save Changes</button></Link>
+      <Link to = "/finder-profile"><button type="submit" className="btn btn-primary">Save Changes</button></Link>
 
       {/* Add a delete account button with an alert asking if they're sure*/}
       <div className="alert alert-warning alert-dismissible fade show" role="alert">
