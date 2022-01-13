@@ -20,8 +20,16 @@ const SignUp = ({ history }) =>{
     email: "",
     password: "",
   }
+  const errors = {
+    username: false, 
+    password: false,
+    password_confirmation: false
+  }
 
   const [formData, setFormData] = useState(initialFormData)
+
+  const [error, setError] = useState(errors)
+
   let navigate = useNavigate();
 
   function handleFormData(e){
@@ -42,8 +50,11 @@ const SignUp = ({ history }) =>{
     e.preventDefault()
     
     signUp(change(formData))
-    .then(({username, jwt, id}) =>{
-      console.log(id)
+    .then(({username, jwt, id, test}) =>{
+      if (test) {
+        setError(test)
+      } 
+      else {
       sessionStorage.setItem("username", username)
       sessionStorage.setItem("userId", id)
       sessionStorage.setItem("token",jwt)
@@ -60,9 +71,9 @@ const SignUp = ({ history }) =>{
       data:id
     })
     navigate('/finder-profile')
-  })
+    }})
   .catch(error =>{
-      //setError("user exists or password mismatch")
+      setError(error)
   })
   }
 
@@ -88,7 +99,6 @@ const SignUp = ({ history }) =>{
     return form
   }
 
-
   return (
     <div className="form-row">
       <SignUpForm>
@@ -98,34 +108,50 @@ const SignUp = ({ history }) =>{
         
         <div className="form-group2">
           <label htmlFor="username">Username:</label>
-          <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
+        
+        {/* Error message  */}
+        {error.username &&  
+            <div className="alert alert-danger" role="alert">{error.username} </div>}
+
         <div className="form-group2">
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="text" name="email" id="email" value={formData.email} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
+        
         <div className="form-group2">
           <label htmlFor="password">Password:</label>
-          <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData} required  className="form-control mb-2"/>
         </div>
+
+        {/* Error message  */}
+        {error.password &&  
+            <div className="alert alert-danger" role="alert">{error.password} </div>}
+
         <div className="form-group2">
           <label htmlFor="password_confirmation">Password Confirmation:</label>
-          <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="password" name="password_confirmation" id="password_confirmation" value={formData.password_confirmation} required onChange={handleFormData} className="form-control mb-2"/>
         </div>
+        
+        {/* Error message  */}
+        {error.password_confirmation &&  
+            <div className="alert alert-danger" role="alert">{error.password_confirmation} </div>}
+
         <div className="form-group2">
           <label htmlFor="first_name">First Name:</label>
-          <input type="text" name="first_name" id="first_name" value={formData.first_name} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="text" name="first_name" id="first_name" value={formData.first_name} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
         <div className="form-group2">
           <label htmlFor="last_name">Last Name:</label>
-          <input type="text" name="last_name" id="last_name" value={formData.last_name} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="text" name="last_name" id="last_name" value={formData.last_name} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
         <div className="form-group2">
           <label htmlFor="phone">Phone Number:</label>
-          <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleFormData} className="form-control mb-2"/>
+          <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
-
-        <input type="file" name="resume"  onChange={handleFileData} className="form-control-file" />
+         <label htmlFor="phone">Resume</label>
+        <input type="file" name="resume"  onChange={handleFileData} required className="form-control-file" />
 
         <input type="submit" value="Sign up" className="btn btn-primary"/>
       </form>

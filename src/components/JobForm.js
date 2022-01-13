@@ -43,20 +43,20 @@ const JobForm = () => {
       <form onSubmit={handleSubmit}>
     
         <label htmlFor="title">Title:</label>
-        <input type="text" name="title" id="title" value={formData.title} onChange={handleFormData}/>
+        <input type="text" name="title" id="title" value={formData.title} required onChange={handleFormData}/>
 
         <label htmlFor="description">description:</label>
-        <input type="text" name="description" id="description" value={formData.description} onChange={handleFormData}/>
+        <input type="text" name="description" id="description" value={formData.description} required onChange={handleFormData}/>
 
         <label htmlFor="price">Pay:</label>
         <input type="number" name="price" id="price" value={formData.price} onChange={handleFormData}/>
 
         <select
-						value={formData.job_level_id}
+						value={formData.job_level_id} required
 						onChange={(e) =>
 							setFormData({
 								...formData,
-								job_level_id: e.target.value,
+								job_level_id: e.target.value
 							})
 						}
 					>
@@ -69,7 +69,7 @@ const JobForm = () => {
 					</select>
 
           <select
-						value={formData.job_type_id}
+						value={formData.job_type_id} required
 						onChange={(e) =>
 							setFormData({
 								...formData,
