@@ -59,7 +59,7 @@ const SignUp = ({ history }) =>{
       type: "user_id",
       data:id
     })
-    navigate('/')
+    navigate('/finder-profile')
   })
   .catch(error =>{
       //setError("user exists or password mismatch")
@@ -131,11 +131,11 @@ const SignUp = ({ history }) =>{
       </form>
 
       <p>Looking for the Company Signup page</p>
-      <Link to = "/companysignup"><button type="submit" class="btn btn-primary btn-xs ">Company Signup</button></Link>
+
+      <Link to = "/companysignup"><button type="submit" className="btn btn-primary btn-xs ">Company Signup</button></Link>
       
       </SignUpForm> 
     </div>  
-
   )
 }
 
