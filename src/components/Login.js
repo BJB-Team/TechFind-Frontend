@@ -9,12 +9,13 @@ import styled from "styled-components";
 
 
 export const LoginForm = styled.div`
-display: flex;
-  
+  display: flex;
+  margin-top: 30px;
   flex-direction: column;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap-reverse;
+  
 `;
 
 
@@ -72,15 +73,15 @@ function handleSubmit(e) {
     
   return (
     <div className="form-group">
-    <LoginForm> 
+    <LoginForm>  
     <h1>TechFind</h1>
     <h2>Enter your login details</h2>
         <form onSubmit={handleSubmit}>
 
-            {/* Error message */}
-            <div className="alert alert-danger" role="alert">
+           {/* Error message */}
+            {/* <div className="alert alert-danger" role="alert">
                 <p>Incorrent username or password</p>
-            </div>
+            </div>  */}
 
             {/* Change this to accept Username or email */}
             <div className="form-group">
@@ -97,7 +98,7 @@ function handleSubmit(e) {
 
             <p>Don't have an account? <Link to = "/signup">Create One</Link></p>
         </form>
-        </LoginForm> 
+         </LoginForm>  
     </div>  
   )
 }
