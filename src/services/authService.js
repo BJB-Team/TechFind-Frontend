@@ -18,8 +18,14 @@ export async function companyProfile(){
   return response.data
 }
 
-export async function updateCompany(data){
-	const response= await techfindAPI.put("/company/profile",data)
+export async function updateCompany(id, data){
+	const response= await techfindAPI.put(`/auth/profile/${id}`, data)
+	console.log(response)
+	return response.data
+}
+
+export async function destroyCompany(id){
+	const response= await techfindAPI.delete(`/auth/profile/${id}`)
 	console.log(response)
 	return response.data
 }

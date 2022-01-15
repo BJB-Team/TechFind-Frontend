@@ -46,11 +46,8 @@ const CompanySignUp = () => {
     }
 
     function handleSubmit(event){
-        
         event.preventDefault()
-        
         signUp(change(FormState))
-        
         .then(({ username, jwt, id, test }) =>{
             if (test) {
                 setError(test)
@@ -103,7 +100,6 @@ const CompanySignUp = () => {
                 <h1>Sign Up</h1>
                 <form className="SignUpForm" onSubmit={handleSubmit}>
                  
-
                 <div className="form-group3">
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username" id="username" value={FormState.username} onChange={handleFormState} className="form-control"/>

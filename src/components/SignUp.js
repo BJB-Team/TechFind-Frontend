@@ -48,7 +48,7 @@ const SignUp = ({ history }) =>{
 
   function handleSubmit(e){
     e.preventDefault()
-    
+
     signUp(change(formData))
     .then(({username, jwt, id, test}) =>{
       if (test) {

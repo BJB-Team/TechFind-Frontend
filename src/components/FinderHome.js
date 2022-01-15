@@ -6,7 +6,7 @@ import { companyProfile } from '../services/authService'
 const FinderHome = () => {
   const { store, dispatch } = useGlobalState()
   const { loggedInUser } = store
-  const [profile, setProfile] = useState({user: {}, profile: {}})
+  const [profile, setProfile] = useState({user: {}, seeker_attributes: {}})
 
   useEffect(()=>{
     companyProfile() 
@@ -33,17 +33,17 @@ const FinderHome = () => {
 
       <div className="from-group">
         <label htmlFor="firstname">First Name</label>
-        <input type="text" className="form-control-plaintext" placeholder={ profile.profile.first_name } />
+        <input type="text" className="form-control-plaintext" placeholder={ profile.seeker_attributes.first_name } />
       </div>
 
       <div className="from-group">
         <label htmlFor="lastname">Last Name</label>
-        <input type="text" className="form-control-plaintext" placeholder={ profile.profile.last_name } />
+        <input type="text" className="form-control-plaintext" placeholder={ profile.seeker_attributes.last_name } />
       </div>
 
       <div className="from-group">
         <label htmlFor="phone">Phone</label>
-        <input type="email" className="form-control-plaintext" placeholder={ profile.profile.phone } />
+        <input type="email" className="form-control-plaintext" placeholder={ profile.seeker_attributes.phone } />
       </div>
         
       <Link to = "/finder-edit"><button type="submit" class="btn btn-primary">Edit Account</button></Link>
