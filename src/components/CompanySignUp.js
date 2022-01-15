@@ -145,7 +145,7 @@ const CompanySignUp = () => {
                     <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
 
-                <p></p>
+                {/* <p>"#"</p>  */}
 
                 <input type="submit" className="btn btn-primary btn-block" value="Sign up" />
         
