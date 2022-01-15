@@ -1,11 +1,11 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
-import { getJobLevel, createJob, getJobType } from '../services/jobListingService'
+import { createJob } from '../services/jobListingService'
 
 const JobForm = () => {
 
-  const{store, dispatch} = useGlobalState()
+  const{ store, dispatch } = useGlobalState()
   const { jobType, jobLevel } = store
 
   let navigate = useNavigate();

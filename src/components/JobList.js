@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import styled from "styled-components";
 
@@ -56,7 +56,7 @@ const DisplayJobs = () =>{
   function idChecker(x,job){
    let test = ""
    job.map((type,index) => {
-      if(type.id == x){
+      if(type.id === x){
         test = type.name
       }
     })

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile, destroyCompany, updateCompany } from '../services/authService'
 
@@ -48,12 +48,12 @@ const CompanyEdit = () => {
         const filteredData = {user: {company_attributes:{}}}
         for (const value in data.user) {
             
-          if (value == "username" || value == "email"|| value == "account_seeker" || value == "password"|| value == "password_confirmation"){
+          if (value === "username" || value === "email"|| value === "account_seeker" || value === "password"|| value === "password_confirmation"){
               filteredData.user[value] =data.user[value]
           }
         }
         for (const value in data.company_attributes){
-            if (value == "company_name" || value == "website"|| value == "phone" ){
+            if (value === "company_name" || value === "website"|| value === "phone" ){
                 filteredData.user[`company_attributes`][value] = data[`company_attributes`][value]
             }
         }

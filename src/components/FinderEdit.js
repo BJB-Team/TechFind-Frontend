@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
-import { companyProfile, destroyCompany, updateCompany } from '../services/authService'
+import { companyProfile, destroyCompany } from '../services/authService'
 
 const FinderEdit = () => {
   const { store, dispatch } = useGlobalState()

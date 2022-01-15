@@ -20,7 +20,7 @@ export const LoginForm = styled.div`
 
 
 const Login = () => {
-  const{ store, dispatch } = useGlobalState()
+  const{ dispatch } = useGlobalState()
   let navigate = useNavigate();
   const initialFormData = {
     email: "",

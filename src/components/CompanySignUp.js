@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { signUp } from '../services/authService'
-import Aside from './Aside'
+// import Aside from './Aside'
 import styled from "styled-components";
 
 

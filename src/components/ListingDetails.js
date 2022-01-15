@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import {useNavigate, Link, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { getJobListing, deleteListingId, appyListing } from '../services/jobListingService'
 
@@ -20,7 +20,7 @@ const ListingDetails = () =>{
   function idChecker(x,job){
     let test = ""
     job.map((type) => {
-       if(type.id == x){
+       if(type.id === x){
          test = type.name
        }
      })
