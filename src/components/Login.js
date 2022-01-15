@@ -47,6 +47,7 @@ function handleSubmit(e) {
         sessionStorage.setItem("userId", user.id)
         sessionStorage.setItem("username",user.username)
         sessionStorage.setItem("token",user.jwt)
+        sessionStorage.setItem("seeker",user.account_seeker)
         dispatch({
             type: "setLoggedInUser",
             data:user.username
@@ -63,7 +64,7 @@ function handleSubmit(e) {
             type: "seeker",
             data:user.account_seeker
         })
-        navigate('/finder-profile')
+        navigate('/')
     }
     })
     .catch(error => {

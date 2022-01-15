@@ -28,7 +28,7 @@ const App = () => {
     user_id: sessionStorage.getItem('userId') || null,
 		loggedInUser: sessionStorage.getItem("username") || null,
     auth:{token:sessionStorage.getItem("token") || null},
-    company: null,
+    seeker: sessionStorage.getItem("seeker") || null,
     jobListings: [],
     jobType: [], 
     jobLevel: []
