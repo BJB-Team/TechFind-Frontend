@@ -47,6 +47,14 @@ export default function reducer(state,action){
           jobListings:[action.data, ...state.jobListings]
       }
     }
+    case"editJobListing":{
+      const updatedListingList = state.jobListings.filter((listing) => 
+      listing.id !== parseInt (action.data))
+      return{
+          ...state,
+          jobListings:updatedListingList
+      }
+    }
 
     case "deleteListing":{
       const updatedListingList = state.jobListings.filter((listing) => 

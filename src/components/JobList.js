@@ -70,15 +70,15 @@ const DisplayJobs = () =>{
       <Cards>
 
       {/* Render list of jobs */}
-      {jobListings.map((message, index)=> 
+      {jobListings.map((listing, index)=> 
       [
         <div className="list-group">
-          <Link to = {`/listing/${message.id}`} className="list-group-item list-group-item-action flex-column align-items-start">
+          <Link to = {`/listing/${listing.id}`} className="list-group-item list-group-item-action flex-column align-items-start">
             <div className="d-flex w-100 justify-content-between">
-              <h5 className="mb-1">{ message.title }  { idChecker(message.job_type_id,jobType) } { idChecker(message.job_level_id, jobLevel) }</h5>
-              <h5> Salary: $ { message.price }</h5>
+              <h5 className="mb-1">{ listing.title }  { idChecker(listing.job_type_id,jobType) } { idChecker(listing.job_level_id, jobLevel) }</h5>
+              <h5> Salary: $ { listing.price }</h5>
             </div>
-            <p className="mb-1">{ message.description }</p>
+            <p className="mb-1">{ listing.description }</p>
           </Link>
         </div>
       ]

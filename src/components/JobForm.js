@@ -85,7 +85,7 @@ const JobForm = () => {
 						))}
 					</select>    
 
-        <input type="submit" value="Submite Form" />
+        <input type="submit" value="Submit Form" />
       </form>
     </div>   
   )
