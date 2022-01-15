@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, Link } from "react-router-dom";
-import { useGlobalState } from '../utils/stateContext'
-import Aside from './Aside'
+import { Link } from "react-router-dom";
+// import { useGlobalState } from '../utils/stateContext'
+// import Aside from './Aside'
 import { showApplied,downloadApplication } from '../services/jobListingService'
 import { saveAs } from "file-saver";
 

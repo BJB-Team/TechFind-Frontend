@@ -81,7 +81,7 @@ const SignUp = ({ history }) =>{
     // const filteredData = {user: {seeker_attributes:{}}}
     const form  = new FormData();
     for (const value in data) {
-      if (value == "username" || value == "email"|| value == "password"|| value === "password_confirmation"){
+      if (value === "username" || value === "email"|| value === "password"|| value === "password_confirmation"){
         form.append(`user[${value}]`, data[value])
         // filteredData.user[value] = data[value]
       }

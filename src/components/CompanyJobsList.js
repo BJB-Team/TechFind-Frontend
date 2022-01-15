@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
-import Aside from './Aside'
 
 const CompanyJobList = () => {
   const{ store } = useGlobalState()
-  const { jobListings, user_id} = store
+  const { jobListings, user_id } = store
   const[myJobList,setMyJobList] = useState([]);
 
   useEffect(()=>{
     const list = []
-    jobListings.map((listing, index) => listing.user_id == user_id ? list.push(listing)  : "nothing")
+    jobListings.map((listing, index) => listing.user_id === user_id ? list.push(listing)  : "nothing")
     setMyJobList(list)
     },[])
 
