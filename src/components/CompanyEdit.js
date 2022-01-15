@@ -107,7 +107,7 @@ const CompanyEdit = () => {
                  </div>
                  <div className="form-group3">
                      <label htmlFor="website">Website Link:</label>
-                     <input type="text" name="website" id="website"  value={profile.company_attributes.website} onChange={handleFormStateProfile} className="form-control"/>
+                     <input type="text" name="website" id="website"  className="form-control"/>
                  </div>
 
                  <div className="form-group3">
