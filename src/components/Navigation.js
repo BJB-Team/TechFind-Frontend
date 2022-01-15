@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate  } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import "../index.css"
 
 const Navigation = () => {
   const { store, dispatch } = useGlobalState()
   const { loggedInUser, seeker } = store
- 
+  let navigate = useNavigate();
   function logout(e) {
     e.preventDefault()
     sessionStorage.clear()
@@ -18,6 +18,7 @@ const Navigation = () => {
       type: "setToken",
       data:""
     })
+    navigate('/')
   }
 
   return (

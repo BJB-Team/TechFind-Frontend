@@ -48,6 +48,12 @@ export async function myApplied(){
   return response.data
 }
 
+export async function downloadApplication(id){
+  const response = await techfindAPI.get(`/api/download${id}`) 
+  console.log(response)
+  return response.data
+}
+
 
 
 
