@@ -1,17 +1,18 @@
 <div style="text-align:center">
-    <img align="centre" src="https://img.shields.io/tokei/lines/github/BJB-Team/TechFind?style=flat-square">
-    <img src="https://img.shields.io/github/languages/top/BJB-Team//TechFind?style=flat-square"> <img src="https://img.shields.io/github/repo-size/BJB-Team/TechFind?style=flat-square">
+    <img align="centre" src="https://img.shields.io/tokei/lines/github/BJB-Team/TechFind-frontend?style=flat-square">
+    <img src="https://img.shields.io/netlify/19440c6c-fec9-46b5-904d-e4e6961e5bcd?style=flat-square"> <img src="https://img.shields.io/github/repo-size/BJB-Team/TechFind-frontend?style=flat-square">
 </div>
 
 <p align="center">
   <h2 align="center">TechFind</h2>
   <h3 align="center">Coder Academy Assignment 2A & 2B - Term 3</h3>
   <p align="center">
-    <a href="https://github.com/BJB-Team/TechFind">Link to Front-end Repository</a>
+    <a href="https://github.com/BJB-Team/TechFind-Frontend">Link to Front-end Repository</a>
     ·
-    <a href="/">Link to Back-end Repository</a>
-    .
-    <a href="/">Link to Deployed Website</a>
+    <a href="https://github.com/BJB-Team/TechFind-Backend">Link to Back-end Repository</a>
+    ·
+    <a href="www.techfind.software">www.techfind.software</a>
+
   </p>
 </p>
 
@@ -51,12 +52,23 @@
 
 The core programming languages/frameworks used to build this application are:
 
-- Ruby on Rails [Read Docs](https://guides.rubyonrails.org/getting_started.html)
-- HTML5 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- CSS3 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- JavaScript (ES6) [Read Docs](https://262.ecma-international.org/6.0/)
-- ReactJS [Read Docs](https://reactjs.org/)
-- Postgresql [Read Docs](https://www.postgresql.org/)
+### Ruby on Rails [Read Docs](https://guides.rubyonrails.org/getting_started.html)
+
+Ruby on Rails was used to create the backend API that has data stored in it's accomanying Postgresql database. Ruby on Rails was chosen for it's simplicity to create a full stack application with little extra dependencies.
+
+### HTML5 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
+HTML provides the structure of every website. With the latest version HTML5 bringing easy to read semantic tagging with some client side validation within forms.
+
+### CSS3 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+Cascading style sheets (CSS) are the framwork for adding a visually appealing structure to our website. CSS libraries used for this project are Bootstrap and Styled Components.
+
+### JavaScript (ES6) [Read Docs](https://262.ecma-international.org/6.0/)
+
+### ReactJS [Read Docs](https://reactjs.org/)
+
+### Postgresql [Read Docs](https://www.postgresql.org/)
 
 ### **Statement of Purpose**
 
@@ -86,6 +98,16 @@ As the deadline for Part A came close, exact roles were determined and delegated
 
 The Trello board can be accessed publicly [here](https://trello.com/b/U2Pme2ea/project-management).
 
+### **Project Management in the Post Mortum**
+
+Kanban trello board. Each PR was done by one user then assigned a person to approve each commit and is then handed back to the initial PR person to squash and merge.
+
+Wanted to try set up Continuous Integration 
+
+This was kind of done with Netlify where we would stage and commit changes then Netlify would test these changes before they were pushed to production.
+
+
+Now that the project is finished. 
 ### **Functionality / Features**
 
 Here are some of the features that will be implemented for this application.
@@ -170,9 +192,13 @@ Here are some User Stories that we built this application from. Each stories out
 
 > "As a company, I can add jobs to my company profile, so that I can show future prospects what jobs I am hiring for."
 
+#### User Testing of Deployed Site and Production
+
+Insert some stuff about the user running through the site
+
 ### **Application Architecture Diagram**
 
-As you can see from the Architecture diagram below, this application will have the front-end deployed through Netlify while the back-end will be on Heroku. Axios requests will send information between the two platforms creating a full stack application completely hosted on the cloud.
+As you can see from the Architecture diagram below, this application will have the front-end deployed through Netlify. The views part of the MVC framework is handled by React. While the back-end will be on Heroku and will contain the Models and the Controller actions. Axios requests will send information between the two platforms creating a full stack application completely hosted on the cloud. 
 
 <img src="Resources/ArchitectureDiagram.png">
 
