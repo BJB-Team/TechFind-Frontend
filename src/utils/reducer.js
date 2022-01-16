@@ -1,4 +1,4 @@
-import { getJobLevel } from "../services/jobListingService"
+// import { getJobLevel } from "../services/jobListingService"
 
 export default function reducer(state,action){
   // eslint-disable-next-line default-case
@@ -45,6 +45,14 @@ export default function reducer(state,action){
       return{
           ...state,
           jobListings:[action.data, ...state.jobListings]
+      }
+    }
+    case"editJobListing":{
+      const updatedListingList = state.jobListings.filter((listing) => 
+      listing.id !== parseInt (action.data))
+      return{
+          ...state,
+          jobListings:updatedListingList
       }
     }
 

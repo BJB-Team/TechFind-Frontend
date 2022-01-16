@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
-import { companyProfile } from '../services/authService'
+import { companyProfile, destroyCompany } from '../services/authService'
 
 const FinderEdit = () => {
   const { store, dispatch } = useGlobalState()
-  const { loggedInUser } = store
-  const [profile, setProfile] = useState({user: {}, profile: {}})
+  let navigate = useNavigate();
+  const [profile, setProfile] = useState({user: {}, seeker_attributes: {}})
 
   useEffect(()=>{
     companyProfile() 
@@ -18,7 +19,20 @@ const FinderEdit = () => {
     },[])
   
   // onsubmit handler function goes here
-
+  function destroy(e){
+    destroyCompany(profile.user.id)
+    .then((data)=> {
+        dispatch({
+            type: "setLoggedInUser",
+            data: ""
+        })
+        dispatch({
+            type: "setToken",
+            data:""
+        })
+        navigate('/')
+    }) 
+}
   return (
     <div>
       <div className="from-group">
@@ -33,26 +47,23 @@ const FinderEdit = () => {
 
       <div className="from-group">
         <label htmlFor="firstname">First Name</label>
-        <input type="text" className="form-control" placeholder={ profile.profile.first_name } />
+        <input type="text" className="form-control" placeholder={ profile.seeker_attributes.first_name } />
       </div>
 
       <div className="from-group">
         <label htmlFor="lastname">Last Name</label>
-        <input type="text" className="form-control" placeholder={ profile.profile.last_name } />
+        <input type="text" className="form-control" placeholder={ profile.seeker_attributes.last_name } />
       </div>
 
       <div className="from-group">
         <label htmlFor="phone">Phone</label>
-        <input type="email" className="form-control" placeholder={ profile.profile.phone } />
+        <input type="email" className="form-control" placeholder={ profile.seeker_attributes.phone } />
       </div>
         
       <Link to = "/finder-profile"><button type="submit" className="btn btn-primary">Save Changes</button></Link>
 
       {/* Add a delete account button with an alert asking if they're sure*/}
-      <div className="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Are you sure you want to delete your account, there's no going back if you do!</strong><button>Yes</button><button>No</button>
-      </div>
-      
+      <button onClick = {destroy}>Delete Account</button>
     </div>
   )
 }

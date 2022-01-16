@@ -24,12 +24,17 @@ export async function getJobType(){
 
 export async function getJobListing(id){
   const response = await techfindAPI.get(`/api/jobs/${id}`)
+  console.log(response)
   return response.data
 }
 
-
 export async function deleteListingId(id){
   const response = await techfindAPI.delete(`/api/jobs/${id}`) 
+  return response.data
+}
+
+export async function updateListingId(id, data){
+  const response = await techfindAPI.put(`/api/jobs/${id}`,data) 
   return response.data
 }
 
@@ -45,6 +50,12 @@ export async function showApplied(){
 
 export async function myApplied(){
   const response = await techfindAPI.get(`/api/my-application`) 
+  return response.data
+}
+
+export async function downloadApplication(id){
+  const response = await techfindAPI.get(`/api/download${id}`) 
+  console.log(response)
   return response.data
 }
 

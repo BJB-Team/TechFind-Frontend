@@ -6,13 +6,12 @@ import { companyProfile } from '../services/authService'
 const CompanyHome = () => {
     const{ store, dispatch } = useGlobalState()
     const { loggedInUser } = store
-    const [profile, setProfile] = useState({user: {}, profile: {}})
+    const [profile, setProfile] = useState({user: {}, company_attributes: {}})
 
     useEffect(()=>{
         companyProfile() 
         .then((data)=> {
             setProfile(data)
-            console.log(data)
         }) 
         .catch(error=> {console.log(error)})
         },[])
@@ -20,35 +19,37 @@ const CompanyHome = () => {
     // onsubmit handler function goes here
 
     return (
+        
         <div>
             <div className="from-group">
                 <label htmlFor="username">Username</label>
-                <input type="text" className="form-control-plaintext" placeholder={ profile.user.username } />
+                <p >{profile.user.username}</p>
             </div>
 
             <div className="from-group">
                 <label htmlFor="company">Company</label>
-                <input type="text" className="form-control-plaintext" placeholder={ profile.profile.company_name } />
+                <p >{profile.company_attributes.company_name}</p>
             </div>
             
             <div className="from-group">
                 <label htmlFor="staticEmail">Email</label>
-                <input type="email" className="form-control-plaintext" placeholder={ profile.user.email } />
+                <p>{profile.user.email}</p>
+                
             </div>
 
             <div className="from-group">
                 <label htmlFor="website">Website</label>
-                <input type="text" className="form-control-plaintext" placeholder={ profile.profile.website } />
+                <p >{profile.company_attributes.website}</p>
             </div>
 
             <div className="from-group">
                 <label htmlFor="description">Company Description</label>
-                <input type="text" className="form-control-plaintext" placeholder={ profile.profile.description } rows="5"/>
+                <p >{profile.company_attributes.description}</p>
             </div>
 
             <div className="from-group">
                 <label htmlFor="phone">Phone</label>
-                <input type="email" className="form-control-plaintext" placeholder={ profile.profile.phone } />
+                <p >{profile.company_attributes.phone}</p>
             </div>
                 
             <Link to = "/company-edit"><button type="submit" class="btn btn-primary">Edit Account</button></Link>

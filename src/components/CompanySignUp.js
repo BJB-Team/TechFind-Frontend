@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { signUp } from '../services/authService'
-import Aside from './Aside'
+// import Aside from './Aside'
 import styled from "styled-components";
 
 
@@ -46,11 +46,8 @@ const CompanySignUp = () => {
     }
 
     function handleSubmit(event){
-        
         event.preventDefault()
-        
         signUp(change(FormState))
-        
         .then(({ username, jwt, id, test }) =>{
             if (test) {
                 setError(test)
@@ -103,7 +100,6 @@ const CompanySignUp = () => {
                 <h1>Sign Up</h1>
                 <form className="SignUpForm" onSubmit={handleSubmit}>
                  
-
                 <div className="form-group3">
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username" id="username" value={FormState.username} onChange={handleFormState} className="form-control"/>
@@ -145,7 +141,7 @@ const CompanySignUp = () => {
                     <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
 
-                <p></p>
+                {/* <p>"#"</p>  */}
 
                 <input type="submit" className="btn btn-primary btn-block" value="Sign up" />
         

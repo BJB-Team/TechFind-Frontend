@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, Link } from "react-router-dom";
-import { useGlobalState } from '../utils/stateContext'
-import Aside from './Aside'
-import { showApplied } from '../services/jobListingService'
+import { Link } from "react-router-dom";
+// import { useGlobalState } from '../utils/stateContext'
+// import Aside from './Aside'
+import { showApplied,downloadApplication } from '../services/jobListingService'
+import { saveAs } from "file-saver";
 
 const CompanyApplication = () => {
   const[applications,setApplications] = useState()
 
 
-  useEffect(()=>{
+  useEffect((id)=>{
     showApplied() 
     .then((data)=> {
       setApplications(data)
     }) 
     .catch(error=> {console.log(error)})
     },[])
-    console.log(applications)
+    
+
+  function download(id) {
+    downloadApplication(id)
+    .then((user)=>{
+      saveAs(user,'resume')
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
   return(
     <div>
       {applications ?
@@ -27,7 +38,7 @@ const CompanyApplication = () => {
                 <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">{ application.title } {applications.my_applications[index].first_name} {applications.my_applications[index].last_name}</h5>
                   </div>
-                  <button className="mb-2">resume</button>
+                  <button className="mb-2" onClick = {() => {download(applications.my_applications[index].id)}} >resume</button>
                   <Link to = {`/listing/${application.id}`}><button className="mb-2">See Job</button> </Link>
                 </div>
               </div>
