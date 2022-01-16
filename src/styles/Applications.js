@@ -8,9 +8,8 @@ export const CardSmall = styled.div`
   padding: 10px;
   height: 250px;
   margin: 1rem;
-  background: ${theme.accentBg};
-  color: ${theme.PrimaryTxt};
-  border: 1px solid ${theme.Accent};
+
+  border: 1px solid;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
@@ -31,5 +30,5 @@ export const AppCardContainer = styled.div`
 export const AppCard = styled.div`
   width: 100%;
   
-  
+
 `;
