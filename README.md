@@ -50,25 +50,31 @@
 
 ### **Built With (Tech Stack)**
 
-The core programming languages/frameworks used to build this application are:
+The core programming languages/frameworks/libraries used to build this application are:
 
 ### Ruby on Rails [Read Docs](https://guides.rubyonrails.org/getting_started.html)
 
-Ruby on Rails was used to create the backend API that has data stored in it's accomanying Postgresql database. Ruby on Rails was chosen for it's simplicity to create a full stack application with little extra dependencies.
+Ruby on Rails was used to create the backend API that has data stored in it's accompanying Postgresql database. Ruby on Rails was chosen for it's simplicity to create a full stack application with little extra dependencies. In the Model, View and Controller (MVC) framework, Rails will handle the Model and the Controller actions. Essentially handling all the server side code when the client requires it.
 
 ### HTML5 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
-HTML provides the structure of every website. With the latest version HTML5 bringing easy to read semantic tagging with some client side validation within forms.
+HTML provides the structure of every website. With the latest version HTML5 bringing easy to read semantic tagging with some client side validation within forms. HTML sites in every React component that's rendered as JSX.
 
 ### CSS3 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-Cascading style sheets (CSS) are the framwork for adding a visually appealing structure to our website. CSS libraries used for this project are Bootstrap and Styled Components.
+Cascading style sheets (CSS) is the framework for adding visual styles to the structure of our website. CSS libraries used for this project are Bootstrap and Styled Components. Bootstrap and Styled Component sit inside each React Component while minor amendments to these frameworks sits in a corresponding CSS file.
 
 ### JavaScript (ES6) [Read Docs](https://262.ecma-international.org/6.0/)
 
+Javascript (& ES6) is the core functionality of the front-end part of this site. 
+
 ### ReactJS [Read Docs](https://reactjs.org/)
 
+React is a Javascript library that uses component-based methodology this makes for easy single page applications and the reason React was the library used for this assignment. 
+
 ### Postgresql [Read Docs](https://www.postgresql.org/)
+
+Postgresql
 
 ### **Statement of Purpose**
 
@@ -82,11 +88,11 @@ The target audience for this application are people in the technology industry l
 
 To manage the team for this application a Trello board was set up to help follow an agile methodology. Each team member has been assigned different roles.
 
-- Ben Aitcheson - Organising the documentation while assisting both front and back-end development.
+- Ben Aitcheson - Organising the documentation, front-end development and DevOps.
 
 - Jack Kirkwood - Back-end development and Databases.
 
-- Lukusa (Blaise) Tshitenga - Front-End development, Wire-framing and Architecture design.
+- Lukusa (Blaise) Tshitenga - User Experience/Interfacing, Graphic Design, Wire-framing and Architecture design.
 
 This is the initial board. Everything from the marking rubric was thrown in and our feature design was started. Colours were chosen for each team member and roles were assigned.
 
@@ -98,16 +104,33 @@ As the deadline for Part A came close, exact roles were determined and delegated
 
 The Trello board can be accessed publicly [here](https://trello.com/b/U2Pme2ea/project-management).
 
-### **Project Management in the Post Mortum**
+### **Project Management in the Post Mortem**
+
+Following a Kanban style methodology the team set up a Trello board to delegate work. Column's in the board included Brainstorming, To Do, Doing, Testing, Review and Completed. 
+
+Brainstorm: This part of the board was used to do all of the brainstorming. What features did we want and how we drilled down on the idea. It was also the place where we defined our core features and what was a nice to have feature.
+
+To Do: All the ideas that came from our core features were created here initially. 
+
+
+
 
 Kanban trello board. Each PR was done by one user then assigned a person to approve each commit and is then handed back to the initial PR person to squash and merge.
 
 Wanted to try set up Continuous Integration 
 
+ES-Linting 
+
+Flow typechecking
+
 This was kind of done with Netlify where we would stage and commit changes then Netlify would test these changes before they were pushed to production.
 
 
 Now that the project is finished. 
+
+### **Testing**
+
+Talk about client testing here
 ### **Functionality / Features**
 
 Here are some of the features that will be implemented for this application.
