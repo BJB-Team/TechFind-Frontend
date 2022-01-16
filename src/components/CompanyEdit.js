@@ -7,7 +7,7 @@ import { companyProfile, destroyCompany, updateCompany } from '../services/authS
 const CompanyEdit = () => {
     const{ dispatch } = useGlobalState()
     let navigate = useNavigate();
-    const [profile, setProfile] = useState({user: {password: "", password_confirmation: ""}, company_attributes: {company_name: ""}})
+    const [profile, setProfile] = useState({user: {password: "", password_confirmation: ""}, company_attributes: {}})
 
     const errors = {
         username: false, 
@@ -26,7 +26,7 @@ const CompanyEdit = () => {
     function handleFormStateProfile(event){
         setProfile({
             ...profile,
-            "user": {...profile.user, "company_attributes": {...profile.company_attributes, [event.target.name] : event.target.value}}
+            "company_attributes": {...profile.company_attributes,[event.target.name] : event.target.value}
         })
     }
     function destroy(e){
@@ -53,10 +53,13 @@ const CompanyEdit = () => {
           }
         }
         for (const value in data.company_attributes){
+            console.log("value", value)
+            console.log(data.company_attributes[value])
             if (value === "company_name" || value === "website"|| value === "phone" ){
                 filteredData.user[`company_attributes`][value] = data[`company_attributes`][value]
             }
         }
+        console.log(filteredData)
         return filteredData
       }
 
@@ -89,7 +92,7 @@ const CompanyEdit = () => {
                  
                  <div className="form-group3">
                      <label htmlFor="username">Username:</label>
-                     <input type="text" name="username" id="username" value={profile.user.username} onChange={handleFormStateUser} className="form-control"/>
+                     <input type="text" name="username" id="username" defaultValue={profile.user.username} onChange={handleFormStateUser} className="form-control"/>
                  </div>
 
                   {/* Error message  */}
@@ -98,12 +101,12 @@ const CompanyEdit = () => {
  
                  <div className="form-group3">
                      <label htmlFor="email">Email:</label>
-                     <input type="text" name="email" id="email" value={profile.user.email} onChange={handleFormStateUser}  className="form-control mb-2"/>
+                     <input type="text" name="email" id="email" defaultValue={profile.user.email} onChange={handleFormStateUser}  className="form-control mb-2"/>
                  </div>
                 
                  <div className="form-group3">
                      <label htmlFor="company_name">Company Name:</label>
-                     <input type="text" name="company_name" id="company_name" value={profile.company_attributes.company_name} onChange={handleFormStateProfile} className="form-control"/>
+                     <input type="text" name="company_name" id="company_name" defaultValue={profile.company_attributes.company_name} onChange={handleFormStateProfile} className="form-control"/>
                  </div>
                  <div className="form-group3">
                      <label htmlFor="website">Website Link:</label>
@@ -112,7 +115,7 @@ const CompanyEdit = () => {
 
                  <div className="form-group3">
                      <label htmlFor="phone">Phone Number:</label>
-                     <input type="number" name="phone" id="phone" value={profile.company_attributes.phone} onChange={handleFormStateProfile}  className="form-control"/>
+                     <input type="number" name="phone" id="phone" defaultValue={profile.company_attributes.phone} onChange={handleFormStateProfile}  className="form-control"/>
                  </div>
  
                  <p></p>
@@ -120,7 +123,7 @@ const CompanyEdit = () => {
                 <h2>Confirm password to save changes</h2>
                  <div className="form-group3">
                      <label htmlFor="password">Password</label>
-                     <input type="password" name="password" id="password" value={profile.user.password} onChange={handleFormStateUser} required className="form-control mb-2"/>
+                     <input type="password" name="password" id="password" defaultValue={profile.user.password} onChange={handleFormStateUser} required className="form-control mb-2"/>
                  </div>
                     
                   {/* Error message  */}
@@ -129,7 +132,7 @@ const CompanyEdit = () => {
  
                  <div className="form-group3">
                      <label htmlFor="password_confirmation">Password Confirmation</label>
-                     <input type="password" name="password_confirmation" id="password_confirmation" value={profile.user.password_confirmation} required onChange={handleFormStateUser} className="form-control mb-2"/>
+                     <input type="password" name="password_confirmation" id="password_confirmation" defaultValue={profile.user.password_confirmation} required onChange={handleFormStateUser} className="form-control mb-2"/>
                  </div>
                  
                   {/* Error message  */}
