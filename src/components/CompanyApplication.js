@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import Aside from './Aside'
 import { showApplied,downloadApplication } from '../services/jobListingService'
 import { saveAs } from "file-saver";
+import { AppCardContainer } from '../styles/Applications';
 
 const CompanyApplication = () => {
   const[applications,setApplications] = useState()
@@ -28,14 +29,17 @@ const CompanyApplication = () => {
     })
   }
   return(
-    <div>
+    <ListingContainer>
+      <Heading>Applications</Heading>
+      <AppCardContainer>
+      <AppCard>
       {applications ?
         <>
         {applications.my_listings.map((application, index)=> 
             [
               <div className="list-group">
                 <div className="list-group-item list-group-item-action flex-column align-items-start">
-                <div className="d-flex w-100 justify-content-between">
+                  <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">{ application.title } {applications.my_applications[index].first_name} {applications.my_applications[index].last_name}</h5>
                   </div>
                   <button className="mb-2" onClick = {() => {download(applications.my_applications[index].id)}} >resume</button>
@@ -51,9 +55,9 @@ const CompanyApplication = () => {
       
       </>
     }
-         
-
-    </div>
+    </AppCard>    
+    </AppCardContainer>
+    </ListingContainer>
   )
 }
 
