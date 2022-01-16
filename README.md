@@ -95,6 +95,10 @@ The Trello board can be accessed publicly [here](https://trello.com/b/U2Pme2ea/p
 
 ### **Project Management in the Post Mortum**
 
+Kanban trello board. Each PR was done by one user then assigned a person to approve each commit and is then handed back to the initial PR person to squash and merge.
+
+
+
 Now that the project is finished. 
 ### **Functionality / Features**
 
@@ -179,6 +183,10 @@ Here are some User Stories that we built this application from. Each stories out
 > "As a job poster, I can login under my company profile, so that seekers can see which company I work for."
 
 > "As a company, I can add jobs to my company profile, so that I can show future prospects what jobs I am hiring for."
+
+#### User Testing of Deployed Site and Production
+
+Insert some stuff about the user running through the site
 
 ### **Application Architecture Diagram**
 
