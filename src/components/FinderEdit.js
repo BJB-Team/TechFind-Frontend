@@ -9,6 +9,20 @@ const FinderEdit = () => {
   let navigate = useNavigate();
   const [profile, setProfile] = useState({user: {}, seeker_attributes: {}})
 
+  function handleFormStateUser(event){
+    setProfile({
+        ...profile,
+        "user": {...profile.user,[event.target.name] : event.target.value}
+    })
+}
+
+function handleFormStateProfile(event){
+    setProfile({
+        ...profile,
+        'seeker_attributes': {...profile.seeker_attributes, [event.target.name] : event.target.value}
+    })
+}
+
   useEffect(()=>{
     companyProfile() 
     .then((data)=> {
@@ -37,27 +51,27 @@ const FinderEdit = () => {
     <div>
       <div className="from-group">
         <label htmlFor="username">Username</label>
-        <input type="text" className="form-control" placeholder={ profile.user.username } />
+        <input type="text" name="username" id="username" className="form-control" defaultValue={ profile.user.username } onChange = {handleFormStateUser}/>
       </div>
 
       <div className="from-group">
         <label htmlFor="staticEmail">Email</label>
-        <input type="email" className="form-control" placeholder={ profile.user.email } />
+        <input type="email" className="form-control" defaultValue={ profile.user.email } />
       </div>
 
       <div className="from-group">
         <label htmlFor="firstname">First Name</label>
-        <input type="text" className="form-control" placeholder={ profile.seeker_attributes.first_name } />
+        <input type="text" name="first_name" id="first_name" className="form-control" defaultValue={profile.seeker_attributes.first_name } onChange = {handleFormStateProfile} />
       </div>
 
       <div className="from-group">
         <label htmlFor="lastname">Last Name</label>
-        <input type="text" className="form-control" placeholder={ profile.seeker_attributes.last_name } />
+        <input type="text" className="form-control" defaultValue={ profile.seeker_attributes.last_name } />
       </div>
 
       <div className="from-group">
         <label htmlFor="phone">Phone</label>
-        <input type="email" className="form-control" placeholder={ profile.seeker_attributes.phone } />
+        <input type="email" className="form-control" defaultValue={ profile.seeker_attributes.phone } />
       </div>
         
       <Link to = "/finder-profile"><button type="submit" className="btn btn-primary">Save Changes</button></Link>
