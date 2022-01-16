@@ -11,7 +11,8 @@
     ·
     <a href="https://github.com/BJB-Team/TechFind-Backend">Link to Back-end Repository</a>
     ·
-    <a href="www.techfind.software">Link to Deployed Website</a>
+    <a href="www.techfind.software">www.techfind.software</a>
+
   </p>
 </p>
 
@@ -57,7 +58,11 @@ Ruby on Rails was used to create the backend API that has data stored in it's ac
 
 ### HTML5 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
+HTML provides the structure of every website. With the latest version HTML5 bringing easy to read semantic tagging with some client side validation within forms.
+
 ### CSS3 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+Cascading style sheets (CSS) are the framwork for adding a visually appealing structure to our website. CSS libraries used for this project are Bootstrap and Styled Components.
 
 ### JavaScript (ES6) [Read Docs](https://262.ecma-international.org/6.0/)
 
@@ -97,6 +102,9 @@ The Trello board can be accessed publicly [here](https://trello.com/b/U2Pme2ea/p
 
 Kanban trello board. Each PR was done by one user then assigned a person to approve each commit and is then handed back to the initial PR person to squash and merge.
 
+Wanted to try set up Continuous Integration 
+
+This was kind of done with Netlify where we would stage and commit changes then Netlify would test these changes before they were pushed to production.
 
 
 Now that the project is finished. 
@@ -190,7 +198,7 @@ Insert some stuff about the user running through the site
 
 ### **Application Architecture Diagram**
 
-As you can see from the Architecture diagram below, this application will have the front-end deployed through Netlify while the back-end will be on Heroku. Axios requests will send information between the two platforms creating a full stack application completely hosted on the cloud.
+As you can see from the Architecture diagram below, this application will have the front-end deployed through Netlify. The views part of the MVC framework is handled by React. While the back-end will be on Heroku and will contain the Models and the Controller actions. Axios requests will send information between the two platforms creating a full stack application completely hosted on the cloud. 
 
 <img src="Resources/ArchitectureDiagram.png">
 
