@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import Aside from './Aside'
 import { showApplied,downloadApplication } from '../services/jobListingService'
 import { saveAs } from "file-saver";
-import { AppCardContainer, AppCard } from '../styles/Applications';
+import { AppCardContainer, AppCard } from '../styles/Applications'
 import { ListingContainer, Heading } from '../styles/Listings'
 
 const CompanyApplication = () => {
