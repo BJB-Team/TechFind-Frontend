@@ -1,17 +1,17 @@
 <div style="text-align:center">
-    <img align="centre" src="https://img.shields.io/tokei/lines/github/BJB-Team/TechFind?style=flat-square">
-    <img src="https://img.shields.io/github/languages/top/BJB-Team//TechFind?style=flat-square"> <img src="https://img.shields.io/github/repo-size/BJB-Team/TechFind?style=flat-square">
+    <img align="centre" src="https://img.shields.io/tokei/lines/github/BJB-Team/TechFind-frontend?style=flat-square">
+    <img src="https://img.shields.io/netlify/19440c6c-fec9-46b5-904d-e4e6961e5bcd?style=flat-square"> <img src="https://img.shields.io/github/repo-size/BJB-Team/TechFind-frontend?style=flat-square">
 </div>
 
 <p align="center">
   <h2 align="center">TechFind</h2>
   <h3 align="center">Coder Academy Assignment 2A & 2B - Term 3</h3>
   <p align="center">
-    <a href="https://github.com/BJB-Team/TechFind">Link to Front-end Repository</a>
+    <a href="https://github.com/BJB-Team/TechFind-Frontend">Link to Front-end Repository</a>
     ·
-    <a href="/">Link to Back-end Repository</a>
-    .
-    <a href="/">Link to Deployed Website</a>
+    <a href="https://github.com/BJB-Team/TechFind-Backend">Link to Back-end Repository</a>
+    ·
+    <a href="www.techfind.software">Link to Deployed Website</a>
   </p>
 </p>
 
@@ -51,12 +51,19 @@
 
 The core programming languages/frameworks used to build this application are:
 
-- Ruby on Rails [Read Docs](https://guides.rubyonrails.org/getting_started.html)
-- HTML5 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- CSS3 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- JavaScript (ES6) [Read Docs](https://262.ecma-international.org/6.0/)
-- ReactJS [Read Docs](https://reactjs.org/)
-- Postgresql [Read Docs](https://www.postgresql.org/)
+### Ruby on Rails [Read Docs](https://guides.rubyonrails.org/getting_started.html)
+
+Ruby on Rails was used to create the backend API that has data stored in it's accomanying Postgresql database. Ruby on Rails was chosen for it's simplicity to create a full stack application with little extra dependencies.
+
+### HTML5 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
+### CSS3 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+### JavaScript (ES6) [Read Docs](https://262.ecma-international.org/6.0/)
+
+### ReactJS [Read Docs](https://reactjs.org/)
+
+### Postgresql [Read Docs](https://www.postgresql.org/)
 
 ### **Statement of Purpose**
 
@@ -86,6 +93,13 @@ As the deadline for Part A came close, exact roles were determined and delegated
 
 The Trello board can be accessed publicly [here](https://trello.com/b/U2Pme2ea/project-management).
 
+### **Project Management in the Post Mortum**
+
+Kanban trello board. Each PR was done by one user then assigned a person to approve each commit and is then handed back to the initial PR person to squash and merge.
+
+
+
+Now that the project is finished. 
 ### **Functionality / Features**
 
 Here are some of the features that will be implemented for this application.
@@ -169,6 +183,10 @@ Here are some User Stories that we built this application from. Each stories out
 > "As a job poster, I can login under my company profile, so that seekers can see which company I work for."
 
 > "As a company, I can add jobs to my company profile, so that I can show future prospects what jobs I am hiring for."
+
+#### User Testing of Deployed Site and Production
+
+Insert some stuff about the user running through the site
 
 ### **Application Architecture Diagram**
 

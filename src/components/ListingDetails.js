@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react'
 import {useNavigate, useParams, Link} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { getJobListing, appyListing } from '../services/jobListingService'
-import { Link } from 'react-router-dom'
 
 const ListingDetails = () =>{
   const{store,dispatch} = useGlobalState();
