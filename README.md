@@ -12,6 +12,7 @@
     <a href="https://github.com/BJB-Team/TechFind-Backend">Link to Back-end Repository</a>
     ·
     <a href="www.techfind.software">www.techfind.software</a>
+
   </p>
 </p>
 
@@ -104,6 +105,7 @@ Kanban trello board. Each PR was done by one user then assigned a person to appr
 Wanted to try set up Continuous Integration 
 
 This was kind of done with Netlify where we would stage and commit changes then Netlify would test these changes before they were pushed to production.
+
 
 Now that the project is finished. 
 ### **Functionality / Features**
