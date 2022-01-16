@@ -1,51 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
-import styled from "styled-components";
+import {ListingContainer, Heading, CardContainer, Cards} from '../styles/Listing'
+
 
 // import Pagination from 'react-bootstrap/Pagination'
 // import PageItem from 'react-bootstrap/PageItem'
 
 
 
-const ListingContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: 1rem;
-  
-`;
 
-const Heading = styled.h1`
-  font-size: 38px;
-  margin: 0.8rem ;
-  color: aliceblue;
-  display: flex;
-  justify-content: center;
-  
-`;
-
-const CardContainer = styled.div`
-  width: 100%;
-  height: 550px;
-  margin-bottom: 2rem;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-center
-  align-content: flex-start;
-  
-`;
-
-const Cards = styled.div`
-  margin: 30px;
-  height: 250px;
-  width: 250px;
-  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  // border: 1px solid #b5f5;
-
-`;
 
 const DisplayJobs = () =>{
 

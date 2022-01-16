@@ -151,7 +151,7 @@ const SignUp = ({ history }) =>{
           <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleFormData} required className="form-control mb-2"/>
         </div>
          <label htmlFor="phone">Resume</label>
-        <input type="file" name="resume"  onChange={handleFileData} required className="form-control-file" />
+        <input type="file" name="resume"  onChange={handleFileData}  className="form-control-file" />
 
         <input type="submit" value="Sign up" className="btn btn-primary"/>
       </form>
