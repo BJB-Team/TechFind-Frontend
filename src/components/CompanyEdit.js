@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile, destroyCompany, updateCompany } from '../services/authService'
+import { ProfileLabel, ProfileContainer, DetailContainerEdit } from '../styles/Profile'
+import { Heading, ListingContainer } from '../styles/Listings'
 
 const CompanyEdit = () => {
     const{ dispatch } = useGlobalState()
@@ -55,7 +57,7 @@ const CompanyEdit = () => {
         for (const value in data.company_attributes){
             console.log("value", value)
             console.log(data.company_attributes[value])
-            if (value === "company_name" || value === "website"|| value === "phone" || value === "description" ){
+            if (value === "company_name" || value === "website"|| value === "phone" || value === "description"){
                 filteredData.user[`company_attributes`][value] = data[`company_attributes`][value]
             }
         }
@@ -85,80 +87,71 @@ const CompanyEdit = () => {
              console.log(error);
         })
     }
-    // onsubmit handler function goes here
+
     return (
-        <div className="form-row">
-            <form className="SignUpForm" onSubmit={handleSubmit}>
+        <ListingContainer>
+            <Heading>Edit Profile</Heading>
+            <ProfileContainer>
+                <DetailContainerEdit onSubmit={handleSubmit}>
                  
-                 <div className="form-group3">
-                     <label htmlFor="username">Username:</label>
-                     <input type="text" name="username" id="username" defaultValue={profile.user.username} onChange={handleFormStateUser} className="form-control"/>
-                 </div>
-
-                  {/* Error message  */}
-                 {error.username &&  
-                 <div className="alert alert-danger" role="alert">{error.username} </div>}
- 
-                 <div className="form-group3">
-                     <label htmlFor="email">Email:</label>
-                     <input type="text" name="email" id="email" defaultValue={profile.user.email} onChange={handleFormStateUser}  className="form-control mb-2"/>
-                 </div>
-
-                  {/* Error message  */}
-                  {error.email &&  
-                 <div className="alert alert-danger" role="alert">{error.email} </div>}
+                 
+                    <ProfileLabel>Username:</ProfileLabel>
+                    <input type="text" name="username" id="username" defaultValue={profile.user.username} onChange={handleFormStateUser} className="form-control-edit"/>
+                 
+                    {/* Error message on Username */}
+                    {error.username &&  
+                        <div className="alert alert-danger" role="alert">{error.username} </div>}
                 
-                 <div className="form-group3">
-                     <label htmlFor="company_name">Company Name:</label>
-                     <input type="text" name="company_name" id="company_name" defaultValue={profile.company_attributes.company_name} onChange={handleFormStateProfile} className="form-control"/>
-                 </div>
+                    <ProfileLabel>Company Name:</ProfileLabel>
+                    <input type="text" name="company_name" id="company_name" defaultValue={profile.company_attributes.company_name} onChange={handleFormStateProfile} className="form-control-edit" />                    
 
-                 <div className="form-group3">
-                    <label htmlFor="description">Company Description:</label>
-                    <input type="text" name="description" id="description" defaultValue ={profile.company_attributes.description} onChange={handleFormStateProfile} required className="form-control mb-2"/>
-                </div>
+                    <ProfileLabel>Email:</ProfileLabel>
+                    <input type="text" name="email" id="email" defaultValue={profile.user.email} onChange={handleFormStateUser}  className="form-control-edit mb-2"/>
+                                 
+                    {/* Error message on Email */}
+                    {error.email &&
+                        <div className="alert alert-danger" role="alert">{error.email} </div>}
 
-                 <div className="form-group3">
-                     <label htmlFor="website">Website Link:</label>
-                     <input type="text" name="website" id="website" defaultValue ={profile.company_attributes.website} className="form-control"/>
-                 </div>
+                    <ProfileLabel>Website Link:</ProfileLabel>
+                    <input type="text" name="website" id="website"  className="form-control-edit" />
+                 
+                    <ProfileLabel>Phone Number:</ProfileLabel>
+                    <input type="number" name="phone" id="phone" defaultValue={profile.company_attributes.phone} onChange={handleFormStateProfile}  className="form-control-edit"/>                
+                
+                    <ProfileLabel>Company Description:</ProfileLabel>
+                    <input type="text" name="description" id="description" defaultValue={profile.company_attributes.description} onChange={handleFormStateProfile}  className="form-control-edit-description"/>
 
-                 <div className="form-group3">
-                     <label htmlFor="phone">Phone Number:</label>
-                     <input type="number" name="phone" id="phone" defaultValue={profile.company_attributes.phone} onChange={handleFormStateProfile}  className="form-control"/>
-                 </div>
- 
                  <p></p>
                  
-                <h2>Confirm password to save changes</h2>
-                 <div className="form-group3">
-                     <label htmlFor="password">Password</label>
-                     <input type="password" name="password" id="password" defaultValue={profile.user.password} onChange={handleFormStateUser} required className="form-control mb-2"/>
-                 </div>
+                <h4>Confirm password to save changes</h4>
+                 
+                    <ProfileLabel>Password</ProfileLabel>
+                    <input type="password" name="password" id="password" defaultValue={profile.user.password} onChange={handleFormStateUser} required className="form-control-edit mb-2"/>
                     
                   {/* Error message  */}
                  {error.password &&  
                  <div className="alert alert-danger" role="alert">{error.password} </div>}
  
-                 <div className="form-group3">
-                     <label htmlFor="password_confirmation">Password Confirmation</label>
-                     <input type="password" name="password_confirmation" id="password_confirmation" defaultValue={profile.user.password_confirmation} required onChange={handleFormStateUser} className="form-control mb-2"/>
-                 </div>
+                 
+                    <ProfileLabel>Password Confirmation</ProfileLabel>
+                    <input type="password" name="password_confirmation" id="password_confirmation" defaultValue={profile.user.password_confirmation} required onChange={handleFormStateUser} className="form-control-edit mb-2"/>
+                 
                  
                   {/* Error message  */}
                  {error.password_confirmation &&  
                  <div className="alert alert-danger" role="alert">{error.password_confirmation} </div>}
 
-                 <p></p>
-
-                 <input type="submit" className="btn btn-primary btn-block" value="Update Account" />
-
+                    <p></p>
+                 
+            <input type="submit" className="btn btn-primary btn-sm" value="Save" />
 
          
             {/* Add a delete account button with an alert asking if they're sure*/}
-                <button onClick = {destroy}>Delete Account</button>
-            </form>
-        </div>
+                <button onClick={destroy}>Delete Account</button>
+                
+                </DetailContainerEdit>  
+            </ProfileContainer>
+        </ListingContainer>
     )
 }
 
