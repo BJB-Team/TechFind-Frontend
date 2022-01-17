@@ -6,7 +6,7 @@ import HomeImage from '../Assets/HomeImage.png';
 
 const Home = () => {
   const { store, dispatch } = useGlobalState();
-  const { loggedInUser } = store;
+  const { loggedInUser, seeker } = store;
 
   return (
     
@@ -21,7 +21,26 @@ const Home = () => {
     {/* If the user is logged in as a company they should only be able to see 'Find Talent!' */}
     
     {/* If the user is  logged it will take them to job creation else goes to sign up first*/}
-    <Link to = "/companysignup" > <button className="homebutton">Find Talent</button> </Link>
+    
+    {seeker == "false" && loggedInUser ?
+      <>
+        <Link to = "/create-job" > <button className="homebutton">Find Talent</button> </Link>
+      </>
+      :
+      <>
+
+      </>
+    }
+    {seeker == "true" && loggedInUser ? 
+    <>
+
+    </>
+    :
+    <>
+      <Link to = "/companysignup" > <button className="homebutton">Find Talent</button> </Link>
+    </>
+  }
+    
 
     {/*Takes the user to the job listing page doesn't matter if they are logged in or not*/}
     <Link to = "/job-listings" > <button className="homebutton">Find Your Career</button></Link>

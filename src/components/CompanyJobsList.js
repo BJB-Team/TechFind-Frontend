@@ -18,7 +18,7 @@ const CompanyJobList = () => {
     <div>
     <h1>List</h1>
     
-    {myJobList.map((listin, index)=> 
+    {myJobList.map((listin)=> 
       [
         <div className="list-group">
           <Link to = {`/listing/${listin.id}`} className="list-group-item list-group-item-action flex-column align-items-start">

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
-// import { useGlobalState } from '../utils/stateContext'
-// import Aside from './Aside'
+
 import { showApplied,downloadApplication } from '../services/jobListingService'
 import { saveAs } from "file-saver";
 
@@ -9,7 +8,7 @@ const CompanyApplication = () => {
   const[applications,setApplications] = useState()
 
 
-  useEffect((id)=>{
+  useEffect(()=>{
     showApplied() 
     .then((data)=> {
       setApplications(data)
@@ -51,8 +50,6 @@ const CompanyApplication = () => {
       
       </>
     }
-         
-
     </div>
   )
 }
