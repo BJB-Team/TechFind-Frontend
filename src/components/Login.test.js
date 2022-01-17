@@ -11,4 +11,8 @@ import { App } from './app';
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDom.render(<App/>, div)
-})
+});
+
+it('user should have an email', () => {
+  expect(username.find('input[type="email"]').length).toEqual(1);
+});
