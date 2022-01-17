@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { createJob } from '../services/jobListingService'
+import { ListingContainer, Heading, CardContainer } from '../styles/Listings';
 
 const JobForm = () => {
 
@@ -38,9 +39,10 @@ const JobForm = () => {
 
 
   return (
-    <div>
-      <h1>Create Job Listing</h1>
-      <form onSubmit={handleSubmit}>
+    <ListingContainer>
+      <Heading>Create Job Listing</Heading>
+      <CardContainer>
+      <JobForm onSubmit={handleSubmit}>
     
         <label htmlFor="title">Title:</label>
         <input type="text" name="title" id="title" value={formData.title} required onChange={handleFormData}/>
@@ -86,8 +88,9 @@ const JobForm = () => {
 					</select>    
 
         <input type="submit" value="Submit Form" />
-      </form>
-    </div>   
+      </JobForm>
+      </CardContainer>
+    </ListingContainer>   
   )
 }
 

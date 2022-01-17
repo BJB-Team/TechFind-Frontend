@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { ListingContainer, Heading, CardContainer, Cards } from '../styles/Listings'
-import styled from "styled-components";
+
 
 // import Pagination from 'react-bootstrap/Pagination'
 // import PageItem from 'react-bootstrap/PageItem'

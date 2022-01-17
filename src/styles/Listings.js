@@ -39,3 +39,8 @@ export const Cards = styled.div`
   // border: 1px solid #b5f5;
 
 `;
+
+export const JobForm = styled.div`
+
+
+`;
