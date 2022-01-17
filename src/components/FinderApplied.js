@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { myApplied, deleteApplication } from '../services/jobListingService'
+import { Heading, ListingContainer } from '../styles/Listings'
+import { AppCardContainer,AppCard } from '../styles/Applications'
 
 const FinderApplied = () => {
   const[applications,setApplications] = useState([])
