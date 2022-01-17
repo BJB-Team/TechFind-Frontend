@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile } from '../services/authService'
+import { ProfileContainer, ProfileLabel, ProfileText, DetailContainer } from '../styles/Profile'
+import { Heading } from '../styles/Listings'
+import { ListingContainer } from '../styles/Listings'
 
 const FinderHome = () => {
   const { store, dispatch } = useGlobalState()
@@ -20,34 +23,41 @@ const FinderHome = () => {
   // onsubmit handler function goes here
 
   return (
-    <div>
-      <div className="from-group">
-        <label htmlFor="username">Username</label>
-        <input type="text" className="form-control-plaintext" placeholder={ profile.user.username } />
-      </div>
+    <ListingContainer>
+      <Heading>Profile</Heading>
+      <ProfileContainer>
 
-      <div className="from-group">
-        <label htmlFor="staticEmail">Email</label>
-        <input type="email" className="form-control-plaintext" placeholder={ profile.user.email } />
-      </div>
+        <DetailContainer>
+      
+        <ProfileLabel>Username</ProfileLabel>
+        <ProfileText>{ profile.user.username }</ProfileText>
+      
 
-      <div className="from-group">
-        <label htmlFor="firstname">First Name</label>
-        <input type="text" className="form-control-plaintext" placeholder={ profile.seeker_attributes.first_name } />
-      </div>
+      
+        <ProfileLabel>First Name</ProfileLabel>
+        <ProfileText>{ profile.seeker_attributes.first_name }</ProfileText>
+      
 
-      <div className="from-group">
-        <label htmlFor="lastname">Last Name</label>
-        <input type="text" className="form-control-plaintext" placeholder={ profile.seeker_attributes.last_name } />
-      </div>
+      
+        <ProfileLabel>Last Name</ProfileLabel>
+        <ProfileText>{ profile.seeker_attributes.last_name } </ProfileText>
+      
 
-      <div className="from-group">
-        <label htmlFor="phone">Phone</label>
-        <input type="email" className="form-control-plaintext" placeholder={ profile.seeker_attributes.phone } />
-      </div>
+      
+        <ProfileLabel>Phone</ProfileLabel>
+        <ProfileText>{ profile.seeker_attributes.phone } </ProfileText>
+      
+
+      
+        <ProfileLabel>Email</ProfileLabel>
+        <ProfileText>{ profile.user.email }</ProfileText>
+      
         
-      <Link to = "/finder-edit"><button type="submit" class="btn btn-primary">Edit Account</button></Link>
-    </div>
+        <Link to="/finder-edit"><button type="submit" class="btn btn-primary">Edit Account</button></Link>
+          
+        </DetailContainer>
+      </ProfileContainer>
+    </ListingContainer>
   )
 }
 

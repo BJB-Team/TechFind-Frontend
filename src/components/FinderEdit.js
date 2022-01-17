@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile, destroyCompany } from '../services/authService'
+import { ProfileLabel, ProfileContainer, DetailContainerEdit } from '../styles/Profile'
+import { Heading, ListingContainer } from '../styles/Listings'
+
 
 const FinderEdit = () => {
   const { store, dispatch } = useGlobalState()
@@ -48,37 +51,45 @@ function handleFormStateProfile(event){
     }) 
 }
   return (
-    <div>
-      <div className="from-group">
-        <label htmlFor="username">Username</label>
-        <input type="text" name="username" id="username" className="form-control" defaultValue={ profile.user.username } onChange = {handleFormStateUser}/>
-      </div>
+    <ListingContainer>
 
-      <div className="from-group">
-        <label htmlFor="staticEmail">Email</label>
-        <input type="email" className="form-control" defaultValue={ profile.user.email } />
-      </div>
+      <Heading>Edit Profile</Heading>
 
-      <div className="from-group">
-        <label htmlFor="firstname">First Name</label>
-        <input type="text" name="first_name" id="first_name" className="form-control" defaultValue={profile.seeker_attributes.first_name } onChange = {handleFormStateProfile} />
-      </div>
+      <ProfileContainer>
 
-      <div className="from-group">
-        <label htmlFor="lastname">Last Name</label>
-        <input type="text" className="form-control" defaultValue={ profile.seeker_attributes.last_name } />
-      </div>
+        <DetailContainerEdit>  
+      
+          <ProfileLabel>Username</ProfileLabel>
+          <input type="text" name="username" id="username" className="form-control-edit" defaultValue={ profile.user.username } onChange = {handleFormStateUser}/>
+      
 
-      <div className="from-group">
-        <label htmlFor="phone">Phone</label>
-        <input type="email" className="form-control" defaultValue={ profile.seeker_attributes.phone } />
-      </div>
+      
+          <ProfileLabel>Email</ProfileLabel>
+          <input type="email" className="form-control-edit" defaultValue={ profile.user.email } />
+      
+
+      
+          <ProfileLabel>First Name</ProfileLabel>
+          <input type="text" name="first_name" id="first_name" className="form-control-edit" defaultValue={profile.seeker_attributes.first_name } onChange = {handleFormStateProfile} />
+      
+
+      
+          <ProfileLabel>Last Name</ProfileLabel>
+          <input type="text" className="form-control-edit" defaultValue={ profile.seeker_attributes.last_name } />
+    
+      
+          <ProfileLabel>Phone</ProfileLabel>
+          <input type="email" className="form-control-edit" defaultValue={ profile.seeker_attributes.phone } />
+      
         
-      <Link to = "/finder-profile"><button type="submit" className="btn btn-primary">Save Changes</button></Link>
+          <Link to = "/finder-profile"><button type="submit" className="btn btn-primary">Save Changes</button></Link>
 
-      {/* Add a delete account button with an alert asking if they're sure*/}
-      <button onClick = {destroy}>Delete Account</button>
-    </div>
+          {/* Add a delete account button with an alert asking if they're sure*/}
+          <button onClick={destroy}>Delete Account</button>
+          
+        </DetailContainerEdit>
+      </ProfileContainer>
+    </ListingContainer>
   )
 }
 
