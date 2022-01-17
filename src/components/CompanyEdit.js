@@ -87,7 +87,7 @@ const CompanyEdit = () => {
              console.log(error);
         })
     }
-    // onsubmit handler function goes here
+
     return (
         <ListingContainer>
             <Heading>Edit Profile</Heading>
@@ -98,20 +98,20 @@ const CompanyEdit = () => {
                     <ProfileLabel>Username:</ProfileLabel>
                     <input type="text" name="username" id="username" defaultValue={profile.user.username} onChange={handleFormStateUser} className="form-control-edit"/>
                  
-
-                  {/* Error message  */}
-                 {error.username &&  
-                 <div className="alert alert-danger" role="alert">{error.username} </div>}
+                    {/* Error message on Username */}
+                    {error.username &&  
+                        <div className="alert alert-danger" role="alert">{error.username} </div>}
                 
                     <ProfileLabel>Company Name:</ProfileLabel>
-                    <input type="text" name="company_name" id="company_name" defaultValue={profile.company_attributes.company_name} onChange={handleFormStateProfile} className="form-control-edit" />
-                
-                    {/* Error message  */}
-                    {error.email &&  
-                      <ProfileLabel>Email:</ProfileLabel>
-                      <input type="text" name="email" id="email" defaultValue={profile.user.email} onChange={handleFormStateUser}  className="form-control-edit mb-2"/>
-                    }                 
-                 
+                    <input type="text" name="company_name" id="company_name" defaultValue={profile.company_attributes.company_name} onChange={handleFormStateProfile} className="form-control-edit" />                    
+
+                    <ProfileLabel>Email:</ProfileLabel>
+                    <input type="text" name="email" id="email" defaultValue={profile.user.email} onChange={handleFormStateUser}  className="form-control-edit mb-2"/>
+                                 
+                    {/* Error message on Email */}
+                    {error.email &&
+                        <div className="alert alert-danger" role="alert">{error.email} </div>}
+
                     <ProfileLabel>Website Link:</ProfileLabel>
                     <input type="text" name="website" id="website"  className="form-control-edit" />
                  
