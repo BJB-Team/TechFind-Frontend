@@ -25,14 +25,14 @@ export const CardContainer = styled.div`
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: flex-start;
   
 `;
 
 export const Cards = styled.div`
   margin: 30px;
-//   height: 220px;
+  height: 250px;
   width: 250px;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
   border-radius: 5px;

@@ -135,7 +135,6 @@ body,html,.App,.container, #root {
   width: 100%;
   height: 100%;
   background:#425664;
-
  
 }
 
@@ -206,26 +205,24 @@ body,html,.App,.container, #root {
   margin: 0.3rem 0;
   color: #5de94a;
 
-  @media only screen and (max-width: 960px) {
+  /* @media only screen and (max-width: 960px) {
     font-size: 20px;
     text-align: left;
   }
   @media only screen and (max-width: 768px) {
     font-size: 18px;
-    text-align: left;
-  }
+    text-align: left; */
 }
 
 p {
   font-size: 24px;
   max-width: 550px;
   margin: .8rem 0;
-  color:aliceblue;
-
-  @media only screen and (max-width: 960px) {
+  color:aliceblue
+  /* @media only screen and (max-width: 960px) {
     font-size: 16px;
     text-align: left;
-  }
+  } */
 }
 
 .homebutton {
