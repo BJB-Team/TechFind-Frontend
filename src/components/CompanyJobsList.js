@@ -21,20 +21,19 @@ const CompanyJobList = () => {
       <Heading>My Job List</Heading>
       <CardContainer>
         <Cards>
-          {myJobList.map((listin, index) => [
-            <div className="list-group">
-              <Link
-                to={`/listing/${listin.id}`}
-                className="list-group-item list-group-item-action flex-column align-items-start"
-              >
-                <div className="d-flex w-100 justify-content-between">
-                  <h5 className="mb-1">{listin.title} </h5>
-                  <h5> Salary: $ {listin.price}</h5>
-                </div>
-                <p className="mb-1">Placeholder text.</p>
-              </Link>
-            </div>,
-          ])}
+          {myJobList.map((listin)=> 
+            [
+              <div className="list-group">
+                <Link to = {`/listing/${listin.id}`} className="list-group-item list-group-item-action flex-column align-items-start">
+                  <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">{ listin.title } </h5>
+                    <h5> Salary: $ { listin.price }</h5>
+                  </div>
+                  <p className="mb-1">Placeholder text.</p>
+                </Link>
+              </div>
+            ]
+          }
         </Cards>
       </CardContainer>
     </ListingContainer>

@@ -25,15 +25,27 @@
 - [Table of Contents](#table-of-contents)
 - [About the Project](#about-the-project)
   - [**Built With (Tech Stack)**](#built-with-tech-stack)
+  - [Ruby on Rails Read Docs](#ruby-on-rails-read-docs)
+  - [HTML5 Read Docs (Not official)](#html5-read-docs-not-official)
+  - [CSS3 Read Docs (Not official)](#css3-read-docs-not-official)
+  - [JavaScript (ES6) Read Docs](#javascript-es6-read-docs)
+  - [ReactJS Read Docs](#reactjs-read-docs)
+  - [Postgresql Read Docs](#postgresql-read-docs)
   - [**Statement of Purpose**](#statement-of-purpose)
   - [**Target Audience**](#target-audience)
   - [**Project Management**](#project-management)
+  - [**Project Management in the Post Mortem**](#project-management-in-the-post-mortem)
+    - [**Trello**](#trello)
+    - [**Git Workflow**](#git-workflow)
+    - [**Continuous Integration**](#continuous-integration)
+  - [**Testing**](#testing)
   - [**Functionality / Features**](#functionality--features)
     - [**A Job Seeker Features**](#a-job-seeker-features)
     - [**A Job Poster Features**](#a-job-poster-features)
   - [**User Stories**](#user-stories)
     - [As a Seeker](#as-a-seeker)
     - [As a Poster](#as-a-poster)
+    - [User Testing of Deployed Site and Production](#user-testing-of-deployed-site-and-production)
   - [**Application Architecture Diagram**](#application-architecture-diagram)
   - [**Entity Relationship Diagram (ERD)**](#entity-relationship-diagram-erd)
   - [**Dataflow Diagram**](#dataflow-diagram)
@@ -50,25 +62,31 @@
 
 ### **Built With (Tech Stack)**
 
-The core programming languages/frameworks used to build this application are:
+The core programming languages/frameworks/libraries used to build this application are:
 
 ### Ruby on Rails [Read Docs](https://guides.rubyonrails.org/getting_started.html)
 
-Ruby on Rails was used to create the backend API that has data stored in it's accomanying Postgresql database. Ruby on Rails was chosen for it's simplicity to create a full stack application with little extra dependencies.
+Ruby on Rails was used to create the backend API that has data stored in it's accompanying Postgresql database. Ruby on Rails was chosen for it's simplicity to create a full stack application with little extra dependencies. In the Model, View and Controller (MVC) framework, Rails will handle the Model and the Controller actions. Essentially handling all the server side code when the client requires it.
 
 ### HTML5 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
-HTML provides the structure of every website. With the latest version HTML5 bringing easy to read semantic tagging with some client side validation within forms.
+HTML provides the structure of every website. With the latest version HTML5 bringing easy to read semantic tagging with some client side validation within forms. HTML sites in every React component that's rendered as JSX.
 
 ### CSS3 [Read Docs (Not official)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-Cascading style sheets (CSS) are the framwork for adding a visually appealing structure to our website. CSS libraries used for this project are Bootstrap and Styled Components.
+Cascading style sheets (CSS) is the framework for adding visual styles to the structure of our website. CSS libraries used for this project are Bootstrap and Styled Components. Bootstrap and Styled Component sit inside each React Component while minor amendments to these frameworks sits in a corresponding CSS file.
 
 ### JavaScript (ES6) [Read Docs](https://262.ecma-international.org/6.0/)
 
+Javascript (& ES6) is the core functionality of the front-end part of this site. Javascript and React form the logic part of a website for the Views (part of the MVC framework).  
+
 ### ReactJS [Read Docs](https://reactjs.org/)
 
+React is a Javascript library that uses component-based methodology this makes for easy single page applications and the reason React was the library used for this assignment. React uses state management and hooks (with functional components) that give it an advantage over Vanilla Javascript.
+
 ### Postgresql [Read Docs](https://www.postgresql.org/)
+
+Postgresql is an open source relational database that is commonly used with Ruby on Rails. It was used for this assignment as it formed part of the curriculum and was easy to use and set up. 
 
 ### **Statement of Purpose**
 
@@ -82,11 +100,11 @@ The target audience for this application are people in the technology industry l
 
 To manage the team for this application a Trello board was set up to help follow an agile methodology. Each team member has been assigned different roles.
 
-- Ben Aitcheson - Organising the documentation while assisting both front and back-end development.
+- Ben Aitcheson - Organising the documentation, front-end development and DevOps.
 
 - Jack Kirkwood - Back-end development and Databases.
 
-- Lukusa (Blaise) Tshitenga - Front-End development, Wire-framing and Architecture design.
+- Lukusa (Blaise) Tshitenga - User Experience/Interfacing, Graphic Design, Wire-framing and Architecture design.
 
 This is the initial board. Everything from the marking rubric was thrown in and our feature design was started. Colours were chosen for each team member and roles were assigned.
 
@@ -98,16 +116,55 @@ As the deadline for Part A came close, exact roles were determined and delegated
 
 The Trello board can be accessed publicly [here](https://trello.com/b/U2Pme2ea/project-management).
 
-### **Project Management in the Post Mortum**
+### **Project Management in the Post Mortem**
 
-Kanban trello board. Each PR was done by one user then assigned a person to approve each commit and is then handed back to the initial PR person to squash and merge.
+#### **Trello**
+
+Following a Kanban style methodology the team set up a Trello board to delegate work. Column's in the board included Brainstorming, To Do, Doing, Testing, Review and Completed. Each team member was assigned a colour and each card under a specific column was assigned a colour based off the their preferred tasks. Time was taken to ensure the work was also delegated evenly and under an agile methodology had meant that one persons work wouldn't hold up someone else's. Here's a description of each Trello board column:
+
+**Brainstorm:** This part of the board was used to do all of the brainstorming. What features did we want and how we drilled down on the idea. It was also the place where we defined our core features and what was a nice to have feature.
+
+**To Do:** All the ideas that came from our core features were created here initially. This is where all the cards were created. Any time an issue was faced or an idea fleshed out the card would start here.
+
+**Doing:** Once a card is assigned (or someone volunteers to do one) it sits in this column until it's ready to be tested.
+
+**Testing:** Once the code has been committed then testing must be done to check for bugs prior to deployment. Test but be run in the terminal prior to the code going to review. All the tests must pass before a card can be moved to 'review'. 
+
+**Review:** This column is for work that has been committed and tested it sits here ready to be merged into main (or production).
+
+**Completed:** This column is just to record tasks that have been completed.
+
+#### **Git Workflow**
+
+Once a card is picked up by a team member a branch off main is created. The naming convention is as closely related to the card as possible. The team member continues to work on this card making commits as required then finally pushing the changes to the main branch and opening up a Pull Request (PR) in github. If the team member so choses they can open up a draft PR the moment they assign a card to themselves.
+
+Once the code is pushed and the PR is open Netlify will run a continuous integration and testing check on the new PR.
+
+Each PR was done by one user then assigned a person to approve each commit and is then handed back to the initial PR person to squash and merge.
 
 Wanted to try set up Continuous Integration 
 
+#### **Continuous Integration**
+
+It was our intention to set up a continuous integration (CI) system where our team would be able to commit code to the github repo and the CI would automatically run the unit tests and integration tests, run a linting program and check types (with Flow) and deploy the new changes with every commit or pull request.
+
+What was implemented...
 This was kind of done with Netlify where we would stage and commit changes then Netlify would test these changes before they were pushed to production.
 
+### **Testing**
 
-Now that the project is finished. 
+Our intention was to write tests ahead of coding but for this project we ended up testing things manually making sure our results came through with console logs and writing proper unit tests after the code was written to eliminate potential bugs. This is not quite how test driven development should work. For future projects a function should be written and the testing file created at the same time with tests written at the time of the function.
+
+Unit testing involves going through each individual function and testing to see if it's running as intended by checking to see if the output is correct. Just like functions each test should have one purpose.
+
+Jest is a testing library. It is used for React to check components are rendering and each function is producing an output as intended.
+
+After unit testing is integration testing. This tests the API is working, components render and it's all come together.
+
+As we had no real client we did a walkthrough test of production and the local server as if we were using the application for the first time.
+
+
+
 ### **Functionality / Features**
 
 Here are some of the features that will be implemented for this application.

@@ -54,11 +54,15 @@ export async function myApplied(){
 }
 
 export async function downloadApplication(id){
-  const response = await techfindAPI.get(`/api/download${id}`) 
+  const response = await techfindAPI.get(`/api/download/${id}`) 
   console.log(response)
   return response.data
 }
 
+export async function deleteApplication(id){
+  const response = await techfindAPI.delete(`/api/application/${id}`) 
+  return response.data
+}
 
 
 

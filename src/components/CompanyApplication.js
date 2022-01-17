@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
-// import { useGlobalState } from '../utils/stateContext'
-// import Aside from './Aside'
 import { showApplied,downloadApplication } from '../services/jobListingService'
 import { saveAs } from "file-saver";
 import { AppCardContainer, AppCard } from '../styles/Applications'
@@ -10,8 +8,7 @@ import { ListingContainer, Heading } from '../styles/Listings'
 const CompanyApplication = () => {
   const[applications,setApplications] = useState()
 
-
-  useEffect((id)=>{
+  useEffect(()=>{
     showApplied() 
     .then((data)=> {
       setApplications(data)
@@ -19,7 +16,6 @@ const CompanyApplication = () => {
     .catch(error=> {console.log(error)})
     },[])
     
-
   function download(id) {
     downloadApplication(id)
     .then((user)=>{
@@ -29,6 +25,7 @@ const CompanyApplication = () => {
       console.log(error)
     })
   }
+  
   return(
     <ListingContainer>
       <Heading>Applications</Heading>

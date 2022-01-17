@@ -34,13 +34,17 @@ const Navigation = () => {
             </li>
               {loggedInUser ?
                 <>
-                  {seeker === "true" ?
-                  <>
-                    <Link className="nav-link-button" to ="/finder-applied">Applied </Link>
-                    <li className="navbutton">
-                    <Link className="nav-link-button" to ="/finder-profile">Profile</Link>
-                  </li>
-                  </>
+                  {seeker === "true" ?(
+                     <>
+                     <li className="navbutton">
+                     <Link className="nav-link-button" to ="/finder-applied">Applied </Link>
+                     </li>
+                     <li className="navbutton">
+                     <Link className="nav-link-button" to ="/finder-profile">Profile</Link>
+                     </li>
+                   </>
+
+                  )
                   :
                   <>
                     {seeker === "false" ? (

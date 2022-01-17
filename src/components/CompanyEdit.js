@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
-// import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile, destroyCompany, updateCompany } from '../services/authService'
 import { ProfileLabel, ProfileContainer, DetailContainerEdit } from '../styles/Profile'
@@ -14,7 +13,8 @@ const CompanyEdit = () => {
     const errors = {
         username: false, 
         password: false,
-        password_confirmation: false
+        password_confirmation: false,
+        email: false
     }
     const [error, setError] = useState(errors)
 
@@ -33,7 +33,7 @@ const CompanyEdit = () => {
     }
     function destroy(e){
         destroyCompany(profile.user.id)
-        .then((data)=> {
+        .then(()=> {
             dispatch({
                 type: "setLoggedInUser",
                 data: ""
@@ -103,38 +103,30 @@ const CompanyEdit = () => {
                  {error.username &&  
                  <div className="alert alert-danger" role="alert">{error.username} </div>}
                 
-                 
                     <ProfileLabel>Company Name:</ProfileLabel>
                     <input type="text" name="company_name" id="company_name" defaultValue={profile.company_attributes.company_name} onChange={handleFormStateProfile} className="form-control-edit" />
                 
-                    <ProfileLabel>Email:</ProfileLabel>
-                    <input type="text" name="email" id="email" defaultValue={profile.user.email} onChange={handleFormStateUser}  className="form-control-edit mb-2"/>
-                 
-                
-                 
+                    {/* Error message  */}
+                    {error.email &&  
+                      <ProfileLabel>Email:</ProfileLabel>
+                      <input type="text" name="email" id="email" defaultValue={profile.user.email} onChange={handleFormStateUser}  className="form-control-edit mb-2"/>
+                    }                 
                  
                     <ProfileLabel>Website Link:</ProfileLabel>
                     <input type="text" name="website" id="website"  className="form-control-edit" />
                  
-
-                 
                     <ProfileLabel>Phone Number:</ProfileLabel>
-                    <input type="number" name="phone" id="phone" defaultValue={profile.company_attributes.phone} onChange={handleFormStateProfile}  className="form-control-edit"/>
-                
-                
+                    <input type="number" name="phone" id="phone" defaultValue={profile.company_attributes.phone} onChange={handleFormStateProfile}  className="form-control-edit"/>                
                 
                     <ProfileLabel>Company Description:</ProfileLabel>
                     <input type="text" name="description" id="description" defaultValue={profile.company_attributes.description} onChange={handleFormStateProfile}  className="form-control-edit-description"/>
-                 
 
- 
                  <p></p>
                  
                 <h4>Confirm password to save changes</h4>
                  
                     <ProfileLabel>Password</ProfileLabel>
                     <input type="password" name="password" id="password" defaultValue={profile.user.password} onChange={handleFormStateUser} required className="form-control-edit mb-2"/>
-                 
                     
                   {/* Error message  */}
                  {error.password &&  
@@ -151,10 +143,8 @@ const CompanyEdit = () => {
 
                     <p></p>
                  
-                
-           
-            
             <input type="submit" className="btn btn-primary btn-sm" value="Save" />
+
          
             {/* Add a delete account button with an alert asking if they're sure*/}
                 <button onClick={destroy}>Delete Account</button>
