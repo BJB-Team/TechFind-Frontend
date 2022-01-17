@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { ListingContainer, Heading, CardContainer, Cards } from '../styles/Listings'
+import {ProfileLabel} from '../styles/Profile'
 
 
 // import Pagination from 'react-bootstrap/Pagination'
@@ -30,23 +31,26 @@ const DisplayJobs = () =>{
     <ListingContainer>
       <Heading>Jobs</Heading>
       <CardContainer>
-      <Cards>
+      
 
       {/* Render list of jobs */}
       {jobListings.map((listing, index)=> 
       [
-        <div className="list-group">
+          <div className="list-group">
+          <Cards>
           <Link to = {`/listing/${listing.id}`} className="list-group-item list-group-item-action flex-column align-items-start">
             <div className="d-flex w-100 justify-content-between">
               <h5 className="mb-1">{ listing.title }  { idChecker(listing.job_type_id,jobType) } { idChecker(listing.job_level_id, jobLevel) }</h5>
               <h5> Salary: $ { listing.price }</h5>
             </div>
-            <p className="mb-1">{ listing.description }</p>
+            <ProfileLabel>{ listing.description }</ProfileLabel>
           </Link>
+           </Cards>
+          
         </div>
       ]
       )}
-      </Cards>
+      
       </CardContainer>
       
       {/* Pagination for Job List */}

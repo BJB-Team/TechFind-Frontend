@@ -33,7 +33,7 @@ const CompanyJobList = () => {
                 </Link>
               </div>
             ]
-          }
+          )}
         </Cards>
       </CardContainer>
     </ListingContainer>

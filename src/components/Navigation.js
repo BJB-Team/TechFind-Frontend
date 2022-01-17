@@ -47,10 +47,10 @@ const Navigation = () => {
                   )
                   :
                   <>
-                    {seeker === "false" ? (
-                      <div > 
+                    {seeker === "false" ?(
+                      <> 
                       <li className="navbutton">
-                        <Link className="nav-link-button" to ="/show-applied">Applied</Link>
+                       <Link className="nav-link-button" to ="/show-applied">Applied</Link>
                       </li>
                       <li className="navbutton">
                         <Link className="nav-link-button" to ="/create-job">Create Job</Link>
@@ -58,8 +58,9 @@ const Navigation = () => {
                       <li className="navbutton">
                         <Link className="nav-link-button" to ="/company-profile">Profile</Link>
                       </li>
-                      </div>   
-                    ):
+                      </>   
+                    )
+                      :
                     <>
                     </>
                     }
