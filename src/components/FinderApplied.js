@@ -20,31 +20,38 @@ const FinderApplied = () => {
   }
   console.log(applications)
     return(
-      <div>
-        {applications ?
-          <>
-          {applications.map((application)=> 
-              [
-                <div className="list-group">
-                  <div className="list-group-item list-group-item-action flex-column align-items-start">
-                  <div className="d-flex w-100 justify-content-between">
-                      <h5 className="mb-1">{ application.title } {application.price}  </h5>
-                    </div>
-                    <Link to = {`/listing/${application.id}`}><button className="mb-2">See Job</button> </Link>
-                  </div>
-                  <button value = { application.id} onClick = {destroy}>Delete Account</button> 
-                </div>
-              ]
-            
-          )}  
-        </>
-        :
-        <>
-        
-        </>
-      }
-      </div>
-    )
-}
+      <ListingContainer>
+      <Heading>Applications</Heading>
+        <AppCardContainer>
+          <AppCard>  
+            <div>
+              {applications ?
+                <>
+                {applications.map((application)=> 
+                    [
+                      <div className="list-group">
+                        <div className="list-group-item list-group-item-action flex-column align-items-start">
+                        <div className="d-flex w-100 justify-content-between">
+                            <h5 className="mb-1">{ application.title } {application.price}  </h5>
+                          </div>
+                          <Link to = {`/listing/${application.id}`}><button className="mb-2">See Job</button> </Link>
+                        </div>
+                        <button value = { application.id} onClick = {destroy}>Delete Account</button> 
+                      </div>
+                    ]
 
-export default FinderApplied
+                )}  
+              </>
+              :
+              <>
+
+              </>
+            }
+          </div>     
+        </AppCard>
+      </AppCardContainer>
+    </ListingContainer>
+  );
+};
+
+export default FinderApplied;
