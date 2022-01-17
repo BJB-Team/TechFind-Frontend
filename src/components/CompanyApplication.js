@@ -6,7 +6,7 @@ import { AppCardContainer, AppCard } from '../styles/Applications'
 import { ListingContainer, Heading } from '../styles/Listings'
 
 const CompanyApplication = () => {
-  const[applications,setApplications] = useState([])
+  const[applications,setApplications] = useState()
 
   useEffect(()=>{
     showApplied() 
