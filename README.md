@@ -66,15 +66,15 @@ Cascading style sheets (CSS) is the framework for adding visual styles to the st
 
 ### JavaScript (ES6) [Read Docs](https://262.ecma-international.org/6.0/)
 
-Javascript (& ES6) is the core functionality of the front-end part of this site. 
+Javascript (& ES6) is the core functionality of the front-end part of this site. Javascript and React form the logic part of a website for the Views (part of the MVC framework).  
 
 ### ReactJS [Read Docs](https://reactjs.org/)
 
-React is a Javascript library that uses component-based methodology this makes for easy single page applications and the reason React was the library used for this assignment. 
+React is a Javascript library that uses component-based methodology this makes for easy single page applications and the reason React was the library used for this assignment. React uses state management and hooks (with functional components) that give it an advantage over Vanilla Javascript.
 
 ### Postgresql [Read Docs](https://www.postgresql.org/)
 
-Postgresql
+Postgresql is an open source relational database that is commonly used with Ruby on Rails. It was used for this assignment as it formed part of the curriculum and was easy to use and set up. 
 
 ### **Statement of Purpose**
 
