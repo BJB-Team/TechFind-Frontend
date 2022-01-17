@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const techfindAPI = axios.create ({
-  baseURL: 'https://upbeat-dubinsky-90fa31.netlify.app'
+  baseURL: 'https://techfind-backend.herokuapp.com/'
 })
 
 techfindAPI.interceptors.request.use(req=>{
