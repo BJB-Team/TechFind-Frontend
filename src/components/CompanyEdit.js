@@ -55,7 +55,9 @@ const CompanyEdit = () => {
         for (const value in data.company_attributes){
             console.log("value", value)
             console.log(data.company_attributes[value])
-            if (value === "company_name" || value === "website"|| value === "phone" ){
+          
+            if (value === "company_name" || value === "website"|| value === "phone" || value === "description" ){
+
                 filteredData.user[`company_attributes`][value] = data[`company_attributes`][value]
             }
         }
