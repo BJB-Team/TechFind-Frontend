@@ -163,7 +163,7 @@ After unit testing is integration testing. This tests the API is working, compon
 
 As we had no real client we did a walkthrough test of production and the local server as if we were using the application for the first time.
 
-
+<img src="Resources/Walkthrough1.gif">
 
 ### **Functionality / Features**
 
