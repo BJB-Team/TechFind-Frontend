@@ -55,7 +55,11 @@ const CompanyEdit = () => {
         for (const value in data.company_attributes){
             console.log("value", value)
             console.log(data.company_attributes[value])
+<<<<<<< HEAD
             if (value === "company_name" || value === "website"|| value === "phone" || value === "description" ){
+=======
+            if (value === "company_name" || value === "website"|| value === "phone" ){
+>>>>>>> origin
                 filteredData.user[`company_attributes`][value] = data[`company_attributes`][value]
             }
         }
