@@ -171,6 +171,7 @@ Here's a walkthrough of someone looking for someone to fill their role at their 
 
 <img src="Resources/Walkthrough2.gif">
 
+
 ### **Functionality / Features**
 
 Here are some of the features that will be implemented for this application.
