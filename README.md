@@ -146,20 +146,12 @@ Wanted to try set up Continuous Integration
 
 #### **Continuous Integration**
 
+It was our intention to set up a continuous integration (CI) system where our team would be able to commit code to the github repo and the CI would automatically run the unit tests and integration tests, run a linting program and check types (with Flow) and deploy the new changes with every commit or pull request.
 
-
-ES-Linting 
-
-Flow typechecking
-
+What was implemented...
 This was kind of done with Netlify where we would stage and commit changes then Netlify would test these changes before they were pushed to production.
 
-
-Now that the project is finished. 
-
 ### **Testing**
-
-Talk about client testing here
 
 Our intention was to write tests ahead of coding but for this project we ended up testing things manually making sure our results came through with console logs and writing proper unit tests after the code was written to eliminate potential bugs. This is not quite how test driven development should work. For future projects a function should be written and the testing file created at the same time with tests written at the time of the function.
 
@@ -167,9 +159,10 @@ Unit testing involves going through each individual function and testing to see 
 
 Jest is a testing library. It is used for React to check components are rendering and each function is producing an output as intended.
 
+After unit testing is integration testing. This tests the API is working, components render and it's all come together.
 
+As we had no real client we did a walkthrough test of production and the local server as if we were using the application for the first time.
 
-Integration testing. Test API. Test components render.
 
 
 ### **Functionality / Features**
