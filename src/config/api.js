@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const techfindAPI = axios.create ({
-  baseURL: 'https://techfind-backend.herokuapp.com/'
+  baseURL: 'https://techfind-backend.herokuapp.com'
 })
 
 techfindAPI.interceptors.request.use(req=>{
