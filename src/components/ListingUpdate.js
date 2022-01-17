@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import {useNavigate, useParams} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
-import {getJobListing,updateListingId, deleteListingId, getJobLevel, getJobType, getJobs } from '../services/jobListingService'
+import {getJobListing,updateListingId, deleteListingId, getJobs } from '../services/jobListingService'
 
 const ListingUpdate = () => {
 
