@@ -28,7 +28,8 @@ const CompanySignUp = () => {
     const errors = {
         username: false, 
         password: false,
-        password_confirmation: false
+        password_confirmation: false,
+        email: false
       }
     
 
@@ -112,6 +113,11 @@ const CompanySignUp = () => {
                     <label htmlFor="email">Email:</label>
                     <input type="text" name="email" id="email" value={FormState.email} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
+
+                {/* Error message  */}
+                {error.email &&  
+                <div className="alert alert-danger" role="alert">{error.email} </div>}
+
                 <div className="form-group3">
                     <label htmlFor="password">Password</label>
                     <input type="password" name="password" id="password" value={FormState.password} onChange={handleFormState} required className="form-control mb-2"/>
@@ -132,16 +138,22 @@ const CompanySignUp = () => {
                     <label htmlFor="company_name">Company Name:</label>
                     <input type="text" name="company_name" id="company_name" value={FormState.company_name} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
+
+                <div className="form-group3">
+                    <label htmlFor="company_name">Company Description:</label>
+                    <input type="text" name="description" id="description" value={FormState.description} onChange={handleFormState} required className="form-control mb-2"/>
+                </div>
+
                 <div className="form-group3">
                     <label htmlFor="website">Website Link:</label>
                     <input type="text" name="website" id="website" value={FormState.website} onChange={handleFormState} required className="form-control mb-2"/>
                 </div>
                 <div className="form-group3">
                     <label htmlFor="phone">Phone Number:</label>
-                    <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState} required className="form-control mb-2"/>
+                    <input type="number" name="phone" id="phone" value={FormState.phone} onChange={handleFormState} required required className="form-control mb-2"/>
                 </div>
 
-                {/* <p>"#"</p>  */}
+                 <p></p>  
 
                 <input type="submit" className="btn btn-primary btn-block" value="Sign up" />
         

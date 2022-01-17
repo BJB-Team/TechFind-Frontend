@@ -23,7 +23,8 @@ const SignUp = ({ history }) =>{
   const errors = {
     username: false, 
     password: false,
-    password_confirmation: false
+    password_confirmation: false,
+    email: false
   }
 
   const [formData, setFormData] = useState(initialFormData)
@@ -48,6 +49,7 @@ const SignUp = ({ history }) =>{
 
   function handleSubmit(e){
     e.preventDefault()
+
 
     signUp(change(formData))
     .then(({username, jwt, id, test}) =>{
@@ -78,18 +80,15 @@ const SignUp = ({ history }) =>{
   }
 
   function change(data){
-    // const filteredData = {user: {seeker_attributes:{}}}
     const form  = new FormData();
     for (const value in data) {
       if (value === "username" || value === "email"|| value === "password"|| value === "password_confirmation"){
         form.append(`user[${value}]`, data[value])
-        // filteredData.user[value] = data[value]
       }
       else{
         form.append(`user[seeker_attributes][${value}]`, data[value])
       }
     }
-    
     form.append(`user[account_seeker]`, "true")
 
       dispatch({

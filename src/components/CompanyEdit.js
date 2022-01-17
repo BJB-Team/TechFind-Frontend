@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
-// import { Link } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 import { companyProfile, destroyCompany, updateCompany } from '../services/authService'
 
@@ -12,7 +11,8 @@ const CompanyEdit = () => {
     const errors = {
         username: false, 
         password: false,
-        password_confirmation: false
+        password_confirmation: false,
+        email: false
     }
     const [error, setError] = useState(errors)
 
@@ -31,7 +31,7 @@ const CompanyEdit = () => {
     }
     function destroy(e){
         destroyCompany(profile.user.id)
-        .then((data)=> {
+        .then(()=> {
             dispatch({
                 type: "setLoggedInUser",
                 data: ""
@@ -55,7 +55,11 @@ const CompanyEdit = () => {
         for (const value in data.company_attributes){
             console.log("value", value)
             console.log(data.company_attributes[value])
+<<<<<<< HEAD
+            if (value === "company_name" || value === "website"|| value === "phone" || value === "description" ){
+=======
             if (value === "company_name" || value === "website"|| value === "phone" ){
+>>>>>>> origin
                 filteredData.user[`company_attributes`][value] = data[`company_attributes`][value]
             }
         }
@@ -103,14 +107,24 @@ const CompanyEdit = () => {
                      <label htmlFor="email">Email:</label>
                      <input type="text" name="email" id="email" defaultValue={profile.user.email} onChange={handleFormStateUser}  className="form-control mb-2"/>
                  </div>
+
+                  {/* Error message  */}
+                  {error.email &&  
+                 <div className="alert alert-danger" role="alert">{error.email} </div>}
                 
                  <div className="form-group3">
                      <label htmlFor="company_name">Company Name:</label>
                      <input type="text" name="company_name" id="company_name" defaultValue={profile.company_attributes.company_name} onChange={handleFormStateProfile} className="form-control"/>
                  </div>
+
+                 <div className="form-group3">
+                    <label htmlFor="description">Company Description:</label>
+                    <input type="text" name="description" id="description" defaultValue ={profile.company_attributes.description} onChange={handleFormStateProfile} required className="form-control mb-2"/>
+                </div>
+
                  <div className="form-group3">
                      <label htmlFor="website">Website Link:</label>
-                     <input type="text" name="website" id="website"  className="form-control"/>
+                     <input type="text" name="website" id="website" defaultValue ={profile.company_attributes.website} className="form-control"/>
                  </div>
 
                  <div className="form-group3">
@@ -119,7 +133,7 @@ const CompanyEdit = () => {
                  </div>
  
                  <p></p>
-                 <p></p>
+                 
                 <h2>Confirm password to save changes</h2>
                  <div className="form-group3">
                      <label htmlFor="password">Password</label>
@@ -141,7 +155,7 @@ const CompanyEdit = () => {
 
                  <p></p>
 
-                 <input type="submit" className="btn btn-primary btn-block" value="Sign up" />
+                 <input type="submit" className="btn btn-primary btn-block" value="Update Account" />
 
 
          

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-// import { useNavigate, Link } from "react-router-dom";
-// import { useGlobalState } from '../utils/stateContext'
-// import Aside from './Aside'
-import { myApplied } from '../services/jobListingService'
+import { Link, useNavigate } from "react-router-dom";
+import { myApplied, deleteApplication } from '../services/jobListingService'
 
 const FinderApplied = () => {
   const[applications,setApplications] = useState([])
-
+  let navigate = useNavigate();
 
   useEffect(()=>{
     myApplied() 
@@ -14,13 +12,39 @@ const FinderApplied = () => {
       setApplications(data)
     }) 
     .catch(error=> {console.log(error)})
-    },[])
-    console.log(applications)
-  return(
-    <div>
+    },[navigate])
 
-    </div>
-  )
+  function destroy(e){
+      deleteApplication(e.target.value)
+      navigate("/")
+  }
+  console.log(applications)
+    return(
+      <div>
+        {applications ?
+          <>
+          {applications.map((application)=> 
+              [
+                <div className="list-group">
+                  <div className="list-group-item list-group-item-action flex-column align-items-start">
+                  <div className="d-flex w-100 justify-content-between">
+                      <h5 className="mb-1">{ application.title } {application.price}  </h5>
+                    </div>
+                    <Link to = {`/listing/${application.id}`}><button className="mb-2">See Job</button> </Link>
+                  </div>
+                  <button value = { application.id} onClick = {destroy}>Delete Account</button> 
+                </div>
+              ]
+            
+          )}  
+        </>
+        :
+        <>
+        
+        </>
+      }
+      </div>
+    )
 }
 
 export default FinderApplied

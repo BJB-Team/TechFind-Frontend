@@ -5,10 +5,10 @@ import { getJobListing, appyListing } from '../services/jobListingService'
 
 const ListingDetails = () =>{
   const{store,dispatch} = useGlobalState();
-  const  {loggedInUser,user_id, jobType, jobLevel} = store
+  const  {user_id, jobType, jobLevel} = store
 
   let navigate = useNavigate();
-  const[listing,setListing] = useState([]);
+  const[listing,setListing] = useState({listing: {}, company: {}});
   const {id} = useParams()
   
   useEffect(()=>{
@@ -28,9 +28,8 @@ const ListingDetails = () =>{
    }
 
   function apply(e){
-    e.preventDefault()
-    
-    const ids = {"id": id, "user_id": listing.user_id}
+    e.preventDefault()    
+    const ids = {"id": id, "user_id": listing.listing.user_id}
     appyListing(ids)
     .then()
     .catch(err=>console.log(err))
@@ -39,14 +38,16 @@ const ListingDetails = () =>{
   return (
     <div >
       
-     {listing.title} {listing.description} {listing.price} {idChecker(listing.job_level_id,jobLevel)}  {idChecker(listing.job_type_id,jobType)}                  
+     {listing.listing.title} {listing.listing.description} {listing.listing.price} {idChecker(listing.listing.job_level_id,jobLevel)}  {idChecker(listing.listing.job_type_id,jobType)}   
+      <p></p>
+       {/* {listing.company.company_name}  {listing.company.description}                */}
     <div>
 
-    {user_id === listing.user_id?
+    {user_id === listing.listing.user_id?
      <>
       <div>
 
-        <Link to = {`/listing-edit/${listing.id}`}><button type="submit" class="btn btn-primary">Edit Listing</button></Link>
+        <Link to = {`/listing-edit/${listing.listing.id}`}><button type="submit" class="btn btn-primary">Edit Listing</button></Link>
       </div>
       </>
       :
