@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom";
 import { useGlobalState } from '../utils/stateContext'
 import { createJob } from '../services/jobListingService'
-import { ListingContainer, Heading, CardContainer } from '../styles/Listings';
+import { ListingContainer, Heading, CardContainer, JobFormCreate } from '../styles/Listings';
+import {ProfileLabel} from '../styles/Profile'
 
 const JobForm = () => {
 
@@ -42,17 +43,19 @@ const JobForm = () => {
     <ListingContainer>
       <Heading>Create Job Listing</Heading>
       <CardContainer>
-      <JobForm onSubmit={handleSubmit}>
+      <JobFormCreate onSubmit={handleSubmit}>
     
-        <label htmlFor="title">Title:</label>
-        <input type="text" name="title" id="title" value={formData.title} required onChange={handleFormData}/>
+        <ProfileLabel>Title:</ProfileLabel>
+        <input type="text" name="title" id="title" value={formData.title} required onChange={handleFormData} className="form-control-edit"/>
 
-        <label htmlFor="description">description:</label>
-        <input type="text" name="description" id="description" value={formData.description} required onChange={handleFormData}/>
+        <ProfileLabel>description:</ProfileLabel>
+        <input type="text" name="description" id="description" value={formData.description} required onChange={handleFormData} className="form-control-edit-description"/>
 
-        <label htmlFor="price">Pay:</label>
-        <input type="number" name="price" id="price" value={formData.price} onChange={handleFormData}/>
+        <ProfileLabel>Salary:</ProfileLabel>
+        <input type="number" name="price" id="price" value={formData.price} onChange={handleFormData} className="form-control-edit" />
+          
 
+        <ProfileLabel>Job Level:</ProfileLabel>
         <select
 						value={formData.job_level_id} required
 						onChange={(e) =>
@@ -69,7 +72,7 @@ const JobForm = () => {
 							</option>
 						))}
 					</select>
-
+          <ProfileLabel>Job Type:</ProfileLabel>
           <select
 						value={formData.job_type_id} required
 						onChange={(e) =>
@@ -85,10 +88,14 @@ const JobForm = () => {
 								{o.name}
 							</option>
 						))}
-					</select>    
+          </select>    
+          
+          <br/>
+          
 
-        <input type="submit" value="Submit Form" />
-      </JobForm>
+          <input type="submit" value="Submit Form" />
+          
+      </JobFormCreate>
       </CardContainer>
     </ListingContainer>   
   )

@@ -25,7 +25,7 @@ export const CardContainer = styled.div`
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-center
+  justify-content: center;
   align-content: flex-start;
   
 `;
@@ -40,7 +40,13 @@ export const Cards = styled.div`
 
 `;
 
-export const JobForm = styled.div`
-
+export const JobFormCreate = styled.div`
+  width: 500px;
+  height: 400px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
 
 `;
