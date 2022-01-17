@@ -29,7 +29,6 @@ const CompanyJobList = () => {
                     <h5 className="mb-1">{ listin.title } </h5>
                     <h5> Salary: $ { listin.price }</h5>
                   </div>
-                  <p className="mb-1">Placeholder text.</p>
                 </Link>
               </div>
             ]
@@ -37,7 +36,6 @@ const CompanyJobList = () => {
         </Cards>
       </CardContainer>
     </ListingContainer>
-  );
-};
+  )};
 
 export default CompanyJobList;

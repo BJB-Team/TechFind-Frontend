@@ -25,6 +25,7 @@ const CompanyApplication = () => {
       console.log(error)
     })
   }
+  console.log(applications)
   
   return(
     <ListingContainer>

@@ -61,7 +61,6 @@ const CompanyEdit = () => {
                 filteredData.user[`company_attributes`][value] = data[`company_attributes`][value]
             }
         }
-        console.log(filteredData)
         return filteredData
       }
 
